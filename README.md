@@ -73,15 +73,7 @@
         
         .header-section {
             text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .site-owner {
-            font-size: 1.2em;
-            color: #f5c518;
-            margin-bottom: 15px;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(245, 197, 24, 0.5);
+            margin-bottom: 30px;
         }
         
         .main-title {
@@ -113,7 +105,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             animation: fadeIn 1.5s ease;
         }
         
@@ -313,9 +305,24 @@
         }
         
         /*----- خاونی سایەت / ئینستاگرام -----*/
-        .ig-banner {
+        .social-section {
             text-align: center;
-            margin: 40px auto 20px;
+            margin: 30px auto;
+        }
+        
+        .site-owner {
+            font-size: 1.4em;
+            color: #f5c518;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(245, 197, 24, 0.7);
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            display: inline-block;
+        }
+        
+        .ig-banner {
             font-size: 1.1em;
         }
         
@@ -362,11 +369,11 @@
                 width: 300px;
                 height: 300px;
             }
-            .ig-banner {
-                margin: 30px auto 15px;
+            .social-section {
+                margin: 20px auto;
             }
             .site-owner {
-                font-size: 1em;
+                font-size: 1.2em;
             }
         }
     </style>
@@ -376,17 +383,19 @@
     
     <div class="container">
         <div class="header-section">
-            <div class="site-owner">خاوەنی سایەت: srusht</div>
             <div class="main-title">🎬 یەکەمین سایتی کوردی بۆ دۆزینەوەی فیلمی نایاب</div>
             <div class="brand-name">Srusht Movies</div>
         </div>
         
-        <!-- بەشی ئینستاگرام -->
-        <div class="ig-banner">
-            <a href="#" onclick="alert('ببورە، ئەکاونتی ئینستاگرام بەردەست نیە. تکایە دواتر سەردان بکە!')">
-                <span class="ig-icon">📱</span>
-                شوێنی ئێمە بکە لە ئینستاگرام
-            </a>
+        <!-- بەشی خاوەنی سایەت و ئینستاگرام -->
+        <div class="social-section">
+            <div class="site-owner">خاوەنی سایەت: srusht</div>
+            <div class="ig-banner">
+                <a href="https://instagram.com/srushtmovies" target="_blank">
+                    <span class="ig-icon">📱</span>
+                    سەردانی ئەکاونتی ئینستاگراممان بکە
+                </a>
+            </div>
         </div>
         
         <div class="movie-grid">
@@ -534,6 +543,13 @@
                     const movieTitle = this.querySelector('.movie-title').textContent;
                     alert(`فیلمی "${movieTitle}" هەڵبژێردرا!`);
                 });
+            });
+            
+            // چێکردنی پەیوەندی ئینستاگرام
+            const igLink = document.querySelector('.ig-banner a');
+            igLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open('https://instagram.com/srushtmovies', '_blank');
             });
         });
     </script>
