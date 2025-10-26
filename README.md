@@ -175,7 +175,8 @@
         .movie-poster {
             width: 100%;
             height: 400px;
-            background: linear-gradient(135deg, #c77b63 0%, #8b5a4a 100%);
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -310,20 +311,9 @@
             margin: 30px auto;
         }
         
-        .site-owner {
-            font-size: 1.4em;
-            color: #f5c518;
-            margin-bottom: 15px;
-            font-weight: bold;
-            text-shadow: 0 0 15px rgba(245, 197, 24, 0.7);
-            padding: 10px 20px;
-            background: rgba(0,0,0,0.3);
-            border-radius: 15px;
-            display: inline-block;
-        }
-        
         .ig-banner {
             font-size: 1.1em;
+            margin-bottom: 20px;
         }
         
         .ig-banner a {
@@ -349,6 +339,31 @@
             font-size: 1.4em;
         }
         
+        .owner-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .owner-title {
+            font-size: 1.3em;
+            color: #f5c518;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(245, 197, 24, 0.5);
+        }
+        
+        .owner-name {
+            font-size: 1.6em;
+            color: white;
+            font-weight: bold;
+        }
+        
         .footer {
             text-align: center;
             margin-top: 50px;
@@ -372,8 +387,8 @@
             .social-section {
                 margin: 20px auto;
             }
-            .site-owner {
-                font-size: 1.2em;
+            .owner-box {
+                max-width: 90%;
             }
         }
     </style>
@@ -387,9 +402,8 @@
             <div class="brand-name">Srusht Movies</div>
         </div>
         
-        <!-- بەشی خاوەنی سایەت و ئینستاگرام -->
+        <!-- بەشی ئینستاگرام -->
         <div class="social-section">
-            <div class="site-owner">خاوەنی سایەت: srusht</div>
             <div class="ig-banner">
                 <a href="https://instagram.com/srushtmovies" target="_blank">
                     <span class="ig-icon">📱</span>
@@ -399,10 +413,11 @@
         </div>
         
         <div class="movie-grid">
+            <!-- فیلم 1 -->
             <div class="movie-card">
                 <div class="rank">1</div>
-                <div class="movie-poster">
-                    <div>The Sixth Sense<br>🎭👻</div>
+                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMWM4NTFhYjctNzUyNi00NGMwLTk3NTYtMDIyNTZmMzRlYmQyXkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_FMjpg_UX1000_.jpg')">
+                    <div style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px;">The Sixth Sense</div>
                 </div>
                 <div class="movie-info">
                     <div class="movie-title">The Sixth Sense</div>
@@ -415,10 +430,11 @@
                 </div>
             </div>
             
+            <!-- فیلم 2 -->
             <div class="movie-card">
                 <div class="rank">2</div>
-                <div class="movie-poster">
-                    <div>Fight Club<br>🥊💥</div>
+                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BNDJiZDgyZjctYmRjMS00ZjdkLTkwMTEtNGU1NDg3NDQ0Yzk1XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg')">
+                    <div style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px;">Fight Club</div>
                 </div>
                 <div class="movie-info">
                     <div class="movie-title">Fight Club</div>
@@ -431,10 +447,11 @@
                 </div>
             </div>
             
+            <!-- فیلم 3 -->
             <div class="movie-card">
                 <div class="rank">3</div>
-                <div class="movie-poster">
-                    <div>The Prestige<br>🎩✨🪄</div>
+                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_FMjpg_UX1000_.jpg')">
+                    <div style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px;">The Prestige</div>
                 </div>
                 <div class="movie-info">
                     <div class="movie-title">The Prestige</div>
@@ -447,10 +464,11 @@
                 </div>
             </div>
             
+            <!-- فیلم 4 -->
             <div class="movie-card">
                 <div class="rank">4</div>
-                <div class="movie-poster">
-                    <div>Memento<br>🧩🔄</div>
+                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg')">
+                    <div style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px;">Memento</div>
                 </div>
                 <div class="movie-info">
                     <div class="movie-title">Memento</div>
@@ -463,10 +481,11 @@
                 </div>
             </div>
             
+            <!-- فیلم 5 -->
             <div class="movie-card">
                 <div class="rank">5</div>
-                <div class="movie-poster">
-                    <div>Oldboy<br>🔨⚔️</div>
+                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_FMjpg_UX1000_.jpg')">
+                    <div style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px;">Oldboy</div>
                 </div>
                 <div class="movie-info">
                     <div class="movie-title">Oldboy</div>
@@ -479,10 +498,11 @@
                 </div>
             </div>
             
+            <!-- فیلم 6 -->
             <div class="movie-card">
                 <div class="rank">6</div>
-                <div class="movie-poster">
-                    <div>Gone Girl<br>💔🔪</div>
+                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTk0MDQ3MzAzOV5BMl5BanBnXkFtZTgwNzU1NzE3MjE@._V1_FMjpg_UX1000_.jpg')">
+                    <div style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px;">Gone Girl</div>
                 </div>
                 <div class="movie-info">
                     <div class="movie-title">Gone Girl</div>
@@ -495,10 +515,11 @@
                 </div>
             </div>
             
+            <!-- فیلم 7 -->
             <div class="movie-card">
                 <div class="rank">7</div>
-                <div class="movie-poster">
-                    <div>The Machinist<br>⚙️😰</div>
+                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BNjk1NzBlY2YtNjJmNi00YTVmLWI2OTgtNDUxNDE5NjUzZmE0XkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_FMjpg_UX1000_.jpg')">
+                    <div style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px;">The Machinist</div>
                 </div>
                 <div class="movie-info">
                     <div class="movie-title">The Machinist</div>
@@ -511,10 +532,11 @@
                 </div>
             </div>
             
+            <!-- فیلم 8 -->
             <div class="movie-card">
                 <div class="rank">8</div>
-                <div class="movie-poster">
-                    <div>The Others<br>👻🏚️</div>
+                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTAxMDE4Mzc3ODNeQTJeQWpwZ15BbWU4MDY2Mjg4MDcx._V1_FMjpg_UX1000_.jpg')">
+                    <div style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px;">The Others</div>
                 </div>
                 <div class="movie-info">
                     <div class="movie-title">The Others</div>
@@ -526,6 +548,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- بەشی خاوەنی سایەت -->
+        <div class="owner-box">
+            <div class="owner-title">خاوەنی سایەت:</div>
+            <div class="owner-name">srusht</div>
         </div>
         
         <div class="footer">
@@ -548,8 +576,8 @@
             // چێکردنی پەیوەندی ئینستاگرام
             const igLink = document.querySelector('.ig-banner a');
             igLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.open('https://instagram.com/srushtmovies', '_blank');
+                // پەیوەندی ئینستاگرام کار دەکات
+                console.log('پەیوەندی ئینستاگرام کرایەوە');
             });
         });
     </script>
