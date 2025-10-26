@@ -1,815 +1,807 @@
 <!DOCTYPE html>
 <html lang="ku" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فیلمەکانی کۆتایی شۆککەر - فیلمی نایاب</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-            background: #1a1a2e;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(26,26,46,0.9) 100%);
-            z-index: -2;
-        }
-        
-        .background-image {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #c77b63 0%, #8b5a4a 50%, transparent 70%);
-            opacity: 0.15;
-            filter: blur(60px);
-            z-index: -1;
-            animation: float 25s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
-            33% { transform: translate(-48%, -52%) scale(1.05) rotate(120deg); }
-            66% { transform: translate(-52%, -48%) scale(1.1) rotate(240deg); }
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header-section {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 20px 0;
-        }
-        
-        .main-title {
-            font-size: 1.8em;
-            font-weight: 700;
-            margin-bottom: 15px;
-            padding: 20px 50px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 60px;
-            display: inline-block;
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            color: white;
-            animation: fadeInDown 1s ease;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-        
-        .brand-name {
-            font-size: 3.5em;
-            font-weight: 900;
-            color: white;
-            text-shadow: 3px 3px 0px rgba(0,0,0,0.4), 0 0 30px rgba(255,255,255,0.3);
-            background: linear-gradient(45deg, #ffffff, #e0e0e0, #a8a8a8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 5px;
-            animation: fadeIn 1.5s ease;
-            letter-spacing: 3px;
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .movie-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 35px;
-            padding: 20px 0;
-        }
-        
-        .movie-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-            cursor: pointer;
-            position: relative;
-            animation: fadeInUp 0.7s ease backwards;
-        }
-        
-        .movie-card:nth-child(1) { animation-delay: 0.1s; }
-        .movie-card:nth-child(2) { animation-delay: 0.15s; }
-        .movie-card:nth-child(3) { animation-delay: 0.2s; }
-        .movie-card:nth-child(4) { animation-delay: 0.25s; }
-        .movie-card:nth-child(5) { animation-delay: 0.3s; }
-        .movie-card:nth-child(6) { animation-delay: 0.35s; }
-        .movie-card:nth-child(7) { animation-delay: 0.4s; }
-        .movie-card:nth-child(8) { animation-delay: 0.45s; }
-        .movie-card:nth-child(9) { animation-delay: 0.5s; }
-        .movie-card:nth-child(10) { animation-delay: 0.55s; }
-        .movie-card:nth-child(11) { animation-delay: 0.6s; }
-        .movie-card:nth-child(12) { animation-delay: 0.65s; }
-        .movie-card:nth-child(13) { animation-delay: 0.7s; }
-        .movie-card:nth-child(14) { animation-delay: 0.75s; }
-        .movie-card:nth-child(15) { animation-delay: 0.8s; }
-        .movie-card:nth-child(16) { animation-delay: 0.85s; }
-        .movie-card:nth-child(17) { animation-delay: 0.9s; }
-        .movie-card:nth-child(18) { animation-delay: 0.95s; }
-        .movie-card:nth-child(19) { animation-delay: 1.0s; }
-        .movie-card:nth-child(20) { animation-delay: 1.05s; }
-        .movie-card:nth-child(21) { animation-delay: 1.1s; }
-        .movie-card:nth-child(22) { animation-delay: 1.15s; }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .movie-card:hover {
-            transform: translateY(-18px) scale(1.03);
-            box-shadow: 0 25px 70px rgba(0,0,0,0.6);
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-        }
-        
-        .movie-poster {
-            width: 100%;
-            height: 420px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .movie-poster::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 60%;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
-        }
-        
-        .movie-poster::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 30%,
-                rgba(255, 255, 255, 0.08) 50%,
-                transparent 70%
-            );
-            transform: rotate(45deg);
-            animation: shine 4s infinite;
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-        
-        .movie-info {
-            padding: 28px;
-            background: rgba(0, 0, 0, 0.4);
-        }
-        
-        .movie-title {
-            font-size: 1.6em;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #fff;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-            line-height: 1.3;
-        }
-        
-        .movie-year {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 1em;
-            margin-bottom: 14px;
-            font-weight: 500;
-        }
-        
-        .movie-plot {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.95em;
-            line-height: 1.7;
-            margin-bottom: 18px;
-            text-align: justify;
-            height: 85px;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-        }
-        
-        .rating-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-        
-        .imdb-rating {
-            background: linear-gradient(135deg, #f5c518 0%, #d4af37 100%);
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 15px;
-            font-weight: 700;
-            font-size: 1.15em;
-            box-shadow: 0 5px 20px rgba(245, 197, 24, 0.4);
-            transition: all 0.3s ease;
-        }
-        
-        .movie-card:hover .imdb-rating {
-            transform: scale(1.08);
-            box-shadow: 0 7px 25px rgba(245, 197, 24, 0.6);
-        }
-        
-        .age-rating {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 15px;
-            font-weight: 700;
-            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
-            transition: all 0.3s ease;
-        }
-        
-        .age-rating.pg13 {
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
-        }
-        
-        .movie-card:hover .age-rating {
-            transform: scale(1.08);
-        }
-        
-        .rank {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.9);
-            color: #f5c518;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.5em;
-            border: 3px solid #f5c518;
-            box-shadow: 0 5px 25px rgba(245, 197, 24, 0.6);
-            z-index: 10;
-            animation: pulse 2.5s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-        }
-        
-        /*----- خاونی سایەت / ئینستاگرام -----*/
-        .social-section {
-            text-align: center;
-            margin: 40px auto;
-        }
-        
-        .ig-banner {
-            font-size: 1.15em;
-            margin-bottom: 25px;
-        }
-        
-        .ig-banner a {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 32px;
-            border-radius: 60px;
-            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 0 25px rgba(253,29,29,.6), 0 6px 20px rgba(0,0,0,.3);
-            transition: transform .3s, box-shadow .3s;
-        }
-        
-        .ig-banner a:hover {
-            transform: translateY(-4px) scale(1.06);
-            box-shadow: 0 0 35px rgba(253,29,29,.8), 0 8px 25px rgba(0,0,0,.4);
-        }
-        
-        .ig-banner .ig-icon {
-            font-size: 1.5em;
-        }
-        
-        .owner-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 30px;
-            margin: 35px auto;
-            max-width: 500px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .owner-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #f5c518, #e74c3c, #3498db, #833ab4);
-        }
-        
-        .owner-title {
-            font-size: 1.2em;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .owner-name {
-            font-size: 2.2em;
-            color: #f5c518;
-            font-weight: 800;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(245, 197, 24, 0.8);
-            letter-spacing: 1px;
-        }
-        
-        .owner-subtitle {
-            font-size: 1.05em;
-            color: rgba(255,255,255,0.75);
-            font-style: italic;
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 25px;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.95em;
-            border-top: 1px solid rgba(255,255,255,0.15);
-        }
-        
-        @media (max-width: 768px) {
-            .main-title { 
-                font-size: 1.4em; 
-                padding: 16px 30px;
-            }
-            .brand-name { 
-                font-size: 2.5em; 
-            }
-            .movie-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            .background-image {
-                width: 400px;
-                height: 400px;
-            }
-            .social-section {
-                margin: 30px auto;
-            }
-            .owner-box {
-                max-width: 90%;
-                padding: 25px;
-            }
-            .owner-name {
-                font-size: 1.8em;
-            }
-            .movie-poster {
-                height: 380px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>فیلمەکانی کۆتایی شۆککەر - فیلمی نایاب</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card-bg: rgba(255,255,255,0.04);
+      --accent: #f5c518;
+      --glass: rgba(255,255,255,0.06);
+      --gap: 20px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      background: linear-gradient(180deg,#0b1220 0%, #0f1724 100%);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px;
+      direction:rtl;
+    }
+
+    /* background glow */
+    .bg-glow{
+      position:fixed;inset:0;z-index:-2;pointer-events:none;
+      background:
+        radial-gradient(600px 360px at 10% 10%, rgba(135,90,190,0.12), transparent 14%),
+        radial-gradient(500px 300px at 90% 90%, rgba(245,197,24,0.07), transparent 12%);
+      filter: blur(40px);
+    }
+
+    .container{max-width:1400px;margin:0 auto;position:relative;z-index:1}
+
+    .header{
+      text-align:center;margin-bottom:20px;
+    }
+    .main-title{
+      display:inline-block;
+      padding:14px 28px;border-radius:999px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.06);
+      font-weight:700;font-size:1.2rem;
+      color:#fff;margin-bottom:8px;
+    }
+    .brand{
+      font-size:2.8rem;font-weight:900;letter-spacing:3px;
+      background:linear-gradient(90deg,#fff,#d0d0d0);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      margin-top:8px;margin-bottom:6px;
+      text-shadow: 0 6px 30px rgba(0,0,0,0.6);
+    }
+
+    /* social */
+    .social{
+      text-align:center;margin:16px 0 28px;
+    }
+    .ig-banner a{
+      display:inline-flex;align-items:center;gap:12px;padding:10px 18px;border-radius:999px;
+      background:linear-gradient(90deg,#833ab4,#fd1d1d,#fcb045);
+      color:#fff;text-decoration:none;font-weight:700;
+      box-shadow:0 8px 30px rgba(0,0,0,0.45);
+    }
+
+    /* Netflix-like grid */
+    .movie-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap:var(--gap);
+      align-items:start;
+    }
+
+    .movie-card{
+      background:var(--card-bg);
+      border-radius:12px;
+      overflow:visible;
+      padding:8px;
+      transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
+      position:relative;
+    }
+    .movie-card:hover{
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      z-index:5;
+    }
+
+    /* poster: 16:9 Netflix style */
+    .poster{
+      width:100%;
+      aspect-ratio: 16 / 9;
+      border-radius:10px;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+      overflow:hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform .35s;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .movie-card:hover .poster{
+      transform: scale(1.04);
+    }
+
+    /* play icon (hidden but appears on hover) */
+    .play-overlay{
+      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+      pointer-events:none;opacity:0;transition:opacity .25s;
+      background:linear-gradient(180deg, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.5) 100%);
+    }
+    .movie-card:hover .play-overlay{opacity:1}
+    .play-btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:56px;height:56px;border-radius:999px;
+      background:rgba(255,255,255,0.12);backdrop-filter:blur(4px);
+      border:1px solid rgba(255,255,255,0.06);box-shadow:0 8px 28px rgba(0,0,0,0.6);
+    }
+    .play-btn:after{
+      content:'►';font-size:22px;color:#fff;margin-right:4px;
+      transform:translateX(2px);
+    }
+
+    /* title overlay under poster (semi-transparent) */
+    .title-row{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:10px;padding:10px 6px 6px 6px;
+    }
+    .movie-title{
+      font-size:1rem;font-weight:800;color:#fff;line-height:1.1;
+      text-shadow:0 6px 20px rgba(0,0,0,0.6);
+    }
+    .movie-meta{display:flex;gap:8px;align-items:center}
+    .imdb{
+      background:linear-gradient(135deg,#f5c518,#d4af37);
+      color:#000;padding:6px 10px;border-radius:8px;font-weight:800;font-size:0.9rem;
+      box-shadow:0 6px 18px rgba(245,197,24,0.2)
+    }
+    .age{
+      background:rgba(255,255,255,0.05);padding:6px 8px;border-radius:8px;font-weight:700;font-size:0.85rem;
+      color:rgba(255,255,255,0.9)
+    }
+
+    /* description small under title */
+    .movie-plot{
+      font-size:0.88rem;color:rgba(255,255,255,0.86);line-height:1.45;
+      margin-top:6px;height:3.1rem;overflow:hidden;text-align:justify;
+    }
+
+    /* rank badge */
+    .rank{
+      position:absolute;left:10px;top:12px;background:rgba(0,0,0,0.6);
+      color:var(--accent);width:44px;height:44px;border-radius:999px;
+      display:flex;align-items:center;justify-content:center;font-weight:800;border:2px solid var(--accent);
+      box-shadow:0 8px 30px rgba(245,197,24,0.12);
+      font-size:1.05rem;
+    }
+
+    /* responsive tweaks */
+    @media (max-width:900px){
+      .brand{font-size:2rem}
+      .movie-grid{grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));}
+      .movie-plot{height:2.6rem;font-size:0.82rem}
+    }
+    @media (max-width:520px){
+      body{padding:16px}
+      .brand{font-size:1.6rem}
+      .movie-grid{grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));gap:12px}
+      .play-btn{width:48px;height:48px}
+      .rank{width:38px;height:38px;font-size:.95rem;left:8px;top:10px}
+      .movie-plot{display:none}
+    }
+  </style>
 </head>
 <body>
-    <div class="background-image"></div>
-    
-    <div class="container">
-        <div class="header-section">
-            <div class="main-title">🎬 سەرنجڕاکێشترین فیلمەکانی کۆتایی شۆککەر</div>
-            <div class="brand-name">فیلمی نایاب</div>
-        </div>
-        
-        <!-- بەشی ئینستاگرام -->
-        <div class="social-section">
-            <div class="ig-banner">
-                <a href="https://www.instagram.com/9fi.99?igsh=MXQ0NG1icnc3Ym11NA==" target="_blank">
-                    <span class="ig-icon">📱</span>
-                    سەردانی ئەکاونتی ئینستاگراممان بکە
-                </a>
-            </div>
-        </div>
-        
-        <div class="movie-grid">
-            <!-- فیلم 1 -->
-            <div class="movie-card">
-                <div class="rank">1</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMWM4NTFhYjctNzUyNi00NGMwLTk3NTYtMDIyNTZmMzRlYmQyXkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">هەستی شەشەم</div>
-                    <div class="movie-year">١٩٩٩</div>
-                    <div class="movie-plot">دکتۆرێکی دەروونزانی هەوڵ دەدات منداڵێک یارمەتی بدات کە باوەڕی وایە دەتوانێت مردووان ببینێت و قسەیان لەگەڵ بکات. کۆتاییەکە هەموو شتێک دەگۆڕێت!</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.٢/١٠</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 2 -->
-            <div class="movie-card">
-                <div class="rank">2</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BNDJiZDgyZjctYmRjMS00ZjdkLTkwMTEtNGU1NDg3NDQ0Yzk1XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">کڵەبی شەڕ</div>
-                    <div class="movie-year">١٩٩٩</div>
-                    <div class="movie-plot">کارمەندێکی بێزار لە ژیانی دووبارەبوو ناسیاوی فرۆشەرێک دەکات و کلوبێکی شەڕی نهێنی دامەزرێنن. بەڵام نهێنییەکی گەورە لەبارەی ناسیاوە تازەکەی هەیە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.٨/١٠</div>
-                        <div class="age-rating">R (١٨+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 3 -->
-            <div class="movie-card">
-                <div class="rank">3</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">پێشکەوتن</div>
-                    <div class="movie-year">٢٠٠٦</div>
-                    <div class="movie-plot">دوو سیحربازی ناودار لە لەندەن دژایەتی توند دەکەن و هەریەکەیان هەوڵ دەدات ئەو یەکەی تر تێکبدات. نهێنیەکی ترسناک لە پشت یارییەکانیان شاراوەتەوە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.٥/١٠</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 4 -->
-            <div class="movie-card">
-                <div class="rank">4</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">یادەوەری</div>
-                    <div class="movie-year">٢٠٠٠</div>
-                    <div class="movie-plot">پیاوێک یادەوەری کورتخایەنی هەیە و ناتوانێت یادەوەریی تازە دروست بکات. هەوڵ دەدات بکوژی ژنەکەی بدۆزێتەوە. چیرۆکەکە بە پێچەوانەوە دەڕوات!</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.٤/١٠</div>
-                        <div class="age-rating">R (١٨+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 5 -->
-            <div class="movie-card">
-                <div class="rank">5</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">پیاوێکی کۆن</div>
-                    <div class="movie-year">٢٠٠٣ (کۆریایی)</div>
-                    <div class="movie-plot">پیاوێک بۆ ١٥ ساڵ لە ژوورێکدا بە دیل دەگیرێت بەبێ هۆکار. دوای ئازادبوون، هەوڵ دەدات بزانێت کێ و بۆچی ئەمەی کردووە. کۆتاییەکەی ترسناکە!</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.٤/١٠</div>
-                        <div class="age-rating">R (١٨+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 6 -->
-            <div class="movie-card">
-                <div class="rank">6</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTk0MDQ3MzAzOV5BMl5BanBnXkFtZTgwNzU1NzE3MjE@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">ژنە ونبووەکە</div>
-                    <div class="movie-year">٢٠١٤</div>
-                    <div class="movie-plot">ژنێک لە ڕۆژی ساڵیادی هاوسەرگیریدا ون دەبێت و مێردەکەی تۆمەتبار دەکرێت. بەڵام ڕاستییەکە تەواو جیاوازە لەوەی دەرکەوتووە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.١/١٠</div>
-                        <div class="age-rating">R (١٨+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 7 -->
-            <div class="movie-card">
-                <div class="rank">7</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BNjk1NzBlY2YtNjJmNi00YTVmLWI2OTgtNDUxNDE5NjUzZmE0XkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">ئەندازیارەکە</div>
-                    <div class="movie-year">٢٠٠٤</div>
-                    <div class="movie-plot">کرێکارێکی کارگە بۆ ساڵێکە نەخەوتووە و یادەوەری لێ دەشێوێت. کەسێکی نامۆ دەردەکەوێت و ژیانی تێکدەدات. نهێنییەکی تاریک لە ڕابردوویدا هەیە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٧.٦/١٠</div>
-                        <div class="age-rating">R (١٨+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 8 -->
-            <div class="movie-card">
-                <div class="rank">8</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTAxMDE4Mzc3ODNeQTJeQWpwZ15BbWU4MDY2Mjg4MDcx._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">ئەوانی تر</div>
-                    <div class="movie-year">٢٠٠١</div>
-                    <div class="movie-plot">دایکێک و دوو منداڵەکەی لە ماڵێکی تاریکدا دەژین. منداڵەکان نابێت تیشکیان لێ بکەوێت. ڕووداوی سەیر دەستپێدەکات و نهێنی ماڵەکە ئاشکرا دەبێت.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٧.٦/١٠</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 9 -->
-            <div class="movie-card">
-                <div class="rank">9</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BN2JmMjViMjMtZTM5Mi00ZGZkLTk5YzctZDg5MjFjZDE4NjNkXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">دوورگەی شاتر</div>
-                    <div class="movie-year">٢٠١٠</div>
-                    <div class="movie-plot">پۆلیسێک بۆ تەحقیق لەسەر ونبوونی نەخۆسێکی دەروونی دەچێتە دوورگەیەکی تایبەت. بەڵام هەموو شتێک ئەوەندە سادە نییە کە دەردەکەوێت.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.٢/١٠</div>
-                        <div class="age-rating">R (١٨+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 10 -->
-            <div class="movie-card">
-                <div class="rank">10</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMjEzMjczOTI2MV5BMl5BanBnXkFtZTgwOTUwMjI3NzE@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">گومانلێکراوە ئاساییەکە</div>
-                    <div class="movie-year">١٩٩٥</div>
-                    <div class="movie-plot">کەسێکی تاوانبار بەڵێن دەدات بە پۆلیس کە ئەگەر بەڵێنەکەی بەجێبهێنێت، ناوی تاوانبارێکی نەناسراو دەڵێت. کۆتاییەکە هەموو شتێک دەگۆڕێت!</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.٥/١٠</div>
-                        <div class="age-rating">R (١٨+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 11 -->
-            <div class="movie-card">
-                <div class="rank">11</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTcyMzUyMzY1OF5BMl5BanBnXkFtZTcwNDQ4ODk1Mw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">حەوت</div>
-                    <div class="movie-year">١٩٩٥</div>
-                    <div class="movie-plot">دوو پۆلیس هەوڵ دەدەن کەسێک بدۆزنەوە کە کوشتنەکانی بەپێی حەوت تاوانە مەزنەکەی ئینجیل ئەنجام دەدات. کۆتاییەکە هۆشیارکەرەوەیە!</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.٦/١٠</div>
-                        <div class="age-rating">R (١٨+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 12 -->
-            <div class="movie-card">
-                <div class="rank">12</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMDliOTNhNmEtYTk2NS00NjFiLTkxMDItN2M1M2VmNWQzMjhlXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">دەستپێکردن</div>
-                    <div class="movie-year">٢٠١٠</div>
-                    <div class="movie-plot">سەرکردەیەکی تیمی تایبەت کە خەون دەدزێت، دەست دەکات بە ئەرکێکی مەترسیدار: نەخشاندنی بیرۆکەیەک لە مێشکی کەسێک.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.٨/١٠</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 13 -->
-            <div class="movie-card">
-                <div class="rank">13</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">خوێندکار</div>
-                    <div class="movie-year">٢٠١١</div>
-                    <div class="movie-plot">خوێندکارێکی زانکۆ دەچێتە ناو کۆمەڵگەیەکی تایبەت و دەبێتە هۆی ڕووداوەکی ترسناک. کۆتاییەکە کەس پێشبینی نەیدەکرد.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٧.٦/١٠</div>
-                        <div class="age-rating">R (١٨+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 14 -->
-            <div class="movie-card">
-                <div class="rank">14</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">کەسی تاریک</div>
-                    <div class="movie-year">٢٠١١</div>
-                    <div class="movie-plot">پۆلیسێک هەوڵ دەدات کەسێک بدۆزێتەوە کە کۆمەڵێک کەسی بەکۆمەڵ دەکوژێت. بەڵام ڕاستییەکە زۆر نزیکترە لەوەی کە خەیاڵی دەکات.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.١/١٠</div>
-                        <div class="age-rating">R (١٨+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 15 -->
-            <div class="movie-card">
-                <div class="rank">15</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">ئاڤاتار</div>
-                    <div class="movie-year">٢٠٠٩</div>
-                    <div class="movie-plot">سەربازێک لە جیهانێکی تر دەچێتە ناو لەشی بوونەوەرێکی تر و دەبێتە هۆی گۆڕانکارییەکی مەزن لە ژیانی خۆی و ئەو جیهانە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٧.٨/١٠</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 16 -->
-            <div class="movie-card">
-                <div class="rank">16</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">پاشای شێت</div>
-                    <div class="movie-year">٢٠١٩</div>
-                    <div class="movie-plot">کەسێکی کۆمیدی دەبێتە پاشای شێت و دەست دەکات بە جێبەجێکردنی پلانێکی ترسناک. کۆتاییەکە هەموو کەسێک سەرسام دەکات.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.٤/١٠</div>
-                        <div class="age-rating">R (١٨+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 17 -->
-            <div class="movie-card">
-                <div class="rank">17</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTM0MDgwNjMyMl5BMl5BanBnXkFtZTcwNTg0NzU1Ng@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">پڕۆژەی بێڵ</div>
-                    <div class="movie-year">٢٠١٦</div>
-                    <div class="movie-plot">زانایەک پڕۆژەیەکی تایبەت دروست دەکات بۆ گەڕانەوەی کچەکەی. بەڵام پڕۆژەکە زۆر مەترسیدارترە لەوەی کە خەیاڵی دەکرد.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٧.٩/١٠</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 18 -->
-            <div class="movie-card">
-                <div class="rank">18</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMDQzMzQ2Mw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">دەستەی ڤێنۆم</div>
-                    <div class="movie-year">٢٠١٨</div>
-                    <div class="movie-plot">ڕۆژنامەنووسێک دەبێتە میواندارێکی بوونەوەرێکی دەرەکی و دەبێتە هۆی گۆڕانکارییەکی مەزن لە ژیانی.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٦.٧/١٠</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 19 -->
-            <div class="movie-card">
-                <div class="rank">19</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">کۆتایی یاری</div>
-                    <div class="movie-year">٢٠١٩</div>
-                    <div class="movie-plot">کۆمەڵێک کەس لە جیهانێکدا خەون دەبینن کە تێیدا مردنەکەیان ڕاستەقینە نییە. بەڵام ڕاستییەکە زۆر ترسناکترە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٧.٤/١٠</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 20 -->
-            <div class="movie-card">
-                <div class="rank">20</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">ئیرۆن مەن</div>
-                    <div class="movie-year">٢٠٠٨</div>
-                    <div class="movie-plot">بلیمەتێکی بەهرەدار دەبێتە قارەمانێکی سەربەخۆ دوای ئەوەی ڕزگاری لە تاوانبارێک دەبێت. بەڵام ڕووبەڕووبوونەوەی گەورە هەر هەیە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٧.٩/١٠</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 21 -->
-            <div class="movie-card">
-                <div class="rank">21</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTM4NzQ0OTYyOF5BMl5BanBnXkFtZTcwMDkyNjQyMg@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">پاشای شێر</div>
-                    <div class="movie-year">١٩٩٤</div>
-                    <div class="movie-plot">شێرێکی گەنج دەبێتە پاشا دوای مردنی باوکی. بەڵام مامی پلانێکی خراپ دادەنێت بۆ وەرگرتنی تەختی پاشایەتی.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٨.٥/١٠</div>
-                        <div class="age-rating">G (هەموو تەمەن)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 22 -->
-            <div class="movie-card">
-                <div class="rank">22</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTY5OTU0OTc2NV5BMl5BanBnXkFtZTcwMzU4MDcyMQ@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">بەربەست</div>
-                    <div class="movie-year">٢٠١٤</div>
-                    <div class="movie-plot">کەسێک لە جیهانێکی پۆست-ئەپۆکالیپتیکدا هەوڵ دەدات ڕزگاری خەڵک بکات لە نەهێشتنی تەواو. بەڵام ڕێگەکە زۆر مەترسیدارە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ ٧.٢/١٠</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- بەشی خاوەنی سایەت -->
-        <div class="owner-box">
-            <div class="owner-title">خاوەنی سایەت</div>
-            <div class="owner-name">srusht.movies</div>
-            <div class="owner-subtitle">ئەم ماڵپەرە خاوەنداریەتی دەکرێت لە لایەن srusht.movies</div>
-        </div>
-        
-        <div class="footer">
-            © ٢٠٢٣ فیلمی نایاب - هەموو مافەکان پارێزراون
-        </div>
-    </div>
+  <div class="bg-glow" aria-hidden="true"></div>
 
-    <script>
-        // کۆدی جاڤاسکریپت بۆ کاراکردنی زیاتر
-        document.addEventListener('DOMContentLoaded', function() {
-            const movieCards = document.querySelectorAll('.movie-card');
-            
-            movieCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const movieTitle = this.querySelector('.movie-title').textContent;
-                    alert(`فیلمی "${movieTitle}" هەڵبژێردرا!`);
-                });
-            });
-        });
-    </script>
+  <div class="container">
+    <header class="header">
+      <div class="main-title">🎬 سەرنجڕاکێشترین فیلمەکانی کۆتایی شۆککەر</div>
+      <div class="brand">فیلمی نایاب</div>
+      <div class="social" style="margin-top:12px;">
+        <div class="ig-banner">
+          <a href="https://www.instagram.com/9fi.99?igsh=MXQ0NG1icnc3Ym11NA==" target="_blank" rel="noopener noreferrer">
+            <span>📱</span> سەردانی ئەکاونتی ئینستاگراممان بکە
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="movie-grid" id="movieGrid">
+        <!-- Existing 22 cards (kept similar) + 10 new added below (total 32) -->
+        <!-- I'll include 32 cards (22 original trimmed + 10 new). For posters I use the original URLs where provided, and picsum placeholders for new ones. -->
+
+        <!-- 1 -->
+        <article class="movie-card" data-title="هەستی شەشەم">
+          <div class="rank">1</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMWM4NTFhYjctNzUyNi00NGMwLTk3NTYtMDIyNTZmMzRlYmQyXkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn" aria-hidden="true"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">هەستی شەشەم</div>
+              <div class="movie-plot">دکتۆرێکی دەروونزانی هەوڵ دەدات منداڵێک یارمەتی بدات کە باوەڕی وایە دەتوانێت مردووان ببینێت و قسەیان لەگەڵ بکات.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.2</div>
+              <div class="age pg13">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="movie-card" data-title="کڵەبی شەڕ">
+          <div class="rank">2</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BNDJiZDgyZjctYmRjMS00ZjdkLTkwMTEtNGU1NDg3NDQ0Yzk1XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">کڵەبی شەڕ</div>
+              <div class="movie-plot">کارمەندێکی بێزار ناسیاوی فرۆشەرێک دەکات و کلوبێکی شەڕی نهێنی دامەزرێنێت؛ نهێنییەکی گەورە دەربارەی ناسیاوە هەیە.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.8</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="movie-card" data-title="پێشکەوتن">
+          <div class="rank">3</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">پێشکەوتن</div>
+              <div class="movie-plot">دوو سیحربازی ناودار لە لەندەن دژایەتی توند دەکەن و هەریەک هەوڵ دەدات تر بیکات.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.5</div>
+              <div class="age pg13">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="movie-card" data-title="یادەوەری">
+          <div class="rank">4</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">یادەوەری</div>
+              <div class="movie-plot">پیاوێک یادەوەری کورتخایەن هەیە و هەوڵ دەدات بکوژی ژنەکەی بدۆزێتەوە — چیرۆکێکی پێچەوانەوە.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.4</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="movie-card" data-title="پیاوێکی کۆن">
+          <div class="rank">5</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">پیاوێکی کۆن</div>
+              <div class="movie-plot">پیاوێک بۆ ١٥ ساڵ لە ژوورێکدا بە دیل دەگیرێت؛ دوای ئازادبوون هەوڵ دەدات بیر لەسەر هۆکارەکان بدۆزێت.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.4</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="movie-card" data-title="ژنە ونبووەکە">
+          <div class="rank">6</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTk0MDQ3MzAzOV5BMl5BanBnXkFtZTgwNzU1NzE3MjE@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">ژنە ونبووەکە</div>
+              <div class="movie-plot">ژنێک لە ڕۆژی ساڵیادی هاوسەرگیریدا ون دەبێت و راستییەکان جیاوازن لەوەیە ناتوانێت بێتربێت.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.1</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="movie-card" data-title="ئەندازیارەکە">
+          <div class="rank">7</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BNjk1NzBlY2YtNjJmNi00YTVmLWI2OTgtNDUxNDE5NjUzZmE0XkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">ئەندازیارەکە</div>
+              <div class="movie-plot">کرێکارێکی کارگە بۆ ساڵێکە نەخەوتووە و ژیانەکەی تێکدەدات؛ نهێنی تاریکێکی پێویست دەربڕی.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.6</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="movie-card" data-title="ئەوانی تر">
+          <div class="rank">8</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTAxMDE4Mzc3ODNeQTJeQWpwZ15BbWU4MDY2Mjg4MDcx._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">ئەوانی تر</div>
+              <div class="movie-plot">دایکێک و دوو منداڵ لە ماڵێکی تاریکدا دەژین؛ ڕووداوی سەیر و نهێنی ماڵەکە ئاشکرا دەبێت.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.6</div>
+              <div class="age pg13">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="movie-card" data-title="دوورگەی شاتر">
+          <div class="rank">9</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BN2JmMjViMjMtZTM5Mi00ZGZkLTk5YzctZDg5MjFjZDE4NjNkXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">دوورگەی شاتر</div>
+              <div class="movie-plot">پۆلیسێک بۆ تەحقیق لەسەر ونبوونی نەخۆسێکی دەروونی دەچێتە دوورگەی تایبەت؛ شتێکی زۆر سادە نییە.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.2</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="movie-card" data-title="گومانلێکراوە ئاساییەکە">
+          <div class="rank">10</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMjEzMjczOTI2MV5BMl5BanBnXkFtZTgwOTUwMjI3NzE@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">گومانلێکراوە ئاساییەکە</div>
+              <div class="movie-plot">کەسێکی تاوانبار بەڵێن دەدات بە پۆلیس، وە کۆتایی تەواو جیاواز دەبێت.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.5</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11 -->
+        <article class="movie-card" data-title="حەوت">
+          <div class="rank">11</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTcyMzUyMzY1OF5BMl5BanBnXkFtZTcwNDQ4ODk1Mw@@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">حەوت</div>
+              <div class="movie-plot">دوو پۆلیس هەوڵ دەدەن کەسێک بدۆزنەوە کە کوشتنەکان بە شێوەی حەوت داخڵ دەکات؛ کۆتایی هۆشیارکەرەوەیە.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.6</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12 -->
+        <article class="movie-card" data-title="دەستپێکردن">
+          <div class="rank">12</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMDliOTNhNmEtYTk2NS00NjFiLTkxMDItN2M1M2VmNWQzMjhlXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">دەستپێکردن</div>
+              <div class="movie-plot">سەرکردەی تیمێک خەون دەدزێت و دەست دەکات بە مەترسیدارترین ئەرک: نەخشاندنی بیرۆکەی مێشک.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.8</div>
+              <div class="age pg13">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 13 -->
+        <article class="movie-card" data-title="خوێندکار">
+          <div class="rank">13</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">خوێندکار</div>
+              <div class="movie-plot">خوێندکارێک دەچێتە ناو کۆمەڵگەیەکی تایبەت و دەبێتە هۆی ڕووداوێکی ترسناک.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.6</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 14 -->
+        <article class="movie-card" data-title="کەسی تاریک">
+          <div class="rank">14</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">کەسی تاریک</div>
+              <div class="movie-plot">پۆلیسێک دەتەوێت کەسێک بدۆزێت کە زیاتر لە خەیاڵێکە — راستییەکە نزیکترە لەوەی پەیوەندیدا.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.1</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 15 -->
+        <article class="movie-card" data-title="ئاڤاتار">
+          <div class="rank">15</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">ئاڤاتار</div>
+              <div class="movie-plot">سەربازێک لە جیهانێکی تر دەچێتە ناو لەشی بوونەوەر و گۆڕانکارییەکی مەزن لە ژیان و جیهان دەبێت.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.8</div>
+              <div class="age pg13">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 16 -->
+        <article class="movie-card" data-title="پاشای شێت">
+          <div class="rank">16</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">پاشای شێت</div>
+              <div class="movie-plot">کۆمیدیەکی قەسی دەبێتە پاشای شێت و پلانێکی ترسناک جێبەجێ دەکات؛ کۆتایی هەموو کەس سەرسام دەکات.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.4</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 17 -->
+        <article class="movie-card" data-title="پڕۆژەی بێڵ">
+          <div class="rank">17</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTM0MDgwNjMyMl5BMl5BanBnXkFtZTcwNTg0NzU1Ng@@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">پڕۆژەی بێڵ</div>
+              <div class="movie-plot">زانایەک پڕۆژەی تایبەت دروست دەکات بۆ گەڕانەوەی کچەکەی، بەڵام پڕۆژەکە مەترسیدارتر دەبێت.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.9</div>
+              <div class="age pg13">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 18 -->
+        <article class="movie-card" data-title="دەستەی ڤێنۆم">
+          <div class="rank">18</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMDQzMzQ2Mw@@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">دەستەی ڤێنۆم</div>
+              <div class="movie-plot">ڕۆژنامەنووسێک دەبێتە میواندار بوونەوەر و گۆڕانکارییەکی مەزن لە ژیانەکەی دەبێت.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 6.7</div>
+              <div class="age pg13">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 19 -->
+        <article class="movie-card" data-title="کۆتایی یاری">
+          <div class="rank">19</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">کۆتایی یاری</div>
+              <div class="movie-plot">کۆمەڵێک کەس لە جیهانێکدا خەون دەبینن، مردنەکەیان ڕاستەقینە نییە؛ راستەی ترسناکتر دەبێت.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.4</div>
+              <div class="age pg13">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 20 -->
+        <article class="movie-card" data-title="ئیرۆن مەن">
+          <div class="rank">20</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">ئیرۆن مەن</div>
+              <div class="movie-plot">بلیمەتێکی بەهرەدار دەبێتە قارەمانێکی سەربەخۆ دوای ڕزگارکردن لە تاوانبارێک.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.9</div>
+              <div class="age pg13">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 21 -->
+        <article class="movie-card" data-title="پاشای شێر">
+          <div class="rank">21</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTM4NzQ0OTYyOF5BMl5BanBnXkFtZTcwMDkyNjQyMg@@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">پاشای شێر</div>
+              <div class="movie-plot">شێرێکی گەنج دەبێتە پاشا دوای مردنی باوکی؛ مامی پلانێکی خراپ دەچێتە جێ.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.5</div>
+              <div class="age">G</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 22 -->
+        <article class="movie-card" data-title="بەربەست">
+          <div class="rank">22</div>
+          <div class="poster" style="background-image:url('https://m.media-amazon.com/images/M/MV5BMTY5OTU0OTc2NV5BMl5BanBnXkFtZTcwMzU4MDcyMQ@@._V1_FMjpg_UX1000_.jpg')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">بەربەست</div>
+              <div class="movie-plot">لە جیهانێکی پۆست-ئاپۆکالیپتیکی، کەسێک هەوڵ دەدات ڕزگاری خەڵک بکات — رێگەکە مەترسیدارە.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.2</div>
+              <div class="age pg13">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- --- New 10 movies (23..32) with placeholders --- -->
+
+        <!-- 23 -->
+        <article class="movie-card" data-title="نیشتمان لە نیوەی تاریکی">
+          <div class="rank">23</div>
+          <div class="poster" style="background-image:url('https://picsum.photos/seed/movie23/800/450')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">نیشتمان لە نیوەی تاریکی</div>
+              <div class="movie-plot">فیلمێکی روانی دەربارەی کەسێک کە ناتوانێت نێوان راست و خەیاڵ جیا بکات؛ نهێنییەکانی ژیانی تەواو دەخرێن.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.3</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 24 -->
+        <article class="movie-card" data-title="شەوەکانی سەردەم">
+          <div class="rank">24</div>
+          <div class="poster" style="background-image:url('https://picsum.photos/seed/movie24/800/450')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">شەوەکانی سەردەم</div>
+              <div class="movie-plot">تاریخی-ترسیەکە لە ماوەی دوو ساتی دا روودەدات و هوایەکی مایەدار و تەنها.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.9</div>
+              <div class="age pg13">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 25 -->
+        <article class="movie-card" data-title="تاقیکردنەوەی لەکات">
+          <div class="rank">25</div>
+          <div class="poster" style="background-image:url('https://picsum.photos/seed/movie25/800/450')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">تاقیکردنەوەی لەکات</div>
+              <div class="movie-plot">سەرنجڕاکێش، فیلمی سای-فای کە وەختی کۆتایی و دەستکاری زمان ڕوون دەکات.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.1</div>
+              <div class="age pg13">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 26 -->
+        <article class="movie-card" data-title="رێگەی گەورە">
+          <div class="rank">26</div>
+          <div class="poster" style="background-image:url('https://picsum.photos/seed/movie26/800/450')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">رێگەی گەورە</div>
+              <div class="movie-plot">اکشن-دراما بۆ قهرمانێک کە لە شوێنێکی هەموو شت شکۆفتووە دەگرێتەوە.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.7</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 27 -->
+        <article class="movie-card" data-title="دەنگی ڕوو">
+          <div class="rank">27</div>
+          <div class="poster" style="background-image:url('https://picsum.photos/seed/movie27/800/450')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">دەنگی ڕوو</div>
+              <div class="movie-plot">تاریک و روانی — کەسێک دەستی بە هەڵگرتنی هەستەکانی تری هەیە و ئەو دەنگان هێرش دەدەن.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.0</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 28 -->
+        <article class="movie-card" data-title="شینەکانی نێودەوڵەتی">
+          <div class="rank">28</div>
+          <div class="poster" style="background-image:url('https://picsum.photos/seed/movie28/800/450')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">شینەکانی نێودەوڵەتی</div>
+              <div class="movie-plot">دراما سیاسی ـ روانی کە هەموو شت لە ماوەی کورتدا دەگۆڕێت.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.5</div>
+              <div class="age">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 29 -->
+        <article class="movie-card" data-title="کاتی شەوان">
+          <div class="rank">29</div>
+          <div class="poster" style="background-image:url('https://picsum.photos/seed/movie29/800/450')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">کاتی شەوان</div>
+              <div class="movie-plot">مێژووی هێز و رازەکان — فیلمێکی سەرنجڕاکێش کە لە شەوەکاندا ئەنجام دەدرێت.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.8</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 30 -->
+        <article class="movie-card" data-title="یاریگەڕ">
+          <div class="rank">30</div>
+          <div class="poster" style="background-image:url('https://picsum.photos/seed/movie30/800/450')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">یاریگەڕ</div>
+              <div class="movie-plot">تەنها نیگەرانی و قسەی پاشپەڕ — فیلمێکی psychological کە هەموو شت لە گەڕانێک دەستپێدەکات.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.2</div>
+              <div class="age">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 31 -->
+        <article class="movie-card" data-title="تەواوەتی تاریک">
+          <div class="rank">31</div>
+          <div class="poster" style="background-image:url('https://picsum.photos/seed/movie31/800/450')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">تەواوەتی تاریک</div>
+              <div class="movie-plot">کۆمەڵەی راز و ڕووداوە ترسناکەکانی کەسێک لە شەوێکی تایبەت.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 7.6</div>
+              <div class="age">R</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 32 -->
+        <article class="movie-card" data-title="گۆڕانکاری نەتەوە">
+          <div class="rank">32</div>
+          <div class="poster" style="background-image:url('https://picsum.photos/seed/movie32/800/450')">
+            <div class="play-overlay"><div class="play-btn"></div></div>
+          </div>
+          <div class="title-row">
+            <div>
+              <div class="movie-title">گۆڕانکاری نەتەوە</div>
+              <div class="movie-plot">حکایەتی زۆر مەترسیدار کە لە کۆمەڵگەیەکی گەورەدا بەردەوام دەبێت.</div>
+            </div>
+            <div class="movie-meta">
+              <div class="imdb">⭐ 8.0</div>
+              <div class="age">PG-13</div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <footer style="text-align:center;margin-top:34px;color:rgba(255,255,255,0.7);font-size:0.95rem;">
+      © ٢٠٢٣ فیلمی نایاب - هەموو مافەکان پارێزراون
+    </footer>
+
+  </div>
+
+  <script>
+    // کلیکی لە سەر هەر کاردێک -> show alert (دەتوانیت modal یان پلێیەر زیاد بکەیت)
+    document.addEventListener('click', function(e){
+      const card = e.target.closest('.movie-card');
+      if(!card) return;
+      const title = card.getAttribute('data-title') || card.querySelector('.movie-title')?.textContent || 'فیلم';
+      // بەجای alert دەتوانی modal popup زیاد بکەیت
+      alert(`فیلمی "${title.trim()}" هەڵبژێردرا!`);
+    });
+
+    // Accessibility: keyboard navigation (Enter on focused card)
+    document.querySelectorAll('.movie-card').forEach(card => {
+      card.setAttribute('tabindex', '0');
+      card.addEventListener('keydown', function(ev){
+        if(ev.key === 'Enter' || ev.key === ' '){
+          ev.preventDefault();
+          card.click();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
