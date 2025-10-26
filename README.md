@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فیلمەکانی کۆتایی شۆککەر</title>
+    <title>فیلمەکانی کۆتایی شۆککەر - Srusht Movies</title>
     <style>
         * {
             margin: 0;
@@ -25,8 +25,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
-                        url('https://i.imgur.com/placeholder.jpg');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
             background: #2c1810;
             z-index: -2;
         }
@@ -285,6 +284,36 @@
             50% { transform: scale(1.05); }
         }
         
+        /*----- خاونی سایەت / ئینستاگرام -----*/
+        .ig-banner {
+            text-align: center;
+            margin: 40px auto 20px;
+            font-size: 1.1em;
+        }
+        
+        .ig-banner a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(253,29,29,.55), 0 4px 18px rgba(0,0,0,.25);
+            transition: transform .25s, box-shadow .25s;
+        }
+        
+        .ig-banner a:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 0 30px rgba(253,29,29,.75), 0 6px 22px rgba(0,0,0,.35);
+        }
+        
+        .ig-banner .ig-icon {
+            font-size: 1.4em;
+        }
+        
         @media (max-width: 768px) {
             h1 { font-size: 2em; }
             .subtitle { font-size: 1em; }
@@ -296,6 +325,9 @@
                 width: 300px;
                 height: 300px;
             }
+            .ig-banner {
+                margin: 30px auto 15px;
+            }
         }
     </style>
 </head>
@@ -303,8 +335,16 @@
     <div class="background-image"></div>
     
     <div class="container">
-        <h1 style="font-family: 'Arial', sans-serif; font-size: 1.1em; font-weight: 500; letter-spacing: 2px; margin-bottom: 20px; padding: 12px 25px; border: 2px solid rgba(255,255,255,0.6); border-radius: 50px; display: inline-block; background: rgba(255,255,255,0.05); backdrop-filter: blur(5px); text-transform: uppercase;">🎬 یەکەمین سایتی کوردی بۆ دۆزینەوەی فیلمی نایاب</h1>
+        <h1 style="font-family: 'Arial', sans-serif; font-size: 1.5em; font-weight: 600; letter-spacing: 2px; margin-bottom: 20px; padding: 18px 40px; border: 2px solid rgba(255,255,255,0.6); border-radius: 50px; display: inline-block; background: rgba(255,255,255,0.05); backdrop-filter: blur(5px); text-transform: uppercase;">🎬 یەکەمین سایتی کوردی بۆ دۆزینەوەی فیلمی نایاب</h1>
         <p class="subtitle" style="font-family: 'Arial Black', 'Arial', sans-serif; font-size: 3em; font-weight: 900; letter-spacing: 5px; color: white; text-shadow: 5px 5px 0px rgba(0,0,0,0.3), 0 0 40px rgba(255,255,255,0.5); text-transform: uppercase; background: linear-gradient(45deg, #ffffff, #f0f0f0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Srusht Movies</p>
+        
+        <!-- بەشی ئینستاگرام -->
+        <div class="ig-banner">
+            <a href="https://instagram.com/srushtmovies" target="_blank">
+                <span class="ig-icon">📱</span>
+                شوێنی ئێمە بکە لە ئینستاگرام
+            </a>
+        </div>
         
         <div class="movie-grid">
             <div class="movie-card">
@@ -438,30 +478,3 @@
     </div>
 </body>
 </html>
-        </h1>
-
-/*----- خاونی سایەت / ئینستاگرام -----*/
-.ig-banner{
-  text-align:center;
-  margin:20px auto 0;
-  font-size:1.1em;
-}
-.ig-banner a{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:10px 24px;
-  border-radius:50px;
-  background:linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 0 20px rgba(253,29,29,.55), 0 4px 18px rgba(0,0,0,.25);
-  transition:transform .25s, box-shadow .25s;
-}
-.ig-banner a:hover{
-  transform:translateY(-3px) scale(1.05);
-  box-shadow:0 0 30px rgba(253,29,29,.75), 0 6px 22px rgba(0,0,0,.35);
-}
-.ig-banner .ig-icon{font-size:1.4em;}
-
