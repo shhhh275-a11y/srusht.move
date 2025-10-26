@@ -440,12 +440,28 @@
 </html>
         </h1>
 
-        <!-- خاونی سایەت -->
-        <div class="ig-banner">
-          <a href="https://instagram.com/9fi.99" target="_blank">
-            <span class="ig-icon">📸</span>
-            <span>srusht</span>
-          </a>
-        </div>
+/*----- خاونی سایەت / ئینستاگرام -----*/
+.ig-banner{
+  text-align:center;
+  margin:20px auto 0;
+  font-size:1.1em;
+}
+.ig-banner a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 24px;
+  border-radius:50px;
+  background:linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 0 20px rgba(253,29,29,.55), 0 4px 18px rgba(0,0,0,.25);
+  transition:transform .25s, box-shadow .25s;
+}
+.ig-banner a:hover{
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 0 30px rgba(253,29,29,.75), 0 6px 22px rgba(0,0,0,.35);
+}
+.ig-banner .ig-icon{font-size:1.4em;}
 
-        <p class="subtitle" style="font-family: 'Arial Black', 'Arial', sans-serif; font-size: 3em; font-weight: 900; letter-spacing: 5px; color: white; text-shadow: 5px 5px 0px rgba(0,0,0,0.3), 0 0 40px rgba(255,255,255,0.5); text-transform: uppercase; background: linear-gradient(45deg, #ffffff, #f0f0f0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Srusht Movies</p>
