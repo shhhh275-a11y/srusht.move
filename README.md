@@ -153,6 +153,10 @@
         .movie-card:nth-child(6) { animation-delay: 0.6s; }
         .movie-card:nth-child(7) { animation-delay: 0.7s; }
         .movie-card:nth-child(8) { animation-delay: 0.8s; }
+        .movie-card:nth-child(9) { animation-delay: 0.9s; }
+        .movie-card:nth-child(10) { animation-delay: 1.0s; }
+        .movie-card:nth-child(11) { animation-delay: 1.1s; }
+        .movie-card:nth-child(12) { animation-delay: 1.2s; }
         
         @keyframes fadeInUp {
             from {
@@ -342,26 +346,46 @@
         .owner-box {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 400px;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 500px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .owner-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #f5c518, #e74c3c, #3498db);
         }
         
         .owner-title {
-            font-size: 1.3em;
-            color: #f5c518;
-            margin-bottom: 10px;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(245, 197, 24, 0.5);
+            font-size: 1.1em;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 8px;
+            font-weight: 500;
         }
         
         .owner-name {
-            font-size: 1.6em;
-            color: white;
+            font-size: 2em;
+            color: #f5c518;
             font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(245, 197, 24, 0.7);
+        }
+        
+        .owner-subtitle {
+            font-size: 1em;
+            color: rgba(255,255,255,0.7);
+            font-style: italic;
         }
         
         .footer {
@@ -389,6 +413,10 @@
             }
             .owner-box {
                 max-width: 90%;
+                padding: 20px;
+            }
+            .owner-name {
+                font-size: 1.6em;
             }
         }
     </style>
@@ -405,7 +433,7 @@
         <!-- بەشی ئینستاگرام -->
         <div class="social-section">
             <div class="ig-banner">
-                <a href="https://instagram.com/srushtmovies" target="_blank">
+                <a href="https://www.instagram.com/9fi.99?igsh=MXQ0NG1icnc3Ym11NA==" target="_blank">
                     <span class="ig-icon">📱</span>
                     سەردانی ئەکاونتی ئینستاگراممان بکە
                 </a>
@@ -548,12 +576,81 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- فیلم 9 -->
+            <div class="movie-card">
+                <div class="rank">9</div>
+                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BN2JmMjViMjMtZTM5Mi00ZGZkLTk5YzctZDg5MjFjZDE4NjNkXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg')">
+                    <div style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px;">Shutter Island</div>
+                </div>
+                <div class="movie-info">
+                    <div class="movie-title">Shutter Island</div>
+                    <div class="movie-year">2010</div>
+                    <div class="movie-plot">پۆلیسێک بۆ تەحقیق لەسەر ونبوونی نەخۆسێکی دەروونی دەچێتە دوورگەیەکی تایبەت. بەڵام هەموو شتێک ئەوەندە سادە نییە کە دەردەکەوێت.</div>
+                    <div class="rating-container">
+                        <div class="imdb-rating">⭐ 8.2/10</div>
+                        <div class="age-rating">R (18+)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- فیلم 10 -->
+            <div class="movie-card">
+                <div class="rank">10</div>
+                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMjEzMjczOTI2MV5BMl5BanBnXkFtZTgwOTUwMjI3NzE@._V1_FMjpg_UX1000_.jpg')">
+                    <div style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px;">The Usual Suspects</div>
+                </div>
+                <div class="movie-info">
+                    <div class="movie-title">The Usual Suspects</div>
+                    <div class="movie-year">1995</div>
+                    <div class="movie-plot">کەسێکی تاوانبار بەڵێن دەدات بە پۆلیس کە ئەگەر بەڵێنەکەی بەجێبهێنێت، ناوی تاوانبارێکی نەناسراو دەڵێت. کۆتاییەکە هەموو شتێک دەگۆڕێت!</div>
+                    <div class="rating-container">
+                        <div class="imdb-rating">⭐ 8.5/10</div>
+                        <div class="age-rating">R (18+)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- فیلم 11 -->
+            <div class="movie-card">
+                <div class="rank">11</div>
+                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTcyMzUyMzY1OF5BMl5BanBnXkFtZTcwNDQ4ODk1Mw@@._V1_FMjpg_UX1000_.jpg')">
+                    <div style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px;">Se7en</div>
+                </div>
+                <div class="movie-info">
+                    <div class="movie-title">Se7en</div>
+                    <div class="movie-year">1995</div>
+                    <div class="movie-plot">دوو پۆلیس هەوڵ دەدەن کەسێک بدۆزنەوە کە کوشتنەکانی بەپێی حەوت تاوانە مەزنەکەی ئینجیل ئەنجام دەدات. کۆتاییەکە هۆشیارکەرەوەیە!</div>
+                    <div class="rating-container">
+                        <div class="imdb-rating">⭐ 8.6/10</div>
+                        <div class="age-rating">R (18+)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- فیلم 12 -->
+            <div class="movie-card">
+                <div class="rank">12</div>
+                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMDliOTNhNmEtYTk2NS00NjFiLTkxMDItN2M1M2VmNWQzMjhlXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg')">
+                    <div style="background: rgba(0,0,0,0.7); padding: 10px; border-radius: 10px;">Inception</div>
+                </div>
+                <div class="movie-info">
+                    <div class="movie-title">Inception</div>
+                    <div class="movie-year">2010</div>
+                    <div class="movie-plot">سەرکردەیەکی تیمی تایبەت کە خەون دەدزێت، دەست دەکات بە ئەرکێکی مەترسیدار: نەخشاندنی بیرۆکەیەک لە مێشکی کەسێک.</div>
+                    <div class="rating-container">
+                        <div class="imdb-rating">⭐ 8.8/10</div>
+                        <div class="age-rating pg13">PG-13</div>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- بەشی خاوەنی سایەت -->
         <div class="owner-box">
-            <div class="owner-title">خاوەنی سایەت:</div>
-            <div class="owner-name">srusht</div>
+            <div class="owner-title">خاوەنی سایەت</div>
+            <div class="owner-name">srusht.movies</div>
+            <div class="owner-subtitle">ئەم ماڵپەرە خاوەنداریەتی دەکرێت لە لایەن srusht.movies</div>
         </div>
         
         <div class="footer">
@@ -571,13 +668,6 @@
                     const movieTitle = this.querySelector('.movie-title').textContent;
                     alert(`فیلمی "${movieTitle}" هەڵبژێردرا!`);
                 });
-            });
-            
-            // چێکردنی پەیوەندی ئینستاگرام
-            const igLink = document.querySelector('.ig-banner a');
-            igLink.addEventListener('click', function(e) {
-                // پەیوەندی ئینستاگرام کار دەکات
-                console.log('پەیوەندی ئینستاگرام کرایەوە');
             });
         });
     </script>
