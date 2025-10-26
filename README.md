@@ -16,6 +16,7 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
+            background: #2c1810;
         }
         
         body::before {
@@ -26,7 +27,6 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
-            background: #2c1810;
             z-index: -2;
         }
         
@@ -71,13 +71,50 @@
             z-index: 1;
         }
         
-        h1 {
+        .header-section {
             text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .site-owner {
+            font-size: 1.2em;
+            color: #f5c518;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(245, 197, 24, 0.5);
+        }
+        
+        .main-title {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            padding: 18px 40px;
+            border: 2px solid rgba(255,255,255,0.6);
+            border-radius: 50px;
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(5px);
+            text-transform: uppercase;
             color: white;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-            text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
             animation: fadeInDown 1s ease;
+        }
+        
+        .brand-name {
+            font-family: 'Arial Black', 'Arial', sans-serif;
+            font-size: 3em;
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: white;
+            text-shadow: 5px 5px 0px rgba(0,0,0,0.3), 0 0 40px rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ffffff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease;
         }
         
         @keyframes fadeInDown {
@@ -89,15 +126,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-        
-        .subtitle {
-            text-align: center;
-            color: rgba(255,255,255,0.95);
-            margin-bottom: 40px;
-            font-size: 1.2em;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-            animation: fadeIn 1.5s ease;
         }
         
         @keyframes fadeIn {
@@ -314,9 +342,18 @@
             font-size: 1.4em;
         }
         
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9em;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
         @media (max-width: 768px) {
-            h1 { font-size: 2em; }
-            .subtitle { font-size: 1em; }
+            .main-title { font-size: 1.2em; }
+            .brand-name { font-size: 2.2em; }
             .movie-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -328,6 +365,9 @@
             .ig-banner {
                 margin: 30px auto 15px;
             }
+            .site-owner {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -335,12 +375,15 @@
     <div class="background-image"></div>
     
     <div class="container">
-        <h1 style="font-family: 'Arial', sans-serif; font-size: 1.5em; font-weight: 600; letter-spacing: 2px; margin-bottom: 20px; padding: 18px 40px; border: 2px solid rgba(255,255,255,0.6); border-radius: 50px; display: inline-block; background: rgba(255,255,255,0.05); backdrop-filter: blur(5px); text-transform: uppercase;">🎬 یەکەمین سایتی کوردی بۆ دۆزینەوەی فیلمی نایاب</h1>
-        <p class="subtitle" style="font-family: 'Arial Black', 'Arial', sans-serif; font-size: 3em; font-weight: 900; letter-spacing: 5px; color: white; text-shadow: 5px 5px 0px rgba(0,0,0,0.3), 0 0 40px rgba(255,255,255,0.5); text-transform: uppercase; background: linear-gradient(45deg, #ffffff, #f0f0f0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Srusht Movies</p>
+        <div class="header-section">
+            <div class="site-owner">خاوەنی سایەت: srusht</div>
+            <div class="main-title">🎬 یەکەمین سایتی کوردی بۆ دۆزینەوەی فیلمی نایاب</div>
+            <div class="brand-name">Srusht Movies</div>
+        </div>
         
         <!-- بەشی ئینستاگرام -->
         <div class="ig-banner">
-            <a href="https://instagram.com/srushtmovies" target="_blank">
+            <a href="#" onclick="alert('ببورە، ئەکاونتی ئینستاگرام بەردەست نیە. تکایە دواتر سەردان بکە!')">
                 <span class="ig-icon">📱</span>
                 شوێنی ئێمە بکە لە ئینستاگرام
             </a>
@@ -475,6 +518,24 @@
                 </div>
             </div>
         </div>
+        
+        <div class="footer">
+            © 2023 Srusht Movies - هەموو مافەکان پارێزراون
+        </div>
     </div>
+
+    <script>
+        // کۆدی جاڤاسکریپت بۆ کاراکردنی زیاتر
+        document.addEventListener('DOMContentLoaded', function() {
+            const movieCards = document.querySelectorAll('.movie-card');
+            
+            movieCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const movieTitle = this.querySelector('.movie-title').textContent;
+                    alert(`فیلمی "${movieTitle}" هەڵبژێردرا!`);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
