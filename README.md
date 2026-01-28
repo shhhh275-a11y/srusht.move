@@ -338,34 +338,92 @@
             transform: scale(1.08);
         }
 
-        /* Social Section */
+        /* Social Section - Updated for multiple Instagram accounts */
         .social-section {
             text-align: center;
             margin: 50px auto;
         }
 
-        .ig-banner {
-            font-size: 1.15em;
-            margin-bottom: 25px;
+        .social-title {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        .ig-banner a {
-            display: inline-flex;
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+            min-width: 280px;
+            flex: 1;
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+
+        .social-card a {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 12px;
-            padding: 16px 35px;
-            border-radius: 60px;
-            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
-            color: #fff;
             text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 0 25px rgba(253,29,29,.6), 0 6px 20px rgba(0,0,0,.3);
-            transition: all 0.3s ease;
+            color: white;
+            gap: 15px;
         }
 
-        .ig-banner a:hover {
-            transform: translateY(-4px) scale(1.06);
-            box-shadow: 0 0 35px rgba(253,29,29,.8), 0 8px 25px rgba(0,0,0,.4);
+        .social-icon {
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .social-name {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+        }
+
+        .social-username {
+            font-size: 1em;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            direction: ltr;
+        }
+
+        .social-follow {
+            background: linear-gradient(45deg, #833ab4, #fd1d1d);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(253,29,29,0.4);
+        }
+
+        .social-card:hover .social-follow {
+            transform: scale(1.05);
+            box-shadow: 0 7px 25px rgba(253,29,29,0.6);
         }
 
         /* Owner Section */
@@ -506,6 +564,14 @@
             .search-button {
                 padding: 15px 25px;
             }
+            .social-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .social-card {
+                width: 100%;
+                max-width: 400px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -522,9 +588,8 @@
             .owner-name {
                 font-size: 1.8em;
             }
-            .ig-banner a {
-                padding: 14px 25px;
-                font-size: 0.9em;
+            .social-title {
+                font-size: 1.3em;
             }
         }
 
@@ -588,13 +653,45 @@
             </div>
         </section>
 
-        <!-- Social Media Banner -->
+        <!-- Social Media Section - Updated with 3 Instagram accounts -->
         <section class="social-section">
-            <div class="ig-banner">
-                <a href="https://www.instagram.com/9fi.99?igsh=MXQ0NG1icnc3Ym11NA==" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                    سەردانی ئەکاونتی ئینستاگراممان بکە
-                </a>
+            <h2 class="social-title">سەردانی ئەکاونتی ئینستاگرامەکانمان بکە</h2>
+            <div class="social-container">
+                <!-- Instagram Account 1 - Original -->
+                <div class="social-card">
+                    <a href="https://www.instagram.com/9fi.99?igsh=MXQ0NG1icnc3Ym11NA==" target="_blank">
+                        <div class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="social-name">ئەکاونتی سەرەکی</div>
+                        <div class="social-username">@9fi.99</div>
+                        <div class="social-follow">شوێنکەوتن بکە</div>
+                    </a>
+                </div>
+                
+                <!-- Instagram Account 2 - New -->
+                <div class="social-card">
+                    <a href="https://www.instagram.com/lipri_26?igsh=MXQ0NG1icnc3Ym11NA==" target="_blank">
+                        <div class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="social-name">ئەکاونتی فیلمەکان</div>
+                        <div class="social-username">@lipri_26</div>
+                        <div class="social-follow">شوێنکەوتن بکە</div>
+                    </a>
+                </div>
+                
+                <!-- Instagram Account 3 - New -->
+                <div class="social-card">
+                    <a href="https://www.instagram.com/ml.2050ll?igsh=MXQ1am53d3libzdhbA==" target="_blank">
+                        <div class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="social-name">ئەکاونتی ڕەخنەی فیلم</div>
+                        <div class="social-username">@ml.2050ll</div>
+                        <div class="social-follow">شوێنکەوتن بکە</div>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -626,6 +723,9 @@
             <p>© 2023 Shocking Ending Movies - هەموو مافەکان پارێزراون</p>
             <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.6;">
                 ئەم سایەتە بۆ خۆشی و ڕابواردنی هونەری سینەما دروست کراوە
+            </p>
+            <p style="margin-top: 15px; font-size: 0.85em; opacity: 0.5;">
+                <i class="fas fa-hashtag"></i> فیلمە_کوردیەکان <i class="fas fa-hashtag"></i> کۆتایی_سەرسوڕهێنەر
             </p>
         </footer>
     </div>
@@ -703,421 +803,4 @@
                 plot: "دایکێک و دوو منداڵەکەی لە ماڵێکی تاریکدا دەژین. منداڵەکان نابێت تیشکیان لێ بکەوێت. ڕووداوی سەیر دەستپێدەکات و نهێنی ماڵەکە ئاشکرا دەبێت.",
                 rating: 7.6,
                 ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTAxMDE4Mzc3ODNeQTJeQWpwZ15BbWU4MDY2Mjg4MDcx._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 9,
-                title: "Shutter Island",
-                year: 2010,
-                plot: "پۆلیسێک بۆ تەحقیق لەسەر ونبوونی نەخۆسێکی دەروونی دەچێتە دوورگەیەکی تایبەت. بەڵام هەموو شتێک ئەوەندە سادە نییە کە دەردەکەوێت.",
-                rating: 8.2,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BN2JmMjViMjMtZTM5Mi00ZGZkLTk5YzctZDg5MjFjZDE4NjNkXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 10,
-                title: "The Usual Suspects",
-                year: 1995,
-                plot: "کەسێکی تاوانبار بەڵێن دەدات بە پۆلیس کە ئەگەر بەڵێنەکەی بەجێبهێنێت، ناوی تاوانبارێکی نەناسراو دەڵێت. کۆتاییەکە هەموو شتێک دەگۆڕێت!",
-                rating: 8.5,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BMjEzMjczOTI2MV5BMl5BanBnXkFtZTgwOTUwMjI3NzE@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 11,
-                title: "Se7en",
-                year: 1995,
-                plot: "دوو پۆلیس هەوڡ دەدەن کەسێک بدۆزنەوە کە کوشتنەکانی بەپێی حەوت تاوانە مەزنەکەی ئینجیل ئەنجام دەدات. کۆتاییەکە هۆشیارکەرەوەیە!",
-                rating: 8.6,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTcyMzUyMzY1OF5BMl5BanBnXkFtZTcwNDQ4ODk1Mw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 12,
-                title: "Inception",
-                year: 2010,
-                plot: "سەرکردەیەکی تیمی تایبەت کە خەون دەدزێت، دەست دەکات بە ئەرکێکی مەترسیدار: نەخشاندنی بیرۆکەیەک لە مێشکی کەسێک.",
-                rating: 8.8,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMDliOTNhNmEtYTk2NS00NjFiLTkxMDItN2M1M2VmNWQzMjhlXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 13,
-                title: "The Social Network",
-                year: 2010,
-                plot: "چیرۆکی دروستکردنی فەیسبووک و کێشەکانی نێوان دامەزرێنەرەکانی. کۆتاییەکە ڕوونی دەکاتەوە کە سەرکەوتن بە نرخی چیمە.",
-                rating: 7.7,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 14,
-                title: "The Dark Knight",
-                year: 2008,
-                plot: "بەتمان هەوڡ دەدات شاری گۆتەم ڕزگار بکات لە جۆکەر، کەسێکی شێت کە پلانی تێکدانی شاری هەیە. کۆتاییەکە گۆڕانکاری گەورە دروست دەکات.",
-                rating: 9.0,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 15,
-                title: "Avatar",
-                year: 2009,
-                plot: "سەربازێک لە جیهانێکی تر دەچێتە ناو لەشی بوونەوەرێکی تر و دەبێتە هۆی گۆڕانکارییەکی مەزن لە ژیانی خۆی و ئەو جیهانە.",
-                rating: 7.8,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 16,
-                title: "Joker",
-                year: 2019,
-                plot: "کەسێکی کۆمیدی دەبێتە جۆکەر و دەست دەکات بە جێبەجێکردنی پلانێکی ترسناک. کۆتاییەکە هەموو کەسێک سەرسام دەکات.",
-                rating: 8.4,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 17,
-                title: "Interstellar",
-                year: 2014,
-                plot: "زانایەک پڕۆژەیەکی تایبەت دروست دەکات بۆ گەڕانەوەی کچەکەی. بەڵام پڕۆژەکە زۆر مەترسیدارترە لەوەی کە خەیاڵی دەکرد.",
-                rating: 8.6,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTM0MDgwNjMyMl5BMl5BanBnXkFtZTcwNTg0NzU1Ng@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 18,
-                title: "Venom",
-                year: 2018,
-                plot: "ڕۆژنامەنووسێک دەبێتە میواندارێکی بوونەوەرێکی دەرەکی و دەبێتە هۆی گۆڕانکارییەکی مەزن لە ژیانی.",
-                rating: 6.7,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMDQzMzQ2Mw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 19,
-                title: "Avengers: Endgame",
-                year: 2019,
-                plot: "کۆمەڵێک قارەمان هەوڡ دەدەن جیهان ڕزگار بکەن لە تەنانۆس. بەڵام ڕێگەکە زۆر مەترسیدارە و کۆتاییەکە گۆڕانکاری گەورە دروست دەکات.",
-                rating: 8.4,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 20,
-                title: "Iron Man",
-                year: 2008,
-                plot: "بلیمەتێکی بەهرەدار دەبێتە قارەمانێکی سەربەخۆ دوای ئەوەی ڕزگاری لە تاوانبارێک دەبێت. بەڵام ڕووبەڕووبوونەوەی گەورە هەر هەیە.",
-                rating: 7.9,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 21,
-                title: "The Lion King",
-                year: 1994,
-                plot: "شێرێکی گەنج دەبێتە پاشا دوای مردنی باوکی. بەڵام مامی پلانێکی خراپ دادەنێت بۆ وەرگرتنی تەختی پاشایەتی.",
-                rating: 8.5,
-                ageRating: "g",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTM4NzQ0OTYyOF5BMl5BanBnXkFtZTcwMDkyNjQyMg@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 22,
-                title: "The Maze Runner",
-                year: 2014,
-                plot: "کەسێک لە جیهانێکی پۆست-ئەپۆکالیپتیکدا هەوڡ دەدات ڕزگاری خەڵک بکات لە نەهێشتنی تەواو. بەڵام ڕێگەکە زۆر مەترسیدارە.",
-                rating: 6.8,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTY5OTU0OTc2NV5BMl5BanBnXkFtZTcwMzU4MDcyMQ@@._V1_FMjpg_UX1000_.jpg"
-            }
-        ];
-
-        // DOM Elements
-        const movieGrid = document.getElementById('movieGrid');
-        const searchInput = document.querySelector('.search-input');
-        const searchButton = document.querySelector('.search-button');
-        const noResults = document.getElementById('noResults');
-        const pagination = document.getElementById('pagination');
-
-        // Pagination variables
-        let currentPage = 1;
-        const moviesPerPage = 6;
-        let filteredMovies = [...movies];
-
-        // Initialize the website
-        document.addEventListener('DOMContentLoaded', () => {
-            renderMovies();
-            setupPagination();
-            setupSearch();
-            setupMovieClickEvents();
-        });
-
-        // Render movies based on current page
-        function renderMovies() {
-            movieGrid.innerHTML = '';
-            
-            const startIndex = (currentPage - 1) * moviesPerPage;
-            const endIndex = startIndex + moviesPerPage;
-            const moviesToShow = filteredMovies.slice(startIndex, endIndex);
-            
-            if (moviesToShow.length === 0) {
-                noResults.style.display = 'block';
-            } else {
-                noResults.style.display = 'none';
-                
-                moviesToShow.forEach(movie => {
-                    const movieCard = document.createElement('div');
-                    movieCard.className = 'movie-card';
-                    movieCard.dataset.id = movie.rank;
-                    
-                    // Get age rating text
-                    let ageRatingText = '';
-                    let ageRatingClass = '';
-                    switch(movie.ageRating) {
-                        case 'pg13':
-                            ageRatingText = 'PG-13';
-                            ageRatingClass = 'pg13';
-                            break;
-                        case 'r':
-                            ageRatingText = 'R (18+)';
-                            ageRatingClass = '';
-                            break;
-                        case 'g':
-                            ageRatingText = 'G (All Ages)';
-                            ageRatingClass = 'g';
-                            break;
-                        default:
-                            ageRatingText = 'PG-13';
-                            ageRatingClass = 'pg13';
-                    }
-                    
-                    movieCard.innerHTML = `
-                        <div class="movie-rank">${movie.rank}</div>
-                        <div class="movie-poster" style="background-image: url('${movie.poster}')"></div>
-                        <div class="movie-info">
-                            <div class="movie-title">${movie.title}</div>
-                            <div class="movie-year">${movie.year}</div>
-                            <div class="movie-plot">${movie.plot}</div>
-                            <div class="movie-meta">
-                                <div class="imdb-rating">⭐ ${movie.rating}/10</div>
-                                <div class="age-rating ${ageRatingClass}">${ageRatingText}</div>
-                            </div>
-                        </div>
-                    `;
-                    
-                    movieGrid.appendChild(movieCard);
-                });
-            }
-        }
-
-        // Setup pagination
-        function setupPagination() {
-            const totalPages = Math.ceil(filteredMovies.length / moviesPerPage);
-            
-            if (totalPages <= 1) {
-                pagination.style.display = 'none';
-                return;
-            }
-            
-            pagination.style.display = 'flex';
-            pagination.innerHTML = '';
-            
-            // Previous button
-            const prevButton = document.createElement('button');
-            prevButton.className = 'page-btn';
-            prevButton.innerHTML = '<i class="fas fa-chevron-right"></i> پێشوو';
-            prevButton.disabled = currentPage === 1;
-            prevButton.addEventListener('click', () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    renderMovies();
-                    setupPagination();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            });
-            pagination.appendChild(prevButton);
-            
-            // Page buttons
-            for (let i = 1; i <= totalPages; i++) {
-                const pageButton = document.createElement('button');
-                pageButton.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-                pageButton.textContent = i;
-                pageButton.addEventListener('click', () => {
-                    currentPage = i;
-                    renderMovies();
-                    setupPagination();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-                pagination.appendChild(pageButton);
-            }
-            
-            // Next button
-            const nextButton = document.createElement('button');
-            nextButton.className = 'page-btn';
-            nextButton.innerHTML = 'داهاتوو <i class="fas fa-chevron-left"></i>';
-            nextButton.disabled = currentPage === totalPages;
-            nextButton.addEventListener('click', () => {
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    renderMovies();
-                    setupPagination();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            });
-            pagination.appendChild(nextButton);
-        }
-
-        // Setup search functionality
-        function setupSearch() {
-            // Search button click
-            searchButton.addEventListener('click', performSearch);
-            
-            // Enter key in search input
-            searchInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
-            });
-            
-            // Clear search when input is empty
-            searchInput.addEventListener('input', (e) => {
-                if (!e.target.value.trim()) {
-                    filteredMovies = [...movies];
-                    currentPage = 1;
-                    renderMovies();
-                    setupPagination();
-                }
-            });
-        }
-
-        // Perform search
-        function performSearch() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            
-            if (!searchTerm) {
-                filteredMovies = [...movies];
-            } else {
-                filteredMovies = movies.filter(movie => 
-                    movie.title.toLowerCase().includes(searchTerm) || 
-                    movie.year.toString().includes(searchTerm) ||
-                    movie.plot.toLowerCase().includes(searchTerm)
-                );
-            }
-            
-            currentPage = 1;
-            renderMovies();
-            setupPagination();
-        }
-
-        // Setup movie click events
-        function setupMovieClickEvents() {
-            // Using event delegation for movie cards
-            movieGrid.addEventListener('click', (e) => {
-                const movieCard = e.target.closest('.movie-card');
-                if (movieCard) {
-                    const movieId = movieCard.dataset.id;
-                    const movie = movies.find(m => m.rank == movieId);
-                    
-                    if (movie) {
-                        // Create modal or alert
-                        const modal = document.createElement('div');
-                        modal.style.cssText = `
-                            position: fixed;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            background: rgba(0,0,0,0.8);
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            z-index: 1000;
-                            backdrop-filter: blur(10px);
-                        `;
-                        
-                        modal.innerHTML = `
-                            <div style="
-                                background: rgba(26,26,46,0.95);
-                                border-radius: 25px;
-                                padding: 30px;
-                                max-width: 500px;
-                                width: 90%;
-                                border: 1px solid rgba(255,255,255,0.2);
-                                box-shadow: 0 20px 60px rgba(0,0,0,0.7);
-                                position: relative;
-                            ">
-                                <button style="
-                                    position: absolute;
-                                    top: 15px;
-                                    left: 15px;
-                                    background: transparent;
-                                    border: none;
-                                    color: white;
-                                    font-size: 1.5em;
-                                    cursor: pointer;
-                                ">×</button>
-                                <h2 style="color: #f5c518; margin-bottom: 15px; text-align: center;">${movie.title}</h2>
-                                <div style="text-align: center; margin-bottom: 20px;">
-                                    <span style="background: #f5c518; color: black; padding: 5px 15px; border-radius: 20px; font-weight: bold;">
-                                        Rating: ${movie.rating}/10
-                                    </span>
-                                    <span style="margin-right: 15px;"></span>
-                                    <span style="background: #3498db; color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold;">
-                                        Year: ${movie.year}
-                                    </span>
-                                </div>
-                                <p style="color: rgba(255,255,255,0.9); line-height: 1.7; text-align: justify;">
-                                    ${movie.plot}
-                                </p>
-                                <div style="text-align: center; margin-top: 25px;">
-                                    <button style="
-                                        background: linear-gradient(45deg, #833ab4, #fd1d1d);
-                                        border: none;
-                                        padding: 12px 30px;
-                                        border-radius: 50px;
-                                        color: white;
-                                        font-weight: bold;
-                                        cursor: pointer;
-                                        margin-top: 15px;
-                                    ">دەستنیشانکردنی فیلم</button>
-                                </div>
-                            </div>
-                        `;
-                        
-                        document.body.appendChild(modal);
-                        
-                        // Close modal when clicking close button or outside
-                        modal.addEventListener('click', (e) => {
-                            if (e.target === modal || e.target.textContent === '×') {
-                                document.body.removeChild(modal);
-                            }
-                        });
-                        
-                        // Close with Escape key
-                        document.addEventListener('keydown', function closeModal(e) {
-                            if (e.key === 'Escape' && document.body.contains(modal)) {
-                                document.body.removeChild(modal);
-                                document.removeEventListener('keydown', closeModal);
-                            }
-                        });
-                    }
-                }
-            });
-        }
-
-        // Add some interactivity to movie cards
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.movie-card');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
-    </script>
-</body>
-</html>
+                poster: "https://m.media-amazon.com/images/M/MV5BMTAxMDE4M
