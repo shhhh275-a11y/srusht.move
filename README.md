@@ -1,29 +1,4 @@
 
-باشترینەکان لیرە ببینە
-
- 0 stars
- 0 forks
- 1 watching
- 2 Branches
- 0 Tags
- Activity
-Public repository
-shhhh275-a11y/srusht.move
-Name	
-shhhh275-a11y
-shhhh275-a11y
-3 months ago
-README.md
-3 months ago
-Repository files navigation
-README
-<title>Shocking Ending Movies - Srusht Movies</title> <style> * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        min-height: 100vh;
-        position: relative;
-        overflow-x: hidden;
-        background: #1a1a2e;
     }
     
     body::before {
