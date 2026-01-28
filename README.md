@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shocking Ending Movies - Srusht Movies</title>
+    <title>\ud83c\udfac \u0633\u0627\u06cc\u062a\u06cc \u0641\u06cc\u0644\u0645\u06d5\u06a9\u0627\u0646</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
             background: #1a1a2e;
+            direction: rtl;
         }
         
         body::before {
@@ -43,19 +44,6 @@
             filter: blur(60px);
             z-index: -1;
             animation: float 25s ease-in-out infinite;
-        }
-        
-        .bot-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1489599809505-7c8e1a48bcc0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-            z-index: -1;
         }
         
         @keyframes float {
@@ -199,18 +187,6 @@
         .movie-card:nth-child(8) { animation-delay: 0.45s; }
         .movie-card:nth-child(9) { animation-delay: 0.5s; }
         .movie-card:nth-child(10) { animation-delay: 0.55s; }
-        .movie-card:nth-child(11) { animation-delay: 0.6s; }
-        .movie-card:nth-child(12) { animation-delay: 0.65s; }
-        .movie-card:nth-child(13) { animation-delay: 0.7s; }
-        .movie-card:nth-child(14) { animation-delay: 0.75s; }
-        .movie-card:nth-child(15) { animation-delay: 0.8s; }
-        .movie-card:nth-child(16) { animation-delay: 0.85s; }
-        .movie-card:nth-child(17) { animation-delay: 0.9s; }
-        .movie-card:nth-child(18) { animation-delay: 0.95s; }
-        .movie-card:nth-child(19) { animation-delay: 1.0s; }
-        .movie-card:nth-child(20) { animation-delay: 1.05s; }
-        .movie-card:nth-child(21) { animation-delay: 1.1s; }
-        .movie-card:nth-child(22) { animation-delay: 1.15s; }
         
         @keyframes fadeInUp {
             from {
@@ -248,28 +224,6 @@
             width: 100%;
             height: 60%;
             background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
-        }
-        
-        .movie-poster::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 30%,
-                rgba(255, 255, 255, 0.08) 50%,
-                transparent 70%
-            );
-            transform: rotate(45deg);
-            animation: shine 4s infinite;
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
         
         .movie-info {
@@ -336,22 +290,31 @@
             border-radius: 15px;
             font-weight: 700;
             box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        .comment-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1.05em;
+            cursor: pointer;
+            margin-top: 12px;
             transition: all 0.3s ease;
         }
         
-        .age-rating.pg13 {
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
-        }
-        
-        .movie-card:hover .age-rating {
-            transform: scale(1.08);
+        .comment-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
         }
         
         .rank {
             position: absolute;
             top: 20px;
-            right: 20px;
+            left: 20px;
             background: rgba(0,0,0,0.9);
             color: #f5c518;
             width: 55px;
@@ -365,46 +328,216 @@
             border: 3px solid #f5c518;
             box-shadow: 0 5px 25px rgba(245, 197, 24, 0.6);
             z-index: 10;
-            animation: pulse 2.5s infinite;
         }
         
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+        /* \u0645\u06c6\u062f\u0627\u06b5\u06cc \u06a9\u06c6\u0645\u06ce\u0646\u062a */
+        .comment-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
         }
         
-        /*----- خاونی سایەت / ئینستاگرام -----*/
-        .social-section {
-            text-align: center;
-            margin: 40px auto;
+        .modal-content {
+            background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);
+            max-width: 700px;
+            margin: 30px auto;
+            border-radius: 25px;
+            padding: 35px;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
         }
         
-        .ig-banner {
-            font-size: 1.15em;
-            margin-bottom: 25px;
-        }
-        
-        .ig-banner a {
-            display: inline-flex;
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 10px;
-            padding: 14px 32px;
-            border-radius: 60px;
-            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 0 25px rgba(253,29,29,.6), 0 6px 20px rgba(0,0,0,.3);
-            transition: transform .3s, box-shadow .3s;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
         }
         
-        .ig-banner a:hover {
-            transform: translateY(-4px) scale(1.06);
-            box-shadow: 0 0 35px rgba(253,29,29,.8), 0 8px 25px rgba(0,0,0,.4);
+        #modalMovieTitle {
+            font-size: 2em;
+            color: #f5c518;
+            font-weight: bold;
         }
         
-        .ig-banner .ig-icon {
+        .close-modal {
+            background: #ff4444;
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+            background: #ff0000;
+        }
+        
+        .comment-form {
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .comment-form h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        
+        .comment-form input:focus,
+        .comment-form textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .comment-form textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+        }
+        
+        .rating-input {
+            margin-bottom: 15px;
+        }
+        
+        .rating-input label {
+            display: block;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .rating-input select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        
+        .submit-comment {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-comment:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        }
+        
+        .comments-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        
+        .comment-item {
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        
+        .comment-item:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateX(-5px);
+        }
+        
+        .comment-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+            color: #f5c518;
+            font-size: 1.1em;
+        }
+        
+        .comment-rating {
+            background: linear-gradient(135deg, #f5c518, #d4af37);
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        
+        .delete-comment {
+            background: #ff4444;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        
+        .delete-comment:hover {
+            background: #ff0000;
+        }
+        
+        .comment-text {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .comment-time {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85em;
+        }
+        
+        .no-comments {
+            text-align: center;
+            padding: 40px 20px;
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1em;
         }
         
         .owner-box {
@@ -412,23 +545,11 @@
             backdrop-filter: blur(15px);
             border-radius: 25px;
             padding: 30px;
-            margin: 35px auto;
+            margin: 50px auto;
             max-width: 500px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 12px 35px rgba(0,0,0,0.4);
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .owner-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #f5c518, #e74c3c, #3498db, #833ab4);
         }
         
         .owner-title {
@@ -444,22 +565,32 @@
             font-weight: 800;
             margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(245, 197, 24, 0.8);
-            letter-spacing: 1px;
         }
         
-        .owner-subtitle {
-            font-size: 1.05em;
-            color: rgba(255,255,255,0.75);
-            font-style: italic;
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: white;
+            padding: 18px 30px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 10px 30px rgba(0,184,148,0.4);
+            z-index: 3000;
+            animation: slideIn 0.5s ease;
         }
         
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 25px;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.95em;
-            border-top: 1px solid rgba(255,255,255,0.15);
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
         
         @media (max-width: 768px) {
@@ -478,437 +609,172 @@
                 width: 400px;
                 height: 400px;
             }
-            .social-section {
-                margin: 30px auto;
+            .modal-content {
+                padding: 20px;
             }
-            .owner-box {
-                max-width: 90%;
-                padding: 25px;
-            }
-            .owner-name {
-                font-size: 1.8em;
-            }
-            .movie-poster {
-                height: 380px;
-            }
-            .search-section {
-                padding: 0 15px;
+            #modalMovieTitle {
+                font-size: 1.5em;
             }
         }
     </style>
 </head>
 <body>
     <div class="background-image"></div>
-    <div class="bot-background"></div>
     
     <div class="container">
+        <!-- \u0633\u06d5\u0631\u067e\u06d5\u0695\u06d5 -->
         <div class="header-section">
-            <div class="main-title">🎬 یەکەمین سایتی کوردی بۆ دۆزینەوەی فیلمی نایاب</div>
-            <div class="brand-name">Shocking Ending Movies</div>
+            <h1 class="main-title">\ud83c\udfa5 \u0628\u06d5\u062e\u06ce\u0631\u0628\u06ce\u06cc\u062a \u0628\u06c6 \u062c\u06cc\u0647\u0627\u0646\u06cc \u0641\u06cc\u0644\u0645\u06d5\u06a9\u0627\u0646</h1>
+            <h2 class="brand-name">CINEMA WORLD</h2>
         </div>
-        
-        <!-- بەشی گەڕان -->
+
+        <!-- \u0628\u06d5\u0634\u06cc \u06af\u06d5\u0695\u0627\u0646 -->
         <div class="search-section">
             <div class="search-box">
-                <input type="text" class="search-input" placeholder="گەڕان بە ناوی فیلم...">
-                <button class="search-button">گەڕان</button>
+                <input type="text" class="search-input" id="searchInput" placeholder="\ud83d\udd0d \u06af\u06d5\u0695\u0627\u0646 \u0628\u06d5\u062f\u0648\u0627\u06cc \u0641\u06cc\u0644\u0645 \u0628\u06d5 \u0646\u0627\u0648 \u06cc\u0627\u0646 \u0633\u0627\u06b5...">
+                <button class="search-button" onclick="searchMovies()">\u06af\u06d5\u0695\u0627\u0646</button>
             </div>
         </div>
-        
-        <!-- بەشی ئینستاگرام -->
-        <div class="social-section">
-            <div class="ig-banner">
-                <a href="https://www.instagram.com/9fi.99?igsh=MXQ0NG1icnc3Ym11NA==" target="_blank">
-                    <span class="ig-icon">📱</span>
-                    سەردانی ئەکاونتی ئینستاگراممان بکە
-                </a>
-            </div>
+
+        <!-- \u0628\u06d5\u0634\u06cc \u0641\u06cc\u0644\u0645\u06d5\u06a9\u0627\u0646 -->
+        <div class="movie-grid" id="movieGrid">
+            <!-- \u0641\u06cc\u0644\u0645\u06d5\u06a9\u0627\u0646 \u0644\u06ce\u0631\u06d5 \u0632\u06cc\u0627\u062f \u062f\u06d5\u06a9\u0631\u06ce\u0646 \u0628\u06d5 JavaScript -->
         </div>
-        
-        <div class="movie-grid">
-            <!-- فیلم 1 -->
-            <div class="movie-card">
-                <div class="rank">1</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMWM4NTFhYjctNzUyNi00NGMwLTk3NTYtMDIyNTZmMzRlYmQyXkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">The Sixth Sense</div>
-                    <div class="movie-year">1999</div>
-                    <div class="movie-plot">دکتۆرێکی دەروونزانی هەوڵ دەدات منداڵێک یارمەتی بدات کە باوەڕی وایە دەتوانێت مردووان ببینێت و قسەیان لەگەڵ بکات. کۆتاییەکە هەموو شتێک دەگۆڕێت!</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.2/10</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 2 -->
-            <div class="movie-card">
-                <div class="rank">2</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BNDJiZDgyZjctYmRjMS00ZjdkLTkwMTEtNGU1NDg3NDQ0Yzk1XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Fight Club</div>
-                    <div class="movie-year">1999</div>
-                    <div class="movie-plot">کارمەندێکی بێزار لە ژیانی دووبارەبوو ناسیاوی فرۆشەرێک دەکات و کلوبێکی شەڕی نهێنی دامەزرێنن. بەڵام نهێنییەکی گەورە لەبارەی ناسیاوە تازەکەی هەیە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.8/10</div>
-                        <div class="age-rating">R (18+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 3 -->
-            <div class="movie-card">
-                <div class="rank">3</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">The Prestige</div>
-                    <div class="movie-year">2006</div>
-                    <div class="movie-plot">دوو سیحربازی ناودار لە لەندەن دژایەتی توند دەکەن و هەریەکەیان هەوڵ دەدات ئەو یەکەی تر تێکبدات. نهێنیەکی ترسناک لە پشت یارییەکانیان شاراوەتەوە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.5/10</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 4 -->
-            <div class="movie-card">
-                <div class="rank">4</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Memento</div>
-                    <div class="movie-year">2000</div>
-                    <div class="movie-plot">پیاوێک یادەوەری کورتخایەنی هەیە و ناتوانێت یادەوەریی تازە دروست بکات. هەوڵ دەدات بکوژی ژنەکەی بدۆزێتەوە. چیرۆکەکە بە پێچەوانەوە دەڕوات!</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.4/10</div>
-                        <div class="age-rating">R (18+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 5 -->
-            <div class="movie-card">
-                <div class="rank">5</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Oldboy</div>
-                    <div class="movie-year">2003</div>
-                    <div class="movie-plot">پیاوێک بۆ 15 ساڵ لە ژوورێکدا بە دیل دەگیرێت بەبێ هۆکار. دوای ئازادبوون، هەوڵ دەدات بزانێت کێ و بۆچی ئەمەی کردووە. کۆتاییەکەی ترسناکە!</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.4/10</div>
-                        <div class="age-rating">R (18+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 6 -->
-            <div class="movie-card">
-                <div class="rank">6</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTk0MDQ3MzAzOV5BMl5BanBnXkFtZTgwNzU1NzE3MjE@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Gone Girl</div>
-                    <div class="movie-year">2014</div>
-                    <div class="movie-plot">ژنێک لە ڕۆژی ساڵیادی هاوسەرگیریدا ون دەبێت و مێردەکەی تۆمەتبار دەکرێت. بەڵام ڕاستییەکە تەواو جیاوازە لەوەی دەرکەوتووە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.1/10</div>
-                        <div class="age-rating">R (18+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 7 -->
-            <div class="movie-card">
-                <div class="rank">7</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BNjk1NzBlY2YtNjJmNi00YTVmLWI2OTgtNDUxNDE5NjUzZmE0XkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">The Machinist</div>
-                    <div class="movie-year">2004</div>
-                    <div class="movie-plot">کرێکارێکی کارگە بۆ ساڵێکە نەخەوتووە و یادەوەری لێ دەشێوێت. کەسێکی نامۆ دەردەکەوێت و ژیانی تێکدەدات. نهێنییەکی تاریک لە ڕابردوویدا هەیە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 7.6/10</div>
-                        <div class="age-rating">R (18+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 8 -->
-            <div class="movie-card">
-                <div class="rank">8</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTAxMDE4Mzc3ODNeQTJeQWpwZ15BbWU4MDY2Mjg4MDcx._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">The Others</div>
-                    <div class="movie-year">2001</div>
-                    <div class="movie-plot">دایکێک و دوو منداڵەکەی لە ماڵێکی تاریکدا دەژین. منداڵەکان نابێت تیشکیان لێ بکەوێت. ڕووداوی سەیر دەستپێدەکات و نهێنی ماڵەکە ئاشکرا دەبێت.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 7.6/10</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 9 -->
-            <div class="movie-card">
-                <div class="rank">9</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BN2JmMjViMjMtZTM5Mi00ZGZkLTk5YzctZDg5MjFjZDE4NjNkXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Shutter Island</div>
-                    <div class="movie-year">2010</div>
-                    <div class="movie-plot">پۆلیسێک بۆ تەحقیق لەسەر ونبوونی نەخۆسێکی دەروونی دەچێتە دوورگەیەکی تایبەت. بەڵام هەموو شتێک ئەوەندە سادە نییە کە دەردەکەوێت.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.2/10</div>
-                        <div class="age-rating">R (18+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 10 -->
-            <div class="movie-card">
-                <div class="rank">10</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMjEzMjczOTI2MV5BMl5BanBnXkFtZTgwOTUwMjI3NzE@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">The Usual Suspects</div>
-                    <div class="movie-year">1995</div>
-                    <div class="movie-plot">کەسێکی تاوانبار بەڵێن دەدات بە پۆلیس کە ئەگەر بەڵێنەکەی بەجێبهێنێت، ناوی تاوانبارێکی نەناسراو دەڵێت. کۆتاییەکە هەموو شتێک دەگۆڕێت!</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.5/10</div>
-                        <div class="age-rating">R (18+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 11 -->
-            <div class="movie-card">
-                <div class="rank">11</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTcyMzUyMzY1OF5BMl5BanBnXkFtZTcwNDQ4ODk1Mw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Se7en</div>
-                    <div class="movie-year">1995</div>
-                    <div class="movie-plot">دوو پۆلیس هەوڵ دەدەن کەسێک بدۆزنەوە کە کوشتنەکانی بەپێی حەوت تاوانە مەزنەکەی ئینجیل ئەنجام دەدات. کۆتاییەکە هۆشیارکەرەوەیە!</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.6/10</div>
-                        <div class="age-rating">R (18+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 12 -->
-            <div class="movie-card">
-                <div class="rank">12</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMDliOTNhNmEtYTk2NS00NjFiLTkxMDItN2M1M2VmNWQzMjhlXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Inception</div>
-                    <div class="movie-year">2010</div>
-                    <div class="movie-plot">سەرکردەیەکی تیمی تایبەت کە خەون دەدزێت، دەست دەکات بە ئەرکێکی مەترسیدار: نەخشاندنی بیرۆکەیەک لە مێشکی کەسێک.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.8/10</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 13 -->
-            <div class="movie-card">
-                <div class="rank">13</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">The Social Network</div>
-                    <div class="movie-year">2010</div>
-                    <div class="movie-plot">چیرۆکی دروستکردنی فەیسبووک و کێشەکانی نێوان دامەزرێنەرەکانی. کۆتاییەکە ڕوونی دەکاتەوە کە سەرکەوتن بە نرخی چیمە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 7.7/10</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 14 -->
-            <div class="movie-card">
-                <div class="rank">14</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">The Dark Knight</div>
-                    <div class="movie-year">2008</div>
-                    <div class="movie-plot">بەتمان هەوڵ دەدات شاری گۆتەم ڕزگار بکات لە جۆکەر، کەسێکی شێت کە پلانی تێکدانی شاری هەیە. کۆتاییەکە گۆڕانکاری گەورە دروست دەکات.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 9.0/10</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 15 -->
-            <div class="movie-card">
-                <div class="rank">15</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Avatar</div>
-                    <div class="movie-year">2009</div>
-                    <div class="movie-plot">سەربازێک لە جیهانێکی تر دەچێتە ناو لەشی بوونەوەرێکی تر و دەبێتە هۆی گۆڕانکارییەکی مەزن لە ژیانی خۆی و ئەو جیهانە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 7.8/10</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 16 -->
-            <div class="movie-card">
-                <div class="rank">16</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Joker</div>
-                    <div class="movie-year">2019</div>
-                    <div class="movie-plot">کەسێکی کۆمیدی دەبێتە جۆکەر و دەست دەکات بە جێبەجێکردنی پلانێکی ترسناک. کۆتاییەکە هەموو کەسێک سەرسام دەکات.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.4/10</div>
-                        <div class="age-rating">R (18+)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 17 -->
-            <div class="movie-card">
-                <div class="rank">17</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTM0MDgwNjMyMl5BMl5BanBnXkFtZTcwNTg0NzU1Ng@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Interstellar</div>
-                    <div class="movie-year">2014</div>
-                    <div class="movie-plot">زانایەک پڕۆژەیەکی تایبەت دروست دەکات بۆ گەڕانەوەی کچەکەی. بەڵام پڕۆژەکە زۆر مەترسیدارترە لەوەی کە خەیاڵی دەکرد.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.6/10</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 18 -->
-            <div class="movie-card">
-                <div class="rank">18</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMDQzMzQ2Mw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Venom</div>
-                    <div class="movie-year">2018</div>
-                    <div class="movie-plot">ڕۆژنامەنووسێک دەبێتە میواندارێکی بوونەوەرێکی دەرەکی و دەبێتە هۆی گۆڕانکارییەکی مەزن لە ژیانی.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 6.7/10</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 19 -->
-            <div class="movie-card">
-                <div class="rank">19</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Avengers: Endgame</div>
-                    <div class="movie-year">2019</div>
-                    <div class="movie-plot">کۆمەڵێک قارەمان هەوڵ دەدەن جیهان ڕزگار بکەن لە تەنانۆس. بەڵام ڕێگەکە زۆر مەترسیدارە و کۆتاییەکە گۆڕانکاری گەورە دروست دەکات.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.4/10</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 20 -->
-            <div class="movie-card">
-                <div class="rank">20</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">Iron Man</div>
-                    <div class="movie-year">2008</div>
-                    <div class="movie-plot">بلیمەتێکی بەهرەدار دەبێتە قارەمانێکی سەربەخۆ دوای ئەوەی ڕزگاری لە تاوانبارێک دەبێت. بەڵام ڕووبەڕووبوونەوەی گەورە هەر هەیە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 7.9/10</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 21 -->
-            <div class="movie-card">
-                <div class="rank">21</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTM4NzQ0OTYyOF5BMl5BanBnXkFtZTcwMDkyNjQyMg@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">The Lion King</div>
-                    <div class="movie-year">1994</div>
-                    <div class="movie-plot">شێرێکی گەنج دەبێتە پاشا دوای مردنی باوکی. بەڵام مامی پلانێکی خراپ دادەنێت بۆ وەرگرتنی تەختی پاشایەتی.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 8.5/10</div>
-                        <div class="age-rating">G (All Ages)</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- فیلم 22 -->
-            <div class="movie-card">
-                <div class="rank">22</div>
-                <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTY5OTU0OTc2NV5BMl5BanBnXkFtZTcwMzU4MDcyMQ@@._V1_FMjpg_UX1000_.jpg')"></div>
-                <div class="movie-info">
-                    <div class="movie-title">The Maze Runner</div>
-                    <div class="movie-year">2014</div>
-                    <div class="movie-plot">کەسێک لە جیهانێکی پۆست-ئەپۆکالیپتیکدا هەوڵ دەدات ڕزگاری خەڵک بکات لە نەهێشتنی تەواو. بەڵام ڕێگەکە زۆر مەترسیدارە.</div>
-                    <div class="rating-container">
-                        <div class="imdb-rating">⭐ 6.8/10</div>
-                        <div class="age-rating pg13">PG-13</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- بەشی خاوەنی سایەت -->
+
+        <!-- \u062e\u0627\u0648\u06d5\u0646\u06cc \u0633\u0627\u06cc\u062a -->
         <div class="owner-box">
-            <div class="owner-title">خاوەنی سایەت</div>
-            <div class="owner-name">srusht.movies</div>
-            <div class="owner-subtitle">ئەم ماڵپەرە خاوەنداریەتی دەکرێت لە لایەن srusht.movies</div>
+            <p class="owner-title">\u062e\u0627\u0648\u06d5\u0646\u06cc \u0633\u0627\u06cc\u062a</p>
+            <h3 class="owner-name">\u0646\u0627\u0648\u06cc \u062a\u06c6 \u0644\u06ce\u0631\u06d5</h3>
+            <p style="color: rgba(255,255,255,0.7); margin-top: 10px;">\ud83d\udcbb \u06af\u06d5\u0634\u06d5\u067e\u06ce\u062f\u06d5\u0631\u06cc \u0648\u06ce\u0628</p>
         </div>
-        
-        <div class="footer">
-            © 2023 Shocking Ending Movies - هەموو مافەکان پارێزراون
+    </div>
+
+    <!-- \u0645\u06c6\u062f\u0627\u06b5\u06cc \u06a9\u06c6\u0645\u06ce\u0646\u062a \u0648 \u0695\u06d5\u062e\u0646\u06d5 -->
+    <div id="commentModal" class="comment-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalMovieTitle"></h2>
+                <button class="close-modal" onclick="closeCommentModal()">\u2716</button>
+            </div>
+            
+            <div class="comment-form">
+                <h3>\ud83d\udcac \u0695\u06d5\u062e\u0646\u06d5 \u0648 \u0628\u06c6\u0686\u0648\u0648\u0646\u06d5\u06a9\u06d5\u062a \u0628\u0646\u0648\u0648\u0633\u06d5</h3>
+                <input type="text" id="commentName" placeholder="\u0646\u0627\u0648\u062a \u0686\u06cc\u06cc\u06d5\u061f" maxlength="30">
+                <textarea id="commentText" placeholder="\u0628\u06c6\u0686\u0648\u0648\u0646\u062a \u0644\u06d5\u0633\u06d5\u0631 \u0641\u06cc\u0644\u0645\u06d5\u06a9\u06d5\u060c \u0695\u06d5\u062e\u0646\u06d5\u06a9\u0627\u0646\u062a\u060c \u06cc\u0627\u0646 \u0647\u06d5\u0631\u0634\u062a\u06ce\u06a9..." rows="4" maxlength="500"></textarea>
+                <div class="rating-input">
+                    <label>\u2b50 \u0647\u06d5\u06b5\u0633\u06d5\u0646\u06af\u0627\u0646\u062f\u0646\u06cc \u062a\u06c6:</label>
+                    <select id="commentRating">
+                        <option value="10">10 - \u0646\u0627\u06cc\u0627\u0628! \u062a\u06d5\u0648\u0627\u0648 \u062a\u06d5\u0648\u0627\u0648 \u0646\u0627\u06cc\u0627\u0628\u06d5</option>
+                        <option value="9">9 - \u0632\u06c6\u0631 \u0632\u06c6\u0631 \u0628\u0627\u0634\u06d5</option>
+                        <option value="8">8 - \u0632\u06c6\u0631 \u0628\u0627\u0634\u06d5</option>
+                        <option value="7">7 - \u0628\u0627\u0634\u06d5</option>
+                        <option value="6">6 - \u062e\u0631\u0627\u067e \u0646\u06cc\u06cc\u06d5</option>
+                        <option value="5" selected>5 - \u0645\u0627\u0645\u0646\u0627\u0648\u06d5\u0646\u062f</option>
+                        <option value="4">4 - \u0644\u0627\u0648\u0627\u0632\u06d5</option>
+                        <option value="3">3 - \u062e\u0631\u0627\u067e\u06d5</option>
+                        <option value="2">2 - \u0632\u06c6\u0631 \u062e\u0631\u0627\u067e\u06d5</option>
+                        <option value="1">1 - \u0646\u0627\u06a9\u0627\u0631\u0627\u0645\u06d5</option>
+                    </select>
+                </div>
+                <button class="submit-comment" onclick="addComment()">\ud83d\ude80 \u0646\u0627\u0631\u062f\u0646\u06cc \u0695\u06d5\u062e\u0646\u06d5</button>
+            </div>
+            
+            <div class="comments-section">
+                <h3>\ud83d\udcdd \u0695\u06d5\u062e\u0646\u06d5 \u0648 \u06a9\u06c6\u0645\u06ce\u0646\u062a\u06d5\u06a9\u0627\u0646</h3>
+                <div id="commentsList">
+                    <!-- \u06a9\u06c6\u0645\u06ce\u0646\u062a\u06d5\u06a9\u0627\u0646 \u0644\u06ce\u0631\u06d5 \u067e\u06cc\u0634\u0627\u0646 \u062f\u06d5\u062f\u0631\u06ce\u0646 -->
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // کۆدی جاڤاسکریپت بۆ کاراکردنی زیاتر
-        document.addEventListener('DOMContentLoaded', function() {
-            const movieCards = document.querySelectorAll('.movie-card');
-            const searchInput = document.querySelector('.search-input');
-            const searchButton = document.querySelector('.search-button');
-            
-            movieCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const movieTitle = this.querySelector('.movie-title').textContent;
-                    alert(`فیلمی "${movieTitle}" هەڵبژێردرا!`);
-                });
-            });
-            
-            // کاراکردنی بەشی گەڕان
-            searchButton.addEventListener('click', function() {
-                const searchTerm = searchInput.value.toLowerCase();
-                let found = false;
-                
-                movieCards.forEach(card => {
-                    const title = card.querySelector('.movie-title').textContent.toLowerCase();
-                    if (title.includes(searchTerm)) {
-                        card.style.display = 'block';
-                        found = true;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-                
-                if (!found && searchTerm) {
-                    alert('هیچ فیلمێک نەدۆزرایەوە بەم ناوە!');
-                }
-            });
-            
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    searchButton.click();
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+        // \u0644\u06cc\u0633\u062a\u06cc \u0641\u06cc\u0644\u0645\u06d5\u06a9\u0627\u0646 - \u062a\u06c6 \u062f\u06d5\u062a\u0648\u0627\u0646\u06cc\u062a \u0632\u06cc\u0627\u062a\u0631 \u0632\u06cc\u0627\u062f \u0628\u06a9\u06d5\u06cc\u062a!
+        const movies = [
+            {
+                rank: 1,
+                title: "The Shawshank Redemption",
+                year: "1994",
+                poster: "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg",
+                plot: "\u0686\u06cc\u0631\u06c6\u06a9\u06cc \u062f\u0648\u0648 \u062f\u06cc\u0644\u06ce\u06a9 \u06a9\u06d5 \u062f\u06c6\u0633\u062a\u0627\u06cc\u06d5\u062a\u06cc\u06cc\u06d5\u06a9\u06cc \u0642\u0648\u0648\u06b5 \u062f\u0631\u0648\u0633\u062a \u062f\u06d5\u06a9\u06d5\u0646 \u0644\u06d5 \u0632\u06cc\u0646\u062f\u0627\u0646 \u0648 \u0647\u06cc\u0648\u0627 \u062f\u06d5\u062f\u06c6\u0632\u0646\u06d5\u0648\u06d5 \u0644\u06d5 \u0695\u06ce\u06af\u0627\u06cc \u0628\u06d5\u0631\u062e\u06c6\u062f\u0627\u0631\u06cc\u06cc \u0648 \u06a9\u0627\u0631\u06d5 \u0628\u0627\u0634\u06d5\u06a9\u0627\u0646\u06d5\u0648\u06d5.",
+                rating: "9.3",
+                ageRating: "R"
+            },
+            {
+                rank: 2,
+                title: "The Godfather",
+                year: "1972",
+                poster: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+                plot: "\u0686\u06cc\u0631\u06c6\u06a9\u06cc \u062e\u06ce\u0632\u0627\u0646\u06ce\u06a9\u06cc \u0645\u0627\u0641\u06cc\u0627 \u0644\u06d5 \u0626\u06d5\u0645\u0631\u06cc\u06a9\u0627 \u0648 \u0686\u06c6\u0646\u06cc\u06d5\u062a\u06cc \u06af\u0648\u0627\u0633\u062a\u0646\u06d5\u0648\u06d5\u06cc \u062f\u06d5\u0633\u06d5\u06b5\u0627\u062a \u0644\u06d5 \u0628\u0627\u0648\u06a9\u06ce\u06a9\u06cc \u067e\u06cc\u0631\u06d5\u0648\u06d5 \u0628\u06c6 \u06a9\u0648\u0695\u06d5 \u0647\u06d5\u06b5\u0646\u06d5\u0628\u0698\u06ce\u0631\u062f\u0631\u0627\u0648\u06d5\u06a9\u06d5\u06cc.",
+                rating: "9.2",
+                ageRating: "R"
+            },
+            {
+                rank: 3,
+                title: "The Dark Knight",
+                year: "2008",
+                poster: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
+                plot: "\u0628\u0627\u062a\u0645\u0627\u0646 \u062f\u0698\u06cc \u062c\u06c6\u06a9\u06d5\u0631 \u062f\u06d5\u062c\u06d5\u0646\u06af\u06ce\u062a \u0628\u06c6 \u0695\u0632\u06af\u0627\u0631\u06a9\u0631\u062f\u0646\u06cc \u06af\u06c6\u062a\u0647\u0627\u0645 \u0633\u06cc\u062a\u06cc \u0644\u06d5 \u06a9\u0627\u06c6\u0633 \u0648 \u062a\u06cc\u0631\u06c6\u0631\u062f\u0627.",
+                rating: "9.0",
+                ageRating: "PG-13"
+            },
+            {
+                rank: 4,
+                title: "Inception",
+                year: "2010",
+                poster: "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
+                plot: "\u062f\u0632\u06ce\u06a9\u06cc \u062a\u0648\u0627\u0646\u0627\u062f\u0627\u0631 \u062f\u06d5\u062a\u0648\u0627\u0646\u06ce\u062a \u0628\u0686\u06ce\u062a\u06d5 \u0646\u0627\u0648 \u062e\u06d5\u0648\u0646\u06d5\u06a9\u0627\u0646\u06cc \u062e\u06d5\u06b5\u06a9\u06cc\u06cc\u06d5\u0648\u06d5 \u0648 \u0628\u06cc\u0631\u06c6\u06a9\u06d5 \u0628\u062f\u0632\u06ce\u062a \u06cc\u0627\u0646 \u0628\u06cc\u0627\u0646\u0686\u06ce\u0646\u06ce\u062a.",
+                rating: "8.8",
+                ageRating: "PG-13"
+            },
+            {
+                rank: 5,
+                title: "Interstellar",
+                year: "2014",
+                poster: "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
+                plot: "\u06af\u06d5\u0634\u062a\u06ce\u06a9\u06cc \u0626\u0627\u0633\u0645\u0627\u0646\u06cc \u0628\u06c6 \u062f\u06c6\u0632\u06cc\u0646\u06d5\u0648\u06d5\u06cc \u06a9\u06c6\u0686\u0628\u06d5\u0631\u062e\u0627\u0646\u06d5\u06cc\u06d5\u06a9\u06cc \u0646\u0648\u06ce \u0628\u06c6 \u0645\u0631\u06c6\u06a4\u0627\u06cc\u06d5\u062a\u06cc \u067e\u06ce\u0634 \u0644\u06d5\u0646\u0627\u0648\u0686\u0648\u0648\u0646\u06cc \u0632\u06d5\u0648\u06cc.",
+                rating: "8.7",
+                ageRating: "PG-13"
+            },
+            {
+                rank: 6,
+                title: "The Matrix",
+                year: "1999",
+                poster: "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
+                plot: "\u0647\u0627\u06a9\u06d5\u0631\u06ce\u06a9 \u0695\u0627\u0633\u062a\u06cc\u06cc \u0633\u06d5\u0628\u0627\u0631\u06d5\u062a \u0628\u06d5 \u0698\u06cc\u0627\u0646 \u0648 \u0695\u06c6\u06b5\u06cc \u062e\u06c6\u06cc \u0644\u06d5 \u062c\u06d5\u0646\u06af\u06cc \u062f\u0698\u06cc \u06a9\u06c6\u0646\u062a\u0631\u06c6\u06b5\u06a9\u06d5\u0631\u0627\u0646\u06cc \u0698\u06cc\u0627\u0646 \u062f\u06d5\u0632\u0627\u0646\u06ce\u062a.",
+                rating: "8.7",
+                ageRating: "R"
+            },
+            {
+                rank: 7,
+                title: "Forrest Gump",
+                year: "1994",
+                poster: "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
+                plot: "\u0686\u06cc\u0631\u06c6\u06a9\u06cc \u0698\u06cc\u0627\u0646\u06cc \u067e\u06cc\u0627\u0648\u06ce\u06a9\u06cc \u0633\u0627\u06a9\u0627\u0631 \u06a9\u06d5 \u0628\u06d5 \u0634\u06ce\u0648\u06d5\u06cc\u06d5\u06a9\u06cc \u0646\u0627\u0626\u0627\u0633\u0627\u06cc\u06cc \u06a9\u0627\u0631\u06cc\u06af\u06d5\u0631\u06cc \u0644\u06d5\u0633\u06d5\u0631 \u0628\u0648\u0648\u0646\u06d5\u0648\u06d5\u0631\u06d5\u06a9\u0627\u0646\u06cc \u0633\u06d5\u062f\u06d5\u06cc \u0662\u0660 \u0647\u06d5\u06cc\u06d5.",
+                rating: "8.8",
+                ageRating: "PG-13"
+            },
+            {
+                rank: 8,
+                title: "Fight Club",
+                year: "1999",
+                poster: "https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+                plot: "\u06a9\u0627\u0631\u0645\u06d5\u0646\u062f\u06ce\u06a9\u06cc \u0628\u06ce \u062e\u06d5\u0648 \u06cc\u0627\u0646\u06d5\u06cc\u06d5\u06a9 \u06cc\u06d5\u06a9\u0644\u0627\u06cc\u06cc \u06a9\u0644\u0648\u0628\u06ce\u06a9\u06cc \u0634\u06d5\u0695\u06a9\u0631\u062f\u0646\u06cc \u0646\u0647\u06ce\u0646\u06cc \u062f\u0627\u0645\u06d5\u0632\u0631\u06ce\u0646\u06ce\u062a \u06a9\u06d5 \u062f\u0648\u0627\u062a\u0631 \u062f\u06d5\u0628\u06ce\u062a\u06d5 \u0634\u062a\u06ce\u06a9\u06cc \u0632\u06cc\u0627\u062a\u0631.",
+                rating: "8.8",
+                ageRating: "R"
+            },
+            {
+                rank: 9,
+                title: "The Lord of the Rings",
+                year: "2001",
+                poster: "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg",
+                plot: "\u06af\u0631\u0648\u0648\u067e\u06ce\u06a9 \u06af\u06d5\u0634\u062a\u06ce\u06a9\u06cc \u0645\u06d5\u062a\u0631\u0633\u06cc\u062f\u0627\u0631 \u062f\u06d5\u0633\u062a \u067e\u06ce\u062f\u06d5\u06a9\u06d5\u0646 \u0628\u06c6 \u0644\u06d5\u0646\u0627\u0648\u0628\u0631\u062f\u0646\u06cc \u0626\u06d5\u0646\u06af\u0648\u0633\u062a\u06cc\u0644\u06d5\u06cc\u06d5\u06a9\u06cc \u062a\u0648\u0627\u0646\u0627\u062f\u0627\u0631.",
+                rating: "8.9",
+                ageRating: "PG-13"
+            },
+            {
+                rank: 10,
+                title: "Pulp Fiction",
+                year: "1994",
+                poster: "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+                plot: "\u0686\u06d5\u0646\u062f
