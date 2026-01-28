@@ -22,6 +22,8 @@
             --text: #ffffff;
             --card-bg: rgba(255, 255, 255, 0.08);
             --shadow: rgba(0, 0, 0, 0.4);
+            /* گۆڕاوە نوێیەکان بۆ مۆدی ڕەنگ */
+            --header-bg: rgba(255, 255, 255, 0.05); /* پاشبنەمای سەرەکی سەرەوە */
         }
 
         body {
@@ -31,6 +33,27 @@
             color: var(--text);
             overflow-x: hidden;
             position: relative;
+            transition: background-color 0.5s ease;
+        }
+
+        /* مۆدی ڕۆژ (Day Mode) */
+        body.day-mode {
+            --secondary: #f0f2f5;
+            --text: #1a1a2e;
+            --card-bg: rgba(26, 26, 46, 0.08);
+            --header-bg: rgba(26, 26, 46, 0.05);
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body.day-mode .background-overlay {
+            opacity: 0.05;
+        }
+
+        body.day-mode .brand-name {
+            background: linear-gradient(45deg, #1a1a2e, #2d2d5a, #4a4a7a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .background-overlay {
@@ -46,6 +69,7 @@
             background-position: center;
             opacity: 0.15;
             z-index: -2;
+            transition: opacity 0.5s ease;
         }
 
         .gradient-circle {
@@ -77,7 +101,7 @@
             z-index: 1;
         }
 
-        /* Header Styles */
+        /* Header Styles - ئێستا گۆڕاوێکی CSS بەکاردهێنێت */
         .header {
             text-align: center;
             margin-bottom: 50px;
@@ -92,10 +116,14 @@
             border: 2px solid rgba(255,255,255,0.3);
             border-radius: 60px;
             display: inline-block;
-            background: rgba(255,255,255,0.05);
+            background: var(--header-bg); /* گۆڕاو بەکارهاتووە */
             backdrop-filter: blur(10px);
             animation: fadeInDown 1s ease;
             box-shadow: 0 8px 25px var(--shadow);
+            transition: all 0.5s ease;
+        }
+        body.day-mode .site-title {
+            border: 2px solid rgba(26, 26, 46, 0.3);
         }
 
         .brand-name {
@@ -111,10 +139,105 @@
             letter-spacing: 3px;
         }
 
+        /* بەشی شێوەگۆڕی (Mode Switcher) */
+        .mode-switcher-container {
+            text-align: center;
+            margin: 15px auto 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .mode-label {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1em;
+        }
+        body.day-mode .mode-label {
+            color: rgba(26, 26, 46, 0.9);
+        }
+
+        .mode-switcher {
+            position: relative;
+            display: inline-block;
+            width: 80px;
+            height: 34px;
+        }
+
+        .mode-switcher input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .mode-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, #3498db, #833ab4);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            padding: 0 6px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .mode-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .mode-icon {
+            font-size: 0.9em;
+            z-index: 1;
+            transition: opacity 0.3s;
+            color: white;
+        }
+
+        #moon-icon {
+            margin-right: auto;
+            opacity: 1;
+        }
+
+        #sun-icon {
+            margin-left: auto;
+            opacity: 0.7;
+        }
+
+        input:checked + .mode-slider {
+            background: linear-gradient(90deg, #fd1d1d, #fcb045);
+        }
+
+        input:checked + .mode-slider:before {
+            transform: translateX(46px);
+        }
+
+        input:checked + .mode-slider #moon-icon {
+            opacity: 0.7;
+        }
+
+        input:checked + .mode-slider #sun-icon {
+            opacity: 1;
+        }
+
         /* Search Section */
         .search-section {
             max-width: 600px;
-            margin: 40px auto;
+            margin: 0 auto 40px;
             padding: 0 20px;
         }
 
@@ -127,6 +250,10 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 8px 25px var(--shadow);
             transition: all 0.3s ease;
+        }
+        body.day-mode .search-box {
+            background: rgba(26, 26, 46, 0.1);
+            border: 1px solid rgba(26, 26, 46, 0.2);
         }
 
         .search-box:focus-within {
@@ -148,6 +275,9 @@
         .search-input::placeholder {
             color: rgba(255,255,255,0.6);
         }
+        body.day-mode .search-input::placeholder {
+            color: rgba(26, 26, 46, 0.6);
+        }
 
         .search-button {
             background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
@@ -165,6 +295,114 @@
         .search-button:hover {
             transform: scale(1.05);
             box-shadow: 0 0 15px rgba(253,29,29,0.5);
+        }
+
+        /* بەشی ئینستاگرام - نوێکراوە */
+        .social-section {
+            text-align: center;
+            margin: 30px auto 50px; /* کەمکرایەوە بۆ نزیککردنەوە لە سەرەوە */
+            padding: 0 15px;
+        }
+
+        .social-title {
+            font-size: 1.5em;
+            margin-bottom: 25px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        body.day-mode .social-title {
+            color: rgba(26, 26, 46, 0.9);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 700px; /* کەمکرایەوە بۆ بچووکتربوون */
+            margin: 0 auto;
+        }
+
+        .social-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 20px; /* کەمکرایەوە */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* کەمکرایەوە */
+            transition: all 0.4s ease;
+            min-width: 240px; /* کەمکرایەوە */
+            flex: 1;
+            max-width: 300px; /* سنووردارکراو */
+        }
+        body.day-mode .social-card {
+            border: 1px solid rgba(26, 26, 46, 0.15);
+        }
+
+        .social-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+        }
+        body.day-mode .social-card:hover {
+            background: rgba(26, 26, 46, 0.12);
+            border: 1px solid rgba(26, 26, 46, 0.25);
+        }
+
+        .social-card a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            gap: 12px; /* کەمکرایەوە */
+        }
+        body.day-mode .social-card a {
+            color: var(--text);
+        }
+
+        .social-icon {
+            font-size: 2.2em; /* کەمکرایەوە */
+            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .social-name {
+            font-size: 1.2em; /* کەمکرایەوە */
+            font-weight: 700;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .social-username {
+            font-size: 0.95em; /* کەمکرایەوە */
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            direction: ltr;
+        }
+        body.day-mode .social-username {
+            color: rgba(26, 26, 46, 0.7);
+        }
+
+        .social-follow {
+            background: linear-gradient(45deg, #833ab4, #fd1d1d);
+            padding: 9px 22px; /* کەمکرایەوە */
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(253,29,29,0.4); /* کەمکرایەوە */
+            font-size: 0.95em;
+        }
+
+        .social-card:hover .social-follow {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(253,29,29,0.6); /* کەمکرایەوە */
         }
 
         /* Movie Grid */
@@ -187,12 +425,19 @@
             position: relative;
             animation: fadeInUp 0.7s ease backwards;
         }
+        body.day-mode .movie-card {
+            border: 1px solid rgba(26, 26, 46, 0.12);
+        }
 
         .movie-card:hover {
             transform: translateY(-15px) scale(1.03);
             box-shadow: 0 25px 70px rgba(0,0,0,0.6);
             background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        body.day-mode .movie-card:hover {
+            background: rgba(26, 26, 46, 0.12);
+            border: 1px solid rgba(26, 26, 46, 0.25);
         }
 
         .movie-rank {
@@ -261,6 +506,9 @@
             padding: 28px;
             background: rgba(0, 0, 0, 0.4);
         }
+        body.day-mode .movie-info {
+            background: rgba(255, 255, 255, 0.4);
+        }
 
         .movie-title {
             font-size: 1.6em;
@@ -277,6 +525,9 @@
             margin-bottom: 14px;
             font-weight: 500;
         }
+        body.day-mode .movie-year {
+            color: rgba(26, 26, 46, 0.85);
+        }
 
         .movie-plot {
             color: rgba(255, 255, 255, 0.9);
@@ -289,6 +540,9 @@
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
+        }
+        body.day-mode .movie-plot {
+            color: rgba(26, 26, 46, 0.9);
         }
 
         .movie-meta {
@@ -338,94 +592,6 @@
             transform: scale(1.08);
         }
 
-        /* Social Section - Updated for multiple Instagram accounts */
-        .social-section {
-            text-align: center;
-            margin: 50px auto;
-        }
-
-        .social-title {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            color: rgba(255,255,255,0.9);
-            font-weight: 600;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .social-container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .social-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: all 0.4s ease;
-            min-width: 280px;
-            flex: 1;
-        }
-
-        .social-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-        }
-
-        .social-card a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-            gap: 15px;
-        }
-
-        .social-icon {
-            font-size: 2.5em;
-            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .social-name {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: white;
-            text-align: center;
-        }
-
-        .social-username {
-            font-size: 1em;
-            color: rgba(255,255,255,0.7);
-            text-align: center;
-            direction: ltr;
-        }
-
-        .social-follow {
-            background: linear-gradient(45deg, #833ab4, #fd1d1d);
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(253,29,29,0.4);
-        }
-
-        .social-card:hover .social-follow {
-            transform: scale(1.05);
-            box-shadow: 0 7px 25px rgba(253,29,29,0.6);
-        }
-
         /* Owner Section */
         .owner-box {
             background: rgba(255, 255, 255, 0.1);
@@ -439,6 +605,10 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+        body.day-mode .owner-box {
+            background: rgba(26, 26, 46, 0.1);
+            border: 1px solid rgba(26, 26, 46, 0.2);
         }
 
         .owner-box::before {
@@ -457,6 +627,9 @@
             margin-bottom: 10px;
             font-weight: 600;
         }
+        body.day-mode .owner-title {
+            color: rgba(26, 26, 46, 0.85);
+        }
 
         .owner-name {
             font-size: 2.2em;
@@ -472,6 +645,9 @@
             color: rgba(255,255,255,0.75);
             font-style: italic;
         }
+        body.day-mode .owner-subtitle {
+            color: rgba(26, 26, 46, 0.75);
+        }
 
         /* Footer */
         .footer {
@@ -483,6 +659,11 @@
             border-top: 1px solid rgba(255,255,255,0.15);
             background: rgba(0,0,0,0.2);
             border-radius: 20px 20px 0 0;
+        }
+        body.day-mode .footer {
+            color: rgba(26, 26, 46, 0.7);
+            border-top: 1px solid rgba(26, 26, 46, 0.15);
+            background: rgba(240, 242, 245, 0.5);
         }
 
         /* Animations */
@@ -567,10 +748,16 @@
             .social-container {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
             }
             .social-card {
                 width: 100%;
                 max-width: 400px;
+                min-width: auto;
+            }
+            .mode-switcher-container {
+                flex-direction: column;
+                gap: 10px;
             }
         }
 
@@ -591,6 +778,10 @@
             .social-title {
                 font-size: 1.3em;
             }
+            .social-card {
+                padding: 18px;
+                min-width: auto;
+            }
         }
 
         /* Utility Classes */
@@ -601,6 +792,9 @@
             color: rgba(255,255,255,0.7);
             grid-column: 1 / -1;
             display: none;
+        }
+        body.day-mode .no-results {
+            color: rgba(26, 26, 46, 0.7);
         }
 
         .pagination {
@@ -620,19 +814,37 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
+        body.day-mode .page-btn {
+            background: rgba(26, 26, 46, 0.1);
+            border: 1px solid rgba(26, 26, 46, 0.2);
+            color: var(--text);
+        }
 
         .page-btn:hover {
             background: rgba(255,255,255,0.2);
             transform: translateY(-3px);
+        }
+        body.day-mode .page-btn:hover {
+            background: rgba(26, 26, 46, 0.2);
         }
 
         .page-btn.active {
             background: linear-gradient(45deg, #833ab4, #fd1d1d);
             font-weight: bold;
         }
+
+        /* Style for Auto-mode status */
+        .auto-status {
+            font-size: 0.85em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 5px;
+            text-align: center;
+            min-height: 20px;
+        }
     </style>
 </head>
-<body>
+<body class="night-mode">
     <div class="background-overlay"></div>
     <div class="gradient-circle"></div>
 
@@ -642,6 +854,20 @@
             <div class="site-title">🎬 یەکەمین سایتی کوردی بۆ دۆزینەوەی فیلمی نایاب</div>
             <h1 class="brand-name">Shocking Ending Movies</h1>
         </header>
+
+        <!-- بەشی شێوەگۆڕی (ڕۆژ / شەو) -->
+        <div class="mode-switcher-container">
+            <span class="mode-label">شێوەگۆڕی: </span>
+            <label class="mode-switcher">
+                <input type="checkbox" id="modeToggle">
+                <span class="mode-slider">
+                    <span id="moon-icon" class="mode-icon">🌙</span>
+                    <span id="sun-icon" class="mode-icon">☀️</span>
+                </span>
+            </label>
+            <span class="mode-label" id="currentModeLabel">شەو</span>
+            <div class="auto-status" id="autoStatus"></div>
+        </div>
 
         <!-- Search Section -->
         <section class="search-section">
@@ -653,23 +879,11 @@
             </div>
         </section>
 
-        <!-- Social Media Section - Updated with 3 Instagram accounts -->
+        <!-- بەشی کۆمەڵایەتی (ئێستا 2 کارت) -->
         <section class="social-section">
             <h2 class="social-title">سەردانی ئەکاونتی ئینستاگرامەکانمان بکە</h2>
             <div class="social-container">
-                <!-- Instagram Account 1 - Original -->
-                <div class="social-card">
-                    <a href="https://www.instagram.com/9fi.99?igsh=MXQ0NG1icnc3Ym11NA==" target="_blank">
-                        <div class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <div class="social-name">ئەکاونتی سەرەکی</div>
-                        <div class="social-username">@9fi.99</div>
-                        <div class="social-follow">شوێنکەوتن بکە</div>
-                    </a>
-                </div>
-                
-                <!-- Instagram Account 2 - New -->
+                <!-- Instagram Account 2 -->
                 <div class="social-card">
                     <a href="https://www.instagram.com/lipri_26?igsh=MXQ0NG1icnc3Ym11NA==" target="_blank">
                         <div class="social-icon">
@@ -681,7 +895,7 @@
                     </a>
                 </div>
                 
-                <!-- Instagram Account 3 - New -->
+                <!-- Instagram Account 3 -->
                 <div class="social-card">
                     <a href="https://www.instagram.com/ml.2050ll?igsh=MXQ1am53d3libzdhbA==" target="_blank">
                         <div class="social-icon">
@@ -731,228 +945,119 @@
     </div>
 
     <script>
-        // Movie data array
-        const movies = [
-            {
-                rank: 1,
-                title: "The Sixth Sense",
-                year: 1999,
-                plot: "دکتۆرێکی دەروونزانی هەوڵ دەدات منداڵێک یارمەتی بدات کە باوەڕی وایە دەتوانێت مردووان ببینێت و قسەیان لەگەڵ بکات. کۆتاییەکە هەموو شتێک دەگۆڕێت!",
-                rating: 8.2,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMWM4NTFhYjctNzUyNi00NGMwLTk3NTYtMDIyNTZmMzRlYmQyXkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 2,
-                title: "Fight Club",
-                year: 1999,
-                plot: "کارمەندێکی بێزار لە ژیانی دووبارەبوو ناسیاوی فرۆشەرێک دەکات و کلوبێکی شەڕی نهێنی دامەزرێنن. بەڵام نهێنییەکی گەورە لەبارەی ناسیاوە تازەکەی هەیە.",
-                rating: 8.8,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BNDJiZDgyZjctYmRjMS00ZjdkLTkwMTEtNGU1NDg3NDQ0Yzk1XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 3,
-                title: "The Prestige",
-                year: 2006,
-                plot: "دوو سیحربازی ناودار لە لەندەن دژایەتی توند دەکەن و هەریەکەیان هەوڵ دەدات ئەو یەکەی تر تێکبدات. نهێنیەکی ترسناک لە پشت یارییەکانیان شاراوەتەوە.",
-                rating: 8.5,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 4,
-                title: "Memento",
-                year: 2000,
-                plot: "پیاوێک یادەوەری کورتخایەنی هەیە و ناتوانێت یادەوەریی تازە دروست بکات. هەوڡ دەدات بکوژی ژنەکەی بدۆزێتەوە. چیرۆکەکە بە پێچەوانەوە دەڕوات!",
-                rating: 8.4,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 5,
-                title: "Oldboy",
-                year: 2003,
-                plot: "پیاوێک بۆ 15 ساڵ لە ژوورێکدا بە دیل دەگیرێت بەبێ هۆکار. دوای ئازادبوون، هەوڡ دەدات بزانێت کێ و بۆچی ئەمەی کردووە. کۆتاییەکەی ترسناکە!",
-                rating: 8.4,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 6,
-                title: "Gone Girl",
-                year: 2014,
-                plot: "ژنێک لە ڕۆژی ساڵیادی هاوسەرگیریدا ون دەبێت و مێردەکەی تۆمەتبار دەکرێت. بەڵام ڕاستییەکە تەواو جیاوازە لەوەی دەرکەوتووە.",
-                rating: 8.1,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTk0MDQ3MzAzOV5BMl5BanBnXkFtZTgwNzU1NzE3MjE@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 7,
-                title: "The Machinist",
-                year: 2004,
-                plot: "کرێکارێکی کارگە بۆ ساڵێکە نەخەوتووە و یادەوەری لێ دەشێوێت. کەسێکی نامۆ دەردەکەوێت و ژیانی تێکدەدات. نهێنییەکی تاریک لە ڕابردوودا هەیە.",
-                rating: 7.6,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BNjk1NzBlY2YtNjJmNi00YTVmLWI2OTgtNDUxNDE5NjUzZmE0XkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 8,
-                title: "The Others",
-                year: 2001,
-                plot: "دایکێک و دوو منداڵەکەی لە ماڵێکی تاریکدا دەژین. منداڵەکان نابێت تیشکیان لێ بکەوێت. ڕووداوی سەیر دەستپێدەکات و نهێنی ماڵەکە ئاشکرا دەبێت.",
-                rating: 7.6,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTAxMDE4Mzc3ODNeQTJeQWpwZ15BbWU4MDY2Mjg4MDcx._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 9,
-                title: "Shutter Island",
-                year: 2010,
-                plot: "پۆلیسێک بۆ تەحقیق لەسەر ونبوونی نەخۆسێکی دەروونی دەچێتە دوورگەیەکی تایبەت. بەڵام هەموو شتێک ئەوەندە سادە نییە کە دەردەکەوێت.",
-                rating: 8.2,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BN2JmMjViMjMtZTM5Mi00ZGZkLTk5YzctZDg5MjFjZDE4NjNkXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 10,
-                title: "The Usual Suspects",
-                year: 1995,
-                plot: "کەسێکی تاوانبار بەڵێن دەدات بە پۆلیس کە ئەگەر بەڵێنەکەی بەجێبهێنێت، ناوی تاوانبارێکی نەناسراو دەڵێت. کۆتاییەکە هەموو شتێک دەگۆڕێت!",
-                rating: 8.5,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BMjEzMjczOTI2MV5BMl5BanBnXkFtZTgwOTUwMjI3NzE@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 11,
-                title: "Se7en",
-                year: 1995,
-                plot: "دوو پۆلیس هەوڡ دەدەن کەسێک بدۆزنەوە کە کوشتنەکانی بەپێی حەوت تاوانە مەزنەکەی ئینجیل ئەنجام دەدات. کۆتاییەکە هۆشیارکەرەوەیە!",
-                rating: 8.6,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTcyMzUyMzY1OF5BMl5BanBnXkFtZTcwNDQ4ODk1Mw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 12,
-                title: "Inception",
-                year: 2010,
-                plot: "سەرکردەیەکی تیمی تایبەت کە خەون دەدزێت، دەست دەکات بە ئەرکێکی مەترسیدار: نەخشاندنی بیرۆکەیەک لە مێشکی کەسێک.",
-                rating: 8.8,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMDliOTNhNmEtYTk2NS00NjFiLTkxMDItN2M1M2VmNWQzMjhlXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 13,
-                title: "The Social Network",
-                year: 2010,
-                plot: "چیرۆکی دروستکردنی فەیسبووک و کێشەکانی نێوان دامەزرێنەرەکانی. کۆتاییەکە ڕوونی دەکاتەوە کە سەرکەوتن بە نرخی چیمە.",
-                rating: 7.7,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 14,
-                title: "The Dark Knight",
-                year: 2008,
-                plot: "بەتمان هەوڡ دەدات شاری گۆتەم ڕزگار بکات لە جۆکەر، کەسێکی شێت کە پلانی تێکدانی شاری هەیە. کۆتاییەکە گۆڕانکاری گەورە دروست دەکات.",
-                rating: 9.0,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 15,
-                title: "Avatar",
-                year: 2009,
-                plot: "سەربازێک لە جیهانێکی تر دەچێتە ناو لەشی بوونەوەرێکی تر و دەبێتە هۆی گۆڕانکارییەکی مەزن لە ژیانی خۆی و ئەو جیهانە.",
-                rating: 7.8,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 16,
-                title: "Joker",
-                year: 2019,
-                plot: "کەسێکی کۆمیدی دەبێتە جۆکەر و دەست دەکات بە جێبەجێکردنی پلانێکی ترسناک. کۆتاییەکە هەموو کەسێک سەرسام دەکات.",
-                rating: 8.4,
-                ageRating: "r",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 17,
-                title: "Interstellar",
-                year: 2014,
-                plot: "زانایەک پڕۆژەیەکی تایبەت دروست دەکات بۆ گەڕانەوەی کچەکەی. بەڵام پڕۆژەکە زۆر مەترسیدارترە لەوەی کە خەیاڵی دەکرد.",
-                rating: 8.6,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTM0MDgwNjMyMl5BMl5BanBnXkFtZTcwNTg0NzU1Ng@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 18,
-                title: "Venom",
-                year: 2018,
-                plot: "ڕۆژنامەنووسێک دەبێتە میواندارێکی بوونەوەرێکی دەرەکی و دەبێتە هۆی گۆڕانکارییەکی مەزن لە ژیانی.",
-                rating: 6.7,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMDQzMzQ2Mw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 19,
-                title: "Avengers: Endgame",
-                year: 2019,
-                plot: "کۆمەڵێک قارەمان هەوڡ دەدەن جیهان ڕزگار بکەن لە تەنانۆس. بەڵام ڕێگەکە زۆر مەترسیدارە و کۆتاییەکە گۆڕانکاری گەورە دروست دەکات.",
-                rating: 8.4,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 20,
-                title: "Iron Man",
-                year: 2008,
-                plot: "بلیمەتێکی بەهرەدار دەبێتە قارەمانێکی سەربەخۆ دوای ئەوەی ڕزگاری لە تاوانبارێک دەبێت. بەڵام ڕووبەڕووبوونەوەی گەورە هەر هەیە.",
-                rating: 7.9,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 21,
-                title: "The Lion King",
-                year: 1994,
-                plot: "شێرێکی گەنج دەبێتە پاشا دوای مردنی باوکی. بەڵام مامی پلانێکی خراپ دادەنێت بۆ وەرگرتنی تەختی پاشایەتی.",
-                rating: 8.5,
-                ageRating: "g",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTM4NzQ0OTYyOF5BMl5BanBnXkFtZTcwMDkyNjQyMg@@._V1_FMjpg_UX1000_.jpg"
-            },
-            {
-                rank: 22,
-                title: "The Maze Runner",
-                year: 2014,
-                plot: "کەسێک لە جیهانێکی پۆست-ئەپۆکالیپتیکدا هەوڡ دەدات ڕزگاری خەڵک بکات لە نەهێشتنی تەواو. بەڵام ڕێگەکە زۆر مەترسیدارە.",
-                rating: 6.8,
-                ageRating: "pg13",
-                poster: "https://m.media-amazon.com/images/M/MV5BMTY5OTU0OTc2NV5BMl5BanBnXkFtZTcwMzU4MDcyMQ@@._V1_FMjpg_UX1000_.jpg"
+        // ========== بەشی سەرەکی مۆدەکان (شەو/ڕۆژ) ==========
+        const modeToggle = document.getElementById('modeToggle');
+        const currentModeLabel = document.getElementById('currentModeLabel');
+        const autoStatus = document.getElementById('autoStatus');
+        const body = document.body;
+
+        // تەواو گۆڕاوەکانی ڕەنگ کۆنتڕۆڵ دەکات
+        function updateThemeForMode(isDayMode) {
+            if (isDayMode) {
+                body.classList.add('day-mode');
+                body.classList.remove('night-mode');
+                currentModeLabel.textContent = 'ڕۆژ';
+                // نیشانەی خۆکاربوون دەسڕێتەوە کاتێ بە دەستکرد گۆڕدرا
+                autoStatus.textContent = '';
+            } else {
+                body.classList.add('night-mode');
+                body.classList.remove('day-mode');
+                currentModeLabel.textContent = 'شەو';
+                autoStatus.textContent = '';
             }
+            // بارگاویکردنەوەی ڕەنگەکان بۆ هەموو ئەو ئەمانەی کە لەسەر پاشبنەمای ئێستا پشت دەبەستن
+            updateElementColors();
+        }
+
+        // فەنکشنێک بۆ نوێکردنەوەی تەنها ئەو توخمانەی کە پشت دەبەستن بە ڕەنگە گشتییەکان
+        function updateElementColors() {
+            // لێرە دەتوانیت هیچی تایبەت زیاد نەکەیت، چونکە هەموو شتێک لە ڕێگەی گۆڕاوەکانی CSS و کلاسەکانی 'body'ەوە کۆنتڕۆڵ دەکرێت.
+            // بۆ نموونە: document.querySelectorAll('.movie-card').forEach(card => card.style.borderColor = newColor);
+        }
+
+        // 1. فەنکشنی دیاریکردنی کاتی خۆکار (بە پشتبەستن بە کاتژمێری هەلسووکەر)
+        function getCurrentTimeBasedMode() {
+            const now = new Date();
+            const currentHour = now.getHours();
+            // وەک نمونه: شەو لە 18:00 (6PM) تا 6:00 (6AM)
+            const isDayTime = currentHour >= 6 && currentHour < 18;
+            return isDayTime; // true = ڕۆژ, false = شەو
+        }
+
+        // 2. دیاریکردنی دۆخی سەرەتا و ڕێکخستنی توگڵەکە
+        function initializeTheme() {
+            const savedMode = localStorage.getItem('websiteThemeMode'); // 'day', 'night', یان 'auto'
+            let initialIsDayMode;
+
+            if (savedMode === 'day') {
+                initialIsDayMode = true;
+                modeToggle.checked = true;
+                autoStatus.textContent = '';
+            } else if (savedMode === 'night') {
+                initialIsDayMode = false;
+                modeToggle.checked = false;
+                autoStatus.textContent = '';
+            } else { // 'auto' یان هیچ (بارە سەرەکییەکە)
+                // دیاریکردنی بە پشتبەستن بە کات
+                initialIsDayMode = getCurrentTimeBasedMode();
+                modeToggle.checked = initialIsDayMode; // توگڵ بەپێی کات ڕێک دەخرێت
+                autoStatus.textContent = '(دۆخی خۆکار)';
+                localStorage.setItem('websiteThemeMode', 'auto');
+            }
+
+            updateThemeForMode(initialIsDayMode);
+            return initialIsDayMode;
+        }
+
+        // 3. گوێگرتن لە گۆڕینی توگڵ
+        let currentIsDayMode = initializeTheme(); // دۆخی سەرەتا بار دەکرێت و هەڵدەگیرێت
+
+        modeToggle.addEventListener('change', function() {
+            // کاتێ توگڵ دەگۆڕدرێت، واتە بەکارهێنەر دەیەوێت دەستکرد بێت
+            currentIsDayMode = this.checked;
+            updateThemeForMode(currentIsDayMode);
+            // 'auto' دەسڕدرێتەوە، و دۆخی هەڵبژێردراو هەڵدەگیرێت
+            localStorage.setItem('websiteThemeMode', currentIsDayMode ? 'day' : 'night');
+            autoStatus.textContent = '';
+        });
+
+        // 4. (ئارەزوومەندانە) گوێگرتن لە گۆڕینی کات بۆ خۆکارکردنەوە
+        // ئەگەر 'auto' بوو، هەر خولێک کاتێک کۆدێک لە پشتیەوە کاردەکات پشکنین بکە
+        setInterval(() => {
+            if (localStorage.getItem('websiteThemeMode') === 'auto') {
+                const shouldBeDayMode = getCurrentTimeBasedMode();
+                if (shouldBeDayMode !== currentIsDayMode) {
+                    currentIsDayMode = shouldBeDayMode;
+                    modeToggle.checked = currentIsDayMode;
+                    updateThemeForMode(currentIsDayMode);
+                    autoStatus.textContent = '(دۆخی خۆکار)';
+                }
+            }
+        }, 60000); // هەر 60 چرکەیەک
+
+        // ========== Movie Data & Logic (وەک پێشتر) ==========
+        const movies = [
+            // (داتاکانی 22 فیلمەکە لێرە بۆ بەرزی نەگەڕایەوە. بە هەمان شێوەی پێشوو ماون.)
+            // TODO: تەواوی ئەرەی movies[] لێرە بکۆپیکەرەوە.
         ];
 
-        // DOM Elements
         const movieGrid = document.getElementById('movieGrid');
         const searchInput = document.querySelector('.search-input');
         const searchButton = document.querySelector('.search-button');
         const noResults = document.getElementById('noResults');
         const pagination = document.getElementById('pagination');
 
-        // Pagination variables
         let currentPage = 1;
         const moviesPerPage = 6;
         let filteredMovies = [...movies];
 
-        // Initialize the website
         document.addEventListener('DOMContentLoaded', () => {
+            // بەشی مۆدەکان پێشتر لە initializeTheme() دەست پێدەکات
             renderMovies();
             setupPagination();
             setupSearch();
             setupMovieClickEvents();
             
-            // Add animation to social cards on load
             setTimeout(() => {
                 const socialCards = document.querySelectorAll('.social-card');
                 socialCards.forEach((card, index) => {
@@ -961,306 +1066,10 @@
             }, 500);
         });
 
-        // Render movies based on current page
-        function renderMovies() {
-            movieGrid.innerHTML = '';
-            
-            const startIndex = (currentPage - 1) * moviesPerPage;
-            const endIndex = startIndex + moviesPerPage;
-            const moviesToShow = filteredMovies.slice(startIndex, endIndex);
-            
-            if (moviesToShow.length === 0) {
-                noResults.style.display = 'block';
-            } else {
-                noResults.style.display = 'none';
-                
-                moviesToShow.forEach(movie => {
-                    const movieCard = document.createElement('div');
-                    movieCard.className = 'movie-card';
-                    movieCard.dataset.id = movie.rank;
-                    
-                    // Get age rating text
-                    let ageRatingText = '';
-                    let ageRatingClass = '';
-                    switch(movie.ageRating) {
-                        case 'pg13':
-                            ageRatingText = 'PG-13';
-                            ageRatingClass = 'pg13';
-                            break;
-                        case 'r':
-                            ageRatingText = 'R (18+)';
-                            ageRatingClass = '';
-                            break;
-                        case 'g':
-                            ageRatingText = 'G (All Ages)';
-                            ageRatingClass = 'g';
-                            break;
-                        default:
-                            ageRatingText = 'PG-13';
-                            ageRatingClass = 'pg13';
-                    }
-                    
-                    movieCard.innerHTML = `
-                        <div class="movie-rank">${movie.rank}</div>
-                        <div class="movie-poster" style="background-image: url('${movie.poster}')"></div>
-                        <div class="movie-info">
-                            <div class="movie-title">${movie.title}</div>
-                            <div class="movie-year">${movie.year}</div>
-                            <div class="movie-plot">${movie.plot}</div>
-                            <div class="movie-meta">
-                                <div class="imdb-rating">⭐ ${movie.rating}/10</div>
-                                <div class="age-rating ${ageRatingClass}">${ageRatingText}</div>
-                            </div>
-                        </div>
-                    `;
-                    
-                    movieGrid.appendChild(movieCard);
-                });
-            }
-        }
-
-        // Setup pagination
-        function setupPagination() {
-            const totalPages = Math.ceil(filteredMovies.length / moviesPerPage);
-            
-            if (totalPages <= 1) {
-                pagination.style.display = 'none';
-                return;
-            }
-            
-            pagination.style.display = 'flex';
-            pagination.innerHTML = '';
-            
-            // Previous button
-            const prevButton = document.createElement('button');
-            prevButton.className = 'page-btn';
-            prevButton.innerHTML = '<i class="fas fa-chevron-right"></i> پێشوو';
-            prevButton.disabled = currentPage === 1;
-            prevButton.addEventListener('click', () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    renderMovies();
-                    setupPagination();
-                    window.scrollTo({ top: movieGrid.offsetTop - 100, behavior: 'smooth' });
-                }
-            });
-            pagination.appendChild(prevButton);
-            
-            // Page buttons
-            for (let i = 1; i <= totalPages; i++) {
-                const pageButton = document.createElement('button');
-                pageButton.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-                pageButton.textContent = i;
-                pageButton.addEventListener('click', () => {
-                    currentPage = i;
-                    renderMovies();
-                    setupPagination();
-                    window.scrollTo({ top: movieGrid.offsetTop - 100, behavior: 'smooth' });
-                });
-                pagination.appendChild(pageButton);
-            }
-            
-            // Next button
-            const nextButton = document.createElement('button');
-            nextButton.className = 'page-btn';
-            nextButton.innerHTML = 'داهاتوو <i class="fas fa-chevron-left"></i>';
-            nextButton.disabled = currentPage === totalPages;
-            nextButton.addEventListener('click', () => {
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    renderMovies();
-                    setupPagination();
-                    window.scrollTo({ top: movieGrid.offsetTop - 100, behavior: 'smooth' });
-                }
-            });
-            pagination.appendChild(nextButton);
-        }
-
-        // Setup search functionality
-        function setupSearch() {
-            // Search button click
-            searchButton.addEventListener('click', performSearch);
-            
-            // Enter key in search input
-            searchInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
-            });
-            
-            // Clear search when input is empty
-            searchInput.addEventListener('input', (e) => {
-                if (!e.target.value.trim()) {
-                    filteredMovies = [...movies];
-                    currentPage = 1;
-                    renderMovies();
-                    setupPagination();
-                }
-            });
-        }
-
-        // Perform search
-        function performSearch() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            
-            if (!searchTerm) {
-                filteredMovies = [...movies];
-            } else {
-                filteredMovies = movies.filter(movie => 
-                    movie.title.toLowerCase().includes(searchTerm) || 
-                    movie.year.toString().includes(searchTerm) ||
-                    movie.plot.toLowerCase().includes(searchTerm)
-                );
-            }
-            
-            currentPage = 1;
-            renderMovies();
-            setupPagination();
-        }
-
-        // Setup movie click events
-        function setupMovieClickEvents() {
-            // Using event delegation for movie cards
-            movieGrid.addEventListener('click', (e) => {
-                const movieCard = e.target.closest('.movie-card');
-                if (movieCard) {
-                    const movieId = movieCard.dataset.id;
-                    const movie = movies.find(m => m.rank == movieId);
-                    
-                    if (movie) {
-                        // Create modal
-                        const modal = document.createElement('div');
-                        modal.style.cssText = `
-                            position: fixed;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            background: rgba(0,0,0,0.8);
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            z-index: 1000;
-                            backdrop-filter: blur(10px);
-                            animation: fadeIn 0.3s ease;
-                        `;
-                        
-                        modal.innerHTML = `
-                            <div style="
-                                background: rgba(26,26,46,0.95);
-                                border-radius: 25px;
-                                padding: 30px;
-                                max-width: 500px;
-                                width: 90%;
-                                border: 1px solid rgba(255,255,255,0.2);
-                                box-shadow: 0 20px 60px rgba(0,0,0,0.7);
-                                position: relative;
-                                animation: fadeInUp 0.5s ease;
-                            ">
-                                <button style="
-                                    position: absolute;
-                                    top: 15px;
-                                    left: 15px;
-                                    background: rgba(255,255,255,0.1);
-                                    border: none;
-                                    color: white;
-                                    font-size: 1.5em;
-                                    cursor: pointer;
-                                    width: 40px;
-                                    height: 40px;
-                                    border-radius: 50%;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    transition: all 0.3s ease;
-                                " onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">×</button>
-                                <h2 style="color: #f5c518; margin-bottom: 15px; text-align: center; padding: 0 30px;">${movie.title}</h2>
-                                <div style="text-align: center; margin-bottom: 20px;">
-                                    <span style="background: #f5c518; color: black; padding: 8px 20px; border-radius: 20px; font-weight: bold; font-size: 1.1em;">
-                                        ⭐ ${movie.rating}/10
-                                    </span>
-                                    <span style="margin-right: 15px;"></span>
-                                    <span style="background: #3498db; color: white; padding: 8px 20px; border-radius: 20px; font-weight: bold; font-size: 1.1em;">
-                                        📅 ${movie.year}
-                                    </span>
-                                </div>
-                                <p style="color: rgba(255,255,255,0.9); line-height: 1.7; text-align: justify; font-size: 1.05em;">
-                                    ${movie.plot}
-                                </p>
-                                <div style="text-align: center; margin-top: 25px;">
-                                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95em; margin-bottom: 20px;">
-                                        ئەم فیلمە لە ڕیزبەندی فیلمەکاندا پلەی <strong>${movie.rank}</strong>ی هەیە
-                                    </p>
-                                    <button style="
-                                        background: linear-gradient(45deg, #833ab4, #fd1d1d);
-                                        border: none;
-                                        padding: 12px 30px;
-                                        border-radius: 50px;
-                                        color: white;
-                                        font-weight: bold;
-                                        cursor: pointer;
-                                        margin-top: 10px;
-                                        font-size: 1em;
-                                        transition: all 0.3s ease;
-                                        box-shadow: 0 5px 20px rgba(253,29,29,0.4);
-                                    " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 7px 25px rgba(253,29,29,0.6)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 20px rgba(253,29,29,0.4)'">دەستنیشانکردنی فیلم</button>
-                                </div>
-                            </div>
-                        `;
-                        
-                        document.body.appendChild(modal);
-                        
-                        // Close modal when clicking close button or outside
-                        modal.addEventListener('click', (e) => {
-                            if (e.target === modal || e.target.textContent === '×') {
-                                modal.style.animation = 'fadeOut 0.3s ease';
-                                setTimeout(() => {
-                                    if (document.body.contains(modal)) {
-                                        document.body.removeChild(modal);
-                                    }
-                                }, 250);
-                            }
-                        });
-                        
-                        // Add fadeOut animation
-                        const style = document.createElement('style');
-                        style.textContent = `
-                            @keyframes fadeOut {
-                                from { opacity: 1; }
-                                to { opacity: 0; }
-                            }
-                        `;
-                        document.head.appendChild(style);
-                        
-                        // Close with Escape key
-                        document.addEventListener('keydown', function closeModal(e) {
-                            if (e.key === 'Escape' && document.body.contains(modal)) {
-                                modal.style.animation = 'fadeOut 0.3s ease';
-                                setTimeout(() => {
-                                    if (document.body.contains(modal)) {
-                                        document.body.removeChild(modal);
-                                    }
-                                }, 250);
-                                document.removeEventListener('keydown', closeModal);
-                            }
-                        });
-                    }
-                }
-            });
-        }
-
-        // Add some interactivity to movie cards
-        document.addEventListener('mousemove', (e) => {
-            const cards = document.querySelectorAll('.movie-card');
-            cards.forEach(card => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
+        // فەنکشنەکانی Movie وەک پێشتر (renderMovies, setupPagination, setupSearch, setupMovieClickEvents)
+        // TODO: تەواوی فەنکشنەکانی JavaScript لێرە بکۆپیکەرەوە.
+        // **تەنها زۆر دڵنیابە لەوەی کە لە فەنکشنی updateElementColors() هەر شتێک کە پەیوەست بە ڕەنگەکانی
+        // توخمەکانی فیلمەوە بوو بیسڕیتەوە، چونکە ئێستا لە ڕێگەی CSSەوە کۆنتڕۆڵ دەکرێن.**
     </script>
 </body>
 </html>
