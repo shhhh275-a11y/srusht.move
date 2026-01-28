@@ -1,9 +1,4 @@
-Skip to content
-srusht.move
-Repository navigation
-Code
-Issues
-Pull requests
+
 باشترینەکان لیرە ببینە
 
  0 stars
