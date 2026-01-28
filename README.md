@@ -1,3 +1,28 @@
+Skip to content
+srusht.move
+Repository navigation
+Code
+Issues
+Pull requests
+باشترینەکان لیرە ببینە
+
+ 0 stars
+ 0 forks
+ 1 watching
+ 2 Branches
+ 0 Tags
+ Activity
+Public repository
+shhhh275-a11y/srusht.move
+Name	
+shhhh275-a11y
+shhhh275-a11y
+3 months ago
+README.md
+3 months ago
+Repository files navigation
+README
+<title>Shocking Ending Movies - Srusht Movies</title> <style> * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         min-height: 100vh;
@@ -483,3 +508,434 @@
         }
     }
 </style>
+<div class="container">
+    <div class="header-section">
+        <div class="main-title">🎬 یەکەمین سایتی کوردی بۆ دۆزینەوەی فیلمی نایاب</div>
+        <div class="brand-name">Shocking Ending Movies</div>
+    </div>
+    
+    <!-- بەشی گەڕان -->
+    <div class="search-section">
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="گەڕان بە ناوی فیلم...">
+            <button class="search-button">گەڕان</button>
+        </div>
+    </div>
+    
+    <!-- بەشی ئینستاگرام -->
+    <div class="social-section">
+        <div class="ig-banner">
+            <a href="https://www.instagram.com/9fi.99?igsh=MXQ0NG1icnc3Ym11NA==" target="_blank">
+                <span class="ig-icon">📱</span>
+                سەردانی ئەکاونتی ئینستاگراممان بکە
+            </a>
+        </div>
+    </div>
+    
+    <div class="movie-grid">
+        <!-- فیلم 1 -->
+        <div class="movie-card">
+            <div class="rank">1</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMWM4NTFhYjctNzUyNi00NGMwLTk3NTYtMDIyNTZmMzRlYmQyXkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">The Sixth Sense</div>
+                <div class="movie-year">1999</div>
+                <div class="movie-plot">دکتۆرێکی دەروونزانی هەوڵ دەدات منداڵێک یارمەتی بدات کە باوەڕی وایە دەتوانێت مردووان ببینێت و قسەیان لەگەڵ بکات. کۆتاییەکە هەموو شتێک دەگۆڕێت!</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.2/10</div>
+                    <div class="age-rating pg13">PG-13</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 2 -->
+        <div class="movie-card">
+            <div class="rank">2</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BNDJiZDgyZjctYmRjMS00ZjdkLTkwMTEtNGU1NDg3NDQ0Yzk1XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Fight Club</div>
+                <div class="movie-year">1999</div>
+                <div class="movie-plot">کارمەندێکی بێزار لە ژیانی دووبارەبوو ناسیاوی فرۆشەرێک دەکات و کلوبێکی شەڕی نهێنی دامەزرێنن. بەڵام نهێنییەکی گەورە لەبارەی ناسیاوە تازەکەی هەیە.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.8/10</div>
+                    <div class="age-rating">R (18+)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 3 -->
+        <div class="movie-card">
+            <div class="rank">3</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">The Prestige</div>
+                <div class="movie-year">2006</div>
+                <div class="movie-plot">دوو سیحربازی ناودار لە لەندەن دژایەتی توند دەکەن و هەریەکەیان هەوڵ دەدات ئەو یەکەی تر تێکبدات. نهێنیەکی ترسناک لە پشت یارییەکانیان شاراوەتەوە.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.5/10</div>
+                    <div class="age-rating pg13">PG-13</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 4 -->
+        <div class="movie-card">
+            <div class="rank">4</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BZTcyNjk1MjgtOWI3Mi00YzQwLWI5MTktMzY4ZmI2NDAyNzYzXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Memento</div>
+                <div class="movie-year">2000</div>
+                <div class="movie-plot">پیاوێک یادەوەری کورتخایەنی هەیە و ناتوانێت یادەوەریی تازە دروست بکات. هەوڵ دەدات بکوژی ژنەکەی بدۆزێتەوە. چیرۆکەکە بە پێچەوانەوە دەڕوات!</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.4/10</div>
+                    <div class="age-rating">R (18+)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 5 -->
+        <div class="movie-card">
+            <div class="rank">5</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Oldboy</div>
+                <div class="movie-year">2003</div>
+                <div class="movie-plot">پیاوێک بۆ 15 ساڵ لە ژوورێکدا بە دیل دەگیرێت بەبێ هۆکار. دوای ئازادبوون، هەوڵ دەدات بزانێت کێ و بۆچی ئەمەی کردووە. کۆتاییەکەی ترسناکە!</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.4/10</div>
+                    <div class="age-rating">R (18+)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 6 -->
+        <div class="movie-card">
+            <div class="rank">6</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTk0MDQ3MzAzOV5BMl5BanBnXkFtZTgwNzU1NzE3MjE@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Gone Girl</div>
+                <div class="movie-year">2014</div>
+                <div class="movie-plot">ژنێک لە ڕۆژی ساڵیادی هاوسەرگیریدا ون دەبێت و مێردەکەی تۆمەتبار دەکرێت. بەڵام ڕاستییەکە تەواو جیاوازە لەوەی دەرکەوتووە.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.1/10</div>
+                    <div class="age-rating">R (18+)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 7 -->
+        <div class="movie-card">
+            <div class="rank">7</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BNjk1NzBlY2YtNjJmNi00YTVmLWI2OTgtNDUxNDE5NjUzZmE0XkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">The Machinist</div>
+                <div class="movie-year">2004</div>
+                <div class="movie-plot">کرێکارێکی کارگە بۆ ساڵێکە نەخەوتووە و یادەوەری لێ دەشێوێت. کەسێکی نامۆ دەردەکەوێت و ژیانی تێکدەدات. نهێنییەکی تاریک لە ڕابردوویدا هەیە.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 7.6/10</div>
+                    <div class="age-rating">R (18+)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 8 -->
+        <div class="movie-card">
+            <div class="rank">8</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTAxMDE4Mzc3ODNeQTJeQWpwZ15BbWU4MDY2Mjg4MDcx._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">The Others</div>
+                <div class="movie-year">2001</div>
+                <div class="movie-plot">دایکێک و دوو منداڵەکەی لە ماڵێکی تاریکدا دەژین. منداڵەکان نابێت تیشکیان لێ بکەوێت. ڕووداوی سەیر دەستپێدەکات و نهێنی ماڵەکە ئاشکرا دەبێت.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 7.6/10</div>
+                    <div class="age-rating pg13">PG-13</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 9 -->
+        <div class="movie-card">
+            <div class="rank">9</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BN2JmMjViMjMtZTM5Mi00ZGZkLTk5YzctZDg5MjFjZDE4NjNkXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Shutter Island</div>
+                <div class="movie-year">2010</div>
+                <div class="movie-plot">پۆلیسێک بۆ تەحقیق لەسەر ونبوونی نەخۆسێکی دەروونی دەچێتە دوورگەیەکی تایبەت. بەڵام هەموو شتێک ئەوەندە سادە نییە کە دەردەکەوێت.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.2/10</div>
+                    <div class="age-rating">R (18+)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 10 -->
+        <div class="movie-card">
+            <div class="rank">10</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMjEzMjczOTI2MV5BMl5BanBnXkFtZTgwOTUwMjI3NzE@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">The Usual Suspects</div>
+                <div class="movie-year">1995</div>
+                <div class="movie-plot">کەسێکی تاوانبار بەڵێن دەدات بە پۆلیس کە ئەگەر بەڵێنەکەی بەجێبهێنێت، ناوی تاوانبارێکی نەناسراو دەڵێت. کۆتاییەکە هەموو شتێک دەگۆڕێت!</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.5/10</div>
+                    <div class="age-rating">R (18+)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 11 -->
+        <div class="movie-card">
+            <div class="rank">11</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTcyMzUyMzY1OF5BMl5BanBnXkFtZTcwNDQ4ODk1Mw@@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Se7en</div>
+                <div class="movie-year">1995</div>
+                <div class="movie-plot">دوو پۆلیس هەوڵ دەدەن کەسێک بدۆزنەوە کە کوشتنەکانی بەپێی حەوت تاوانە مەزنەکەی ئینجیل ئەنجام دەدات. کۆتاییەکە هۆشیارکەرەوەیە!</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.6/10</div>
+                    <div class="age-rating">R (18+)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 12 -->
+        <div class="movie-card">
+            <div class="rank">12</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMDliOTNhNmEtYTk2NS00NjFiLTkxMDItN2M1M2VmNWQzMjhlXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Inception</div>
+                <div class="movie-year">2010</div>
+                <div class="movie-plot">سەرکردەیەکی تیمی تایبەت کە خەون دەدزێت، دەست دەکات بە ئەرکێکی مەترسیدار: نەخشاندنی بیرۆکەیەک لە مێشکی کەسێک.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.8/10</div>
+                    <div class="age-rating pg13">PG-13</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 13 -->
+        <div class="movie-card">
+            <div class="rank">13</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">The Social Network</div>
+                <div class="movie-year">2010</div>
+                <div class="movie-plot">چیرۆکی دروستکردنی فەیسبووک و کێشەکانی نێوان دامەزرێنەرەکانی. کۆتاییەکە ڕوونی دەکاتەوە کە سەرکەوتن بە نرخی چیمە.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 7.7/10</div>
+                    <div class="age-rating pg13">PG-13</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 14 -->
+        <div class="movie-card">
+            <div class="rank">14</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">The Dark Knight</div>
+                <div class="movie-year">2008</div>
+                <div class="movie-plot">بەتمان هەوڵ دەدات شاری گۆتەم ڕزگار بکات لە جۆکەر، کەسێکی شێت کە پلانی تێکدانی شاری هەیە. کۆتاییەکە گۆڕانکاری گەورە دروست دەکات.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 9.0/10</div>
+                    <div class="age-rating pg13">PG-13</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 15 -->
+        <div class="movie-card">
+            <div class="rank">15</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Avatar</div>
+                <div class="movie-year">2009</div>
+                <div class="movie-plot">سەربازێک لە جیهانێکی تر دەچێتە ناو لەشی بوونەوەرێکی تر و دەبێتە هۆی گۆڕانکارییەکی مەزن لە ژیانی خۆی و ئەو جیهانە.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 7.8/10</div>
+                    <div class="age-rating pg13">PG-13</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 16 -->
+        <div class="movie-card">
+            <div class="rank">16</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Joker</div>
+                <div class="movie-year">2019</div>
+                <div class="movie-plot">کەسێکی کۆمیدی دەبێتە جۆکەر و دەست دەکات بە جێبەجێکردنی پلانێکی ترسناک. کۆتاییەکە هەموو کەسێک سەرسام دەکات.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.4/10</div>
+                    <div class="age-rating">R (18+)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 17 -->
+        <div class="movie-card">
+            <div class="rank">17</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTM0MDgwNjMyMl5BMl5BanBnXkFtZTcwNTg0NzU1Ng@@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Interstellar</div>
+                <div class="movie-year">2014</div>
+                <div class="movie-plot">زانایەک پڕۆژەیەکی تایبەت دروست دەکات بۆ گەڕانەوەی کچەکەی. بەڵام پڕۆژەکە زۆر مەترسیدارترە لەوەی کە خەیاڵی دەکرد.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.6/10</div>
+                    <div class="age-rating pg13">PG-13</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 18 -->
+        <div class="movie-card">
+            <div class="rank">18</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTY3NjY0MTQ0Nl5BMl5BanBnXkFtZTcwMDQzMzQ2Mw@@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Venom</div>
+                <div class="movie-year">2018</div>
+                <div class="movie-plot">ڕۆژنامەنووسێک دەبێتە میواندارێکی بوونەوەرێکی دەرەکی و دەبێتە هۆی گۆڕانکارییەکی مەزن لە ژیانی.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 6.7/10</div>
+                    <div class="age-rating pg13">PG-13</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 19 -->
+        <div class="movie-card">
+            <div class="rank">19</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Avengers: Endgame</div>
+                <div class="movie-year">2019</div>
+                <div class="movie-plot">کۆمەڵێک قارەمان هەوڵ دەدەن جیهان ڕزگار بکەن لە تەنانۆس. بەڵام ڕێگەکە زۆر مەترسیدارە و کۆتاییەکە گۆڕانکاری گەورە دروست دەکات.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.4/10</div>
+                    <div class="age-rating pg13">PG-13</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 20 -->
+        <div class="movie-card">
+            <div class="rank">20</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">Iron Man</div>
+                <div class="movie-year">2008</div>
+                <div class="movie-plot">بلیمەتێکی بەهرەدار دەبێتە قارەمانێکی سەربەخۆ دوای ئەوەی ڕزگاری لە تاوانبارێک دەبێت. بەڵام ڕووبەڕووبوونەوەی گەورە هەر هەیە.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 7.9/10</div>
+                    <div class="age-rating pg13">PG-13</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 21 -->
+        <div class="movie-card">
+            <div class="rank">21</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTM4NzQ0OTYyOF5BMl5BanBnXkFtZTcwMDkyNjQyMg@@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">The Lion King</div>
+                <div class="movie-year">1994</div>
+                <div class="movie-plot">شێرێکی گەنج دەبێتە پاشا دوای مردنی باوکی. بەڵام مامی پلانێکی خراپ دادەنێت بۆ وەرگرتنی تەختی پاشایەتی.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 8.5/10</div>
+                    <div class="age-rating">G (All Ages)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- فیلم 22 -->
+        <div class="movie-card">
+            <div class="rank">22</div>
+            <div class="movie-poster" style="background-image: url('https://m.media-amazon.com/images/M/MV5BMTY5OTU0OTc2NV5BMl5BanBnXkFtZTcwMzU4MDcyMQ@@._V1_FMjpg_UX1000_.jpg')"></div>
+            <div class="movie-info">
+                <div class="movie-title">The Maze Runner</div>
+                <div class="movie-year">2014</div>
+                <div class="movie-plot">کەسێک لە جیهانێکی پۆست-ئەپۆکالیپتیکدا هەوڵ دەدات ڕزگاری خەڵک بکات لە نەهێشتنی تەواو. بەڵام ڕێگەکە زۆر مەترسیدارە.</div>
+                <div class="rating-container">
+                    <div class="imdb-rating">⭐ 6.8/10</div>
+                    <div class="age-rating pg13">PG-13</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- بەشی خاوەنی سایەت -->
+    <div class="owner-box">
+        <div class="owner-title">خاوەنی سایەت</div>
+        <div class="owner-name">srusht.movies</div>
+        <div class="owner-subtitle">ئەم ماڵپەرە خاوەنداریەتی دەکرێت لە لایەن srusht.movies</div>
+    </div>
+    
+    <div class="footer">
+        © 2023 Shocking Ending Movies - هەموو مافەکان پارێزراون
+    </div>
+</div>
+
+<script>
+    // کۆدی جاڤاسکریپت بۆ کاراکردنی زیاتر
+    document.addEventListener('DOMContentLoaded', function() {
+        const movieCards = document.querySelectorAll('.movie-card');
+        const searchInput = document.querySelector('.search-input');
+        const searchButton = document.querySelector('.search-button');
+        
+        movieCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const movieTitle = this.querySelector('.movie-title').textContent;
+                alert(`فیلمی "${movieTitle}" هەڵبژێردرا!`);
+            });
+        });
+        
+        // کاراکردنی بەشی گەڕان
+        searchButton.addEventListener('click', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+            let found = false;
+            
+            movieCards.forEach(card => {
+                const title = card.querySelector('.movie-title').textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    found = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            if (!found && searchTerm) {
+                alert('هیچ فیلمێک نەدۆزرایەوە بەم ناوە!');
+            }
+        });
+        
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchButton.click();
+            }
+        });
+    });
+</script>
+Releases
+No releases published
+Create a new release
+Packages
+No packages published
+Publish your first package
+Deployments
+36
+ github-pages 2 minutes ago
++ 35 deployments
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
