@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ku" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="یەکەمین سایتی کوردی بۆ دۆزینەوەی فیلمی نایاب - فیلمەکان کۆتاییەکی سەرسوڕهێنەریان هەیە">
-    <meta name="keywords" content="فیلم, سینەما, کوردی, کۆتایی سەرسوڕهێنەر, فیلمی نایاب">
+    <meta name="description" content="The First Kurdish Site for Finding Amazing Movies - Movies with Shocking Endings">
+    <meta name="keywords" content="movies, cinema, Kurdish, shocking ending, amazing films">
     <meta name="author" content="srusht.movies">
-    <title>Shocking Ending Movies - سایتی فیلمی کوردی</title>
+    <title>Shocking Ending Movies - Kurdish Movie Site</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -17,17 +17,16 @@
 
         :root {
             --primary: #c77b63;
-            --secondary: #1a1a2e;
-            --accent: #f5c518;
-            --text: #ffffff;
+            --secondary: #0f172a;
+            --accent: #f59e0b;
+            --text: #f8fafc;
             --card-bg: rgba(255, 255, 255, 0.08);
-            --shadow: rgba(0, 0, 0, 0.4);
-            /* گۆڕاوە نوێیەکان بۆ مۆدی ڕەنگ */
-            --header-bg: rgba(255, 255, 255, 0.05); /* پاشبنەمای سەرەکی سەرەوە */
+            --shadow: rgba(0, 0, 0, 0.5);
+            --header-bg: rgba(255, 255, 255, 0.05);
         }
 
         body {
-            font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             min-height: 100vh;
             background: var(--secondary);
             color: var(--text);
@@ -36,24 +35,12 @@
             transition: background-color 0.5s ease;
         }
 
-        /* مۆدی ڕۆژ (Day Mode) */
-        body.day-mode {
-            --secondary: #f0f2f5;
-            --text: #1a1a2e;
-            --card-bg: rgba(26, 26, 46, 0.08);
-            --header-bg: rgba(26, 26, 46, 0.05);
+        body.light-mode {
+            --secondary: #f1f5f9;
+            --text: #0f172a;
+            --card-bg: rgba(15, 23, 42, 0.08);
+            --header-bg: rgba(15, 23, 42, 0.05);
             --shadow: rgba(0, 0, 0, 0.1);
-        }
-
-        body.day-mode .background-overlay {
-            opacity: 0.05;
-        }
-
-        body.day-mode .brand-name {
-            background: linear-gradient(45deg, #1a1a2e, #2d2d5a, #4a4a7a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .background-overlay {
@@ -63,13 +50,17 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(26,26,46,0.95) 100%),
+                linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(15,23,42,0.95) 100%),
                 url('https://images.unsplash.com/photo-1489599809505-7c8e1a48bcc0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             opacity: 0.15;
             z-index: -2;
             transition: opacity 0.5s ease;
+        }
+
+        body.light-mode .background-overlay {
+            opacity: 0.05;
         }
 
         .gradient-circle {
@@ -101,69 +92,77 @@
             z-index: 1;
         }
 
-        /* Header Styles - ئێستا گۆڕاوێکی CSS بەکاردهێنێت */
         .header {
             text-align: center;
-            margin-bottom: 50px;
-            padding: 30px 0;
+            margin-bottom: 40px;
+            padding: 25px 0;
         }
 
         .site-title {
-            font-size: 1.8em;
+            font-size: 1.6em;
             font-weight: 700;
-            margin-bottom: 20px;
-            padding: 20px 50px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 60px;
+            margin-bottom: 15px;
+            padding: 18px 40px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
             display: inline-block;
-            background: var(--header-bg); /* گۆڕاو بەکارهاتووە */
+            background: var(--header-bg);
             backdrop-filter: blur(10px);
             animation: fadeInDown 1s ease;
             box-shadow: 0 8px 25px var(--shadow);
             transition: all 0.5s ease;
         }
-        body.day-mode .site-title {
-            border: 2px solid rgba(26, 26, 46, 0.3);
+
+        body.light-mode .site-title {
+            border: 2px solid rgba(15, 23, 42, 0.2);
         }
 
         .brand-name {
-            font-size: 3.5em;
+            font-size: 3.2em;
             font-weight: 900;
-            text-shadow: 3px 3px 0px rgba(0,0,0,0.4), 0 0 30px rgba(255,255,255,0.3);
-            background: linear-gradient(45deg, #ffffff, #e0e0e0, #a8a8a8);
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.2);
+            background: linear-gradient(45deg, #f8fafc, #e2e8f0, #cbd5e1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             animation: fadeIn 1.5s ease;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
 
-        /* بەشی شێوەگۆڕی (Mode Switcher) */
+        body.light-mode .brand-name {
+            background: linear-gradient(45deg, #0f172a, #334155, #475569);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== DARK MODE TOGGLE ===== */
         .mode-switcher-container {
             text-align: center;
-            margin: 15px auto 40px;
+            margin: 5px auto 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .mode-label {
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1em;
+            color: rgba(248, 250, 252, 0.9);
+            font-size: 0.95em;
         }
-        body.day-mode .mode-label {
-            color: rgba(26, 26, 46, 0.9);
+
+        body.light-mode .mode-label {
+            color: rgba(15, 23, 42, 0.9);
         }
 
         .mode-switcher {
             position: relative;
             display: inline-block;
-            width: 80px;
-            height: 34px;
+            width: 70px;
+            height: 30px;
         }
 
         .mode-switcher input {
@@ -179,177 +178,115 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, #3498db, #833ab4);
+            background: linear-gradient(90deg, #475569, #0f172a);
             transition: .4s;
             border-radius: 34px;
             display: flex;
             align-items: center;
-            padding: 0 6px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+            padding: 0 5px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .mode-slider:before {
             position: absolute;
             content: "";
-            height: 26px;
-            width: 26px;
+            height: 22px;
+            width: 22px;
             left: 4px;
             bottom: 4px;
-            background-color: white;
+            background-color: #f8fafc;
             transition: .4s;
             border-radius: 50%;
             z-index: 2;
         }
 
         .mode-icon {
-            font-size: 0.9em;
+            font-size: 0.8em;
             z-index: 1;
             transition: opacity 0.3s;
-            color: white;
+            color: #f8fafc;
         }
 
-        #moon-icon {
+        #dark-icon {
             margin-right: auto;
             opacity: 1;
         }
 
-        #sun-icon {
+        #light-icon {
             margin-left: auto;
             opacity: 0.7;
         }
 
         input:checked + .mode-slider {
-            background: linear-gradient(90deg, #fd1d1d, #fcb045);
+            background: linear-gradient(90deg, #fdba74, #f59e0b);
         }
 
         input:checked + .mode-slider:before {
-            transform: translateX(46px);
+            transform: translateX(40px);
         }
 
-        input:checked + .mode-slider #moon-icon {
+        input:checked + .mode-slider #dark-icon {
             opacity: 0.7;
         }
 
-        input:checked + .mode-slider #sun-icon {
+        input:checked + .mode-slider #light-icon {
             opacity: 1;
         }
 
-        /* Search Section */
-        .search-section {
-            max-width: 600px;
-            margin: 0 auto 40px;
-            padding: 0 20px;
-        }
-
-        .search-box {
-            display: flex;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 50px;
-            padding: 5px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 25px var(--shadow);
-            transition: all 0.3s ease;
-        }
-        body.day-mode .search-box {
-            background: rgba(26, 26, 46, 0.1);
-            border: 1px solid rgba(26, 26, 46, 0.2);
-        }
-
-        .search-box:focus-within {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-        }
-
-        .search-input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 18px 25px;
-            color: var(--text);
-            font-size: 1.1em;
-            outline: none;
-            font-family: inherit;
-        }
-
-        .search-input::placeholder {
-            color: rgba(255,255,255,0.6);
-        }
-        body.day-mode .search-input::placeholder {
-            color: rgba(26, 26, 46, 0.6);
-        }
-
-        .search-button {
-            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
-            border: none;
-            border-radius: 50px;
-            padding: 18px 35px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
-            font-size: 1em;
-        }
-
-        .search-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(253,29,29,0.5);
-        }
-
-        /* بەشی ئینستاگرام - نوێکراوە */
+        /* ===== INSTAGRAM SECTION ===== */
         .social-section {
             text-align: center;
-            margin: 30px auto 50px; /* کەمکرایەوە بۆ نزیککردنەوە لە سەرەوە */
+            margin: 10px auto 25px;
             padding: 0 15px;
         }
 
         .social-title {
-            font-size: 1.5em;
-            margin-bottom: 25px;
-            color: rgba(255,255,255,0.9);
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: rgba(248,250,252,0.9);
             font-weight: 600;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-        body.day-mode .social-title {
-            color: rgba(26, 26, 46, 0.9);
-            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+        body.light-mode .social-title {
+            color: rgba(15, 23, 42, 0.9);
         }
 
         .social-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
-            max-width: 700px; /* کەمکرایەوە بۆ بچووکتربوون */
+            max-width: 500px;
             margin: 0 auto;
         }
 
         .social-card {
             background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 20px; /* کەمکرایەوە */
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* کەمکرایەوە */
-            transition: all 0.4s ease;
-            min-width: 240px; /* کەمکرایەوە */
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            transition: all 0.3s ease;
+            min-width: 200px;
             flex: 1;
-            max-width: 300px; /* سنووردارکراو */
+            max-width: 240px;
         }
-        body.day-mode .social-card {
-            border: 1px solid rgba(26, 26, 46, 0.15);
+
+        body.light-mode .social-card {
+            border: 1px solid rgba(15, 23, 42, 0.12);
         }
 
         .social-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
-        body.day-mode .social-card:hover {
-            background: rgba(26, 26, 46, 0.12);
-            border: 1px solid rgba(26, 26, 46, 0.25);
+
+        body.light-mode .social-card:hover {
+            background: rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(15, 23, 42, 0.25);
         }
 
         .social-card a {
@@ -357,15 +294,12 @@
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            color: white;
-            gap: 12px; /* کەمکرایەوە */
-        }
-        body.day-mode .social-card a {
             color: var(--text);
+            gap: 10px;
         }
 
         .social-icon {
-            font-size: 2.2em; /* کەمکرایەوە */
+            font-size: 2em;
             background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -373,104 +307,156 @@
         }
 
         .social-name {
-            font-size: 1.2em; /* کەمکرایەوە */
+            font-size: 1.1em;
             font-weight: 700;
-            color: var(--text);
-            text-align: center;
         }
 
         .social-username {
-            font-size: 0.95em; /* کەمکرایەوە */
-            color: rgba(255,255,255,0.7);
-            text-align: center;
+            font-size: 0.85em;
+            color: rgba(248,250,252,0.7);
             direction: ltr;
         }
-        body.day-mode .social-username {
-            color: rgba(26, 26, 46, 0.7);
+
+        body.light-mode .social-username {
+            color: rgba(15, 23, 42, 0.7);
         }
 
         .social-follow {
             background: linear-gradient(45deg, #833ab4, #fd1d1d);
-            padding: 9px 22px; /* کەمکرایەوە */
+            padding: 7px 18px;
             border-radius: 50px;
             font-weight: 600;
-            margin-top: 8px;
+            margin-top: 6px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(253,29,29,0.4); /* کەمکرایەوە */
-            font-size: 0.95em;
+            box-shadow: 0 4px 12px rgba(253,29,29,0.3);
+            font-size: 0.85em;
         }
 
         .social-card:hover .social-follow {
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(253,29,29,0.6); /* کەمکرایەوە */
+            box-shadow: 0 6px 16px rgba(253,29,29,0.5);
         }
 
-        /* Movie Grid */
+        /* ===== SEARCH SECTION ===== */
+        .search-section {
+            max-width: 600px;
+            margin: 25px auto 35px;
+            padding: 0 20px;
+        }
+
+        .search-box {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 50px;
+            padding: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        body.light-mode .search-box {
+            background: rgba(15, 23, 42, 0.1);
+            border: 1px solid rgba(15, 23, 42, 0.15);
+        }
+
+        .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 16px 22px;
+            color: var(--text);
+            font-size: 1em;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: rgba(248,250,252,0.6);
+        }
+
+        body.light-mode .search-input::placeholder {
+            color: rgba(15, 23, 42, 0.6);
+        }
+
+        .search-button {
+            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+            border: none;
+            border-radius: 50px;
+            padding: 16px 30px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        .search-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 12px rgba(253,29,29,0.4);
+        }
+
+        /* ===== MOVIE GRID ===== */
         .movie-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 35px;
-            padding: 30px 0;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 25px 0;
         }
 
         .movie-card {
             background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 12px 40px var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 10px 35px var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
             position: relative;
             animation: fadeInUp 0.7s ease backwards;
         }
-        body.day-mode .movie-card {
-            border: 1px solid rgba(26, 26, 46, 0.12);
+
+        body.light-mode .movie-card {
+            border: 1px solid rgba(15, 23, 42, 0.1);
         }
 
         .movie-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             background: rgba(255, 255, 255, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        body.day-mode .movie-card:hover {
-            background: rgba(26, 26, 46, 0.12);
-            border: 1px solid rgba(26, 26, 46, 0.25);
+
+        body.light-mode .movie-card:hover {
+            background: rgba(15, 23, 42, 0.12);
+            border: 1px solid rgba(15, 23, 42, 0.2);
         }
 
         .movie-rank {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.9);
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.85);
             color: var(--accent);
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 1.5em;
+            font-size: 1.3em;
             border: 3px solid var(--accent);
-            box-shadow: 0 5px 25px rgba(245, 197, 24, 0.6);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.5);
             z-index: 10;
             animation: pulse 2.5s infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-        }
-
         .movie-poster {
             width: 100%;
-            height: 420px;
+            height: 380px;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
             position: relative;
             overflow: hidden;
         }
@@ -485,130 +471,102 @@
             background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
         }
 
-        .movie-poster::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.08) 50%, transparent 70%);
-            transform: rotate(45deg);
-            animation: shine 4s infinite;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
         .movie-info {
-            padding: 28px;
-            background: rgba(0, 0, 0, 0.4);
+            padding: 22px;
+            background: rgba(0, 0, 0, 0.3);
         }
-        body.day-mode .movie-info {
-            background: rgba(255, 255, 255, 0.4);
+
+        body.light-mode .movie-info {
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .movie-title {
-            font-size: 1.6em;
+            font-size: 1.5em;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: var(--text);
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-            line-height: 1.3;
         }
 
         .movie-year {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 1em;
-            margin-bottom: 14px;
+            color: rgba(248,250,252,0.8);
+            font-size: 0.95em;
+            margin-bottom: 12px;
             font-weight: 500;
         }
-        body.day-mode .movie-year {
-            color: rgba(26, 26, 46, 0.85);
+
+        body.light-mode .movie-year {
+            color: rgba(15, 23, 42, 0.8);
         }
 
         .movie-plot {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.95em;
-            line-height: 1.7;
-            margin-bottom: 18px;
-            text-align: justify;
-            height: 85px;
+            color: rgba(248,250,252,0.9);
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            height: 78px;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
         }
-        body.day-mode .movie-plot {
-            color: rgba(26, 26, 46, 0.9);
+
+        body.light-mode .movie-plot {
+            color: rgba(15, 23, 42, 0.9);
         }
 
         .movie-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
         }
 
         .imdb-rating {
-            background: linear-gradient(135deg, #f5c518 0%, #d4af37 100%);
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
             color: #000;
-            padding: 10px 20px;
-            border-radius: 15px;
+            padding: 8px 16px;
+            border-radius: 12px;
             font-weight: 700;
-            font-size: 1.15em;
-            box-shadow: 0 5px 20px rgba(245, 197, 24, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .movie-card:hover .imdb-rating {
-            transform: scale(1.08);
-            box-shadow: 0 7px 25px rgba(245, 197, 24, 0.6);
+            font-size: 1.05em;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
         }
 
         .age-rating {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
             color: white;
-            padding: 10px 20px;
-            border-radius: 15px;
+            padding: 8px 16px;
+            border-radius: 12px;
             font-weight: 700;
-            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
-            transition: all 0.3s ease;
+            font-size: 0.9em;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
         }
 
         .age-rating.pg13 {
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
         }
 
         .age-rating.g {
-            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
-            box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4);
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
         }
 
-        .movie-card:hover .age-rating {
-            transform: scale(1.08);
-        }
-
-        /* Owner Section */
+        /* ===== FOOTER & OWNER ===== */
         .owner-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 35px;
-            margin: 40px auto;
-            max-width: 500px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 28px;
+            margin: 35px auto;
+            max-width: 450px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
-        body.day-mode .owner-box {
-            background: rgba(26, 26, 46, 0.1);
-            border: 1px solid rgba(26, 26, 46, 0.2);
+
+        body.light-mode .owner-box {
+            background: rgba(15, 23, 42, 0.08);
+            border: 1px solid rgba(15, 23, 42, 0.15);
         }
 
         .owner-box::before {
@@ -617,58 +575,59 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #f5c518, #e74c3c, #3498db, #833ab4);
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #ef4444, #3b82f6, #833ab4);
         }
 
         .owner-title {
-            font-size: 1.2em;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: rgba(248,250,252,0.8);
+            margin-bottom: 8px;
             font-weight: 600;
         }
-        body.day-mode .owner-title {
-            color: rgba(26, 26, 46, 0.85);
+
+        body.light-mode .owner-title {
+            color: rgba(15, 23, 42, 0.8);
         }
 
         .owner-name {
-            font-size: 2.2em;
+            font-size: 2em;
             color: var(--accent);
             font-weight: 800;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(245, 197, 24, 0.8);
-            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(245, 158, 11, 0.7);
         }
 
         .owner-subtitle {
-            font-size: 1.05em;
-            color: rgba(255,255,255,0.75);
+            font-size: 0.95em;
+            color: rgba(248,250,252,0.7);
             font-style: italic;
         }
-        body.day-mode .owner-subtitle {
-            color: rgba(26, 26, 46, 0.75);
+
+        body.light-mode .owner-subtitle {
+            color: rgba(15, 23, 42, 0.7);
         }
 
-        /* Footer */
         .footer {
             text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.95em;
-            border-top: 1px solid rgba(255,255,255,0.15);
-            background: rgba(0,0,0,0.2);
-            border-radius: 20px 20px 0 0;
-        }
-        body.day-mode .footer {
-            color: rgba(26, 26, 46, 0.7);
-            border-top: 1px solid rgba(26, 26, 46, 0.15);
-            background: rgba(240, 242, 245, 0.5);
+            margin-top: 50px;
+            padding: 25px;
+            color: rgba(248,250,252,0.6);
+            font-size: 0.9em;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.15);
+            border-radius: 15px 15px 0 0;
         }
 
-        /* Animations */
+        body.light-mode .footer {
+            color: rgba(15, 23, 42, 0.6);
+            border-top: 1px solid rgba(15, 23, 42, 0.1);
+            background: rgba(241, 245, 249, 0.4);
+        }
+
+        /* ===== ANIMATIONS ===== */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-40px); }
+            from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -678,369 +637,181 @@
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Staggered animation for movie cards */
-        .movie-card:nth-child(1) { animation-delay: 0.1s; }
-        .movie-card:nth-child(2) { animation-delay: 0.15s; }
-        .movie-card:nth-child(3) { animation-delay: 0.2s; }
-        .movie-card:nth-child(4) { animation-delay: 0.25s; }
-        .movie-card:nth-child(5) { animation-delay: 0.3s; }
-        .movie-card:nth-child(6) { animation-delay: 0.35s; }
-        .movie-card:nth-child(7) { animation-delay: 0.4s; }
-        .movie-card:nth-child(8) { animation-delay: 0.45s; }
-        .movie-card:nth-child(9) { animation-delay: 0.5s; }
-        .movie-card:nth-child(10) { animation-delay: 0.55s; }
-        .movie-card:nth-child(11) { animation-delay: 0.6s; }
-        .movie-card:nth-child(12) { animation-delay: 0.65s; }
-        .movie-card:nth-child(13) { animation-delay: 0.7s; }
-        .movie-card:nth-child(14) { animation-delay: 0.75s; }
-        .movie-card:nth-child(15) { animation-delay: 0.8s; }
-        .movie-card:nth-child(16) { animation-delay: 0.85s; }
-        .movie-card:nth-child(17) { animation-delay: 0.9s; }
-        .movie-card:nth-child(18) { animation-delay: 0.95s; }
-        .movie-card:nth-child(19) { animation-delay: 1.0s; }
-        .movie-card:nth-child(20) { animation-delay: 1.05s; }
-        .movie-card:nth-child(21) { animation-delay: 1.1s; }
-        .movie-card:nth-child(22) { animation-delay: 1.15s; }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .container {
-                padding: 15px;
-            }
-            .movie-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 25px;
-            }
-        }
-
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .brand-name {
-                font-size: 2.5em;
-            }
-            .site-title {
-                font-size: 1.4em;
-                padding: 16px 30px;
-            }
-            .movie-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            .gradient-circle {
-                width: 400px;
-                height: 400px;
-            }
-            .movie-poster {
-                height: 380px;
-            }
-            .search-section {
-                padding: 0 15px;
-            }
-            .search-input {
-                padding: 15px 20px;
-            }
-            .search-button {
-                padding: 15px 25px;
-            }
-            .social-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            .social-card {
-                width: 100%;
-                max-width: 400px;
-                min-width: auto;
-            }
-            .mode-switcher-container {
-                flex-direction: column;
-                gap: 10px;
-            }
+            .brand-name { font-size: 2.4em; }
+            .site-title { font-size: 1.2em; padding: 14px 25px; }
+            .movie-grid { grid-template-columns: 1fr; gap: 20px; }
+            .social-container { flex-direction: column; align-items: center; }
+            .social-card { max-width: 280px; }
+            .search-section { padding: 0 15px; }
         }
 
         @media (max-width: 480px) {
-            .brand-name {
-                font-size: 2em;
-            }
-            .site-title {
-                font-size: 1.1em;
-                padding: 12px 20px;
-            }
-            .movie-title {
-                font-size: 1.4em;
-            }
-            .owner-name {
-                font-size: 1.8em;
-            }
-            .social-title {
-                font-size: 1.3em;
-            }
-            .social-card {
-                padding: 18px;
-                min-width: auto;
-            }
-        }
-
-        /* Utility Classes */
-        .no-results {
-            text-align: center;
-            padding: 50px;
-            font-size: 1.3em;
-            color: rgba(255,255,255,0.7);
-            grid-column: 1 / -1;
-            display: none;
-        }
-        body.day-mode .no-results {
-            color: rgba(26, 26, 46, 0.7);
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
-        .page-btn {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        body.day-mode .page-btn {
-            background: rgba(26, 26, 46, 0.1);
-            border: 1px solid rgba(26, 26, 46, 0.2);
-            color: var(--text);
-        }
-
-        .page-btn:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-3px);
-        }
-        body.day-mode .page-btn:hover {
-            background: rgba(26, 26, 46, 0.2);
-        }
-
-        .page-btn.active {
-            background: linear-gradient(45deg, #833ab4, #fd1d1d);
-            font-weight: bold;
-        }
-
-        /* Style for Auto-mode status */
-        .auto-status {
-            font-size: 0.85em;
-            color: var(--accent);
-            font-weight: 600;
-            margin-top: 5px;
-            text-align: center;
-            min-height: 20px;
+            .brand-name { font-size: 2em; }
+            .site-title { font-size: 1em; padding: 12px 20px; }
+            .movie-poster { height: 350px; }
+            .mode-switcher-container { gap: 8px; }
+            .mode-label { font-size: 0.9em; }
         }
     </style>
 </head>
-<body class="night-mode">
+<body class="dark-mode">
     <div class="background-overlay"></div>
     <div class="gradient-circle"></div>
 
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <div class="site-title">🎬 یەکەمین سایتی کوردی بۆ دۆزینەوەی فیلمی نایاب</div>
+            <div class="site-title">🎬 The First Kurdish Site for Finding Amazing Movies</div>
             <h1 class="brand-name">Shocking Ending Movies</h1>
         </header>
 
-        <!-- بەشی شێوەگۆڕی (ڕۆژ / شەو) -->
+        <!-- Dark Mode Toggle -->
         <div class="mode-switcher-container">
-            <span class="mode-label">شێوەگۆڕی: </span>
+            <span class="mode-label">Mode: </span>
             <label class="mode-switcher">
                 <input type="checkbox" id="modeToggle">
                 <span class="mode-slider">
-                    <span id="moon-icon" class="mode-icon">🌙</span>
-                    <span id="sun-icon" class="mode-icon">☀️</span>
+                    <span id="dark-icon" class="mode-icon">🌙</span>
+                    <span id="light-icon" class="mode-icon">☀️</span>
                 </span>
             </label>
-            <span class="mode-label" id="currentModeLabel">شەو</span>
+            <span class="mode-label" id="currentModeLabel">Dark</span>
             <div class="auto-status" id="autoStatus"></div>
         </div>
+
+        <!-- Instagram Section -->
+        <section class="social-section">
+            <h2 class="social-title">Visit Our Instagram Accounts</h2>
+            <div class="social-container">
+                <div class="social-card">
+                    <a href="https://www.instagram.com/lipri_26" target="_blank">
+                        <div class="social-icon"><i class="fab fa-instagram"></i></div>
+                        <div class="social-name">Movies Account</div>
+                        <div class="social-username">@lipri_26</div>
+                        <div class="social-follow">Follow</div>
+                    </a>
+                </div>
+                <div class="social-card">
+                    <a href="https://www.instagram.com/ml.2050ll" target="_blank">
+                        <div class="social-icon"><i class="fab fa-instagram"></i></div>
+                        <div class="social-name">Film Reviews</div>
+                        <div class="social-username">@ml.2050ll</div>
+                        <div class="social-follow">Follow</div>
+                    </a>
+                </div>
+            </div>
+        </section>
 
         <!-- Search Section -->
         <section class="search-section">
             <div class="search-box">
-                <input type="text" class="search-input" placeholder="گەڕان بە ناوی فیلم...">
-                <button class="search-button">
-                    <i class="fas fa-search"></i> گەڕان
-                </button>
-            </div>
-        </section>
-
-        <!-- بەشی کۆمەڵایەتی (ئێستا 2 کارت) -->
-        <section class="social-section">
-            <h2 class="social-title">سەردانی ئەکاونتی ئینستاگرامەکانمان بکە</h2>
-            <div class="social-container">
-                <!-- Instagram Account 2 -->
-                <div class="social-card">
-                    <a href="https://www.instagram.com/lipri_26?igsh=MXQ0NG1icnc3Ym11NA==" target="_blank">
-                        <div class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <div class="social-name">ئەکاونتی فیلمەکان</div>
-                        <div class="social-username">@lipri_26</div>
-                        <div class="social-follow">شوێنکەوتن بکە</div>
-                    </a>
-                </div>
-                
-                <!-- Instagram Account 3 -->
-                <div class="social-card">
-                    <a href="https://www.instagram.com/ml.2050ll?igsh=MXQ1am53d3libzdhbA==" target="_blank">
-                        <div class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <div class="social-name">ئەکاونتی ڕەخنەی فیلم</div>
-                        <div class="social-username">@ml.2050ll</div>
-                        <div class="social-follow">شوێنکەوتن بکە</div>
-                    </a>
-                </div>
+                <input type="text" class="search-input" placeholder="Search by movie name...">
+                <button class="search-button"><i class="fas fa-search"></i> Search</button>
             </div>
         </section>
 
         <!-- Movie Grid -->
         <section class="movie-grid" id="movieGrid">
-            <!-- Movie cards will be loaded here by JavaScript -->
+            <!-- Movies will load here -->
         </section>
 
-        <!-- No Results Message -->
-        <div class="no-results" id="noResults">
-            <i class="fas fa-film fa-2x" style="margin-bottom: 20px; opacity: 0.5;"></i>
-            <p>هیچ فیلمێک بەم ناوە نەدۆزرایەوە!</p>
+        <!-- No Results -->
+        <div class="no-results" id="noResults" style="display:none; text-align:center; padding:40px;">
+            <i class="fas fa-film fa-2x" style="opacity:0.5; margin-bottom:15px;"></i>
+            <p>No movies found with that name!</p>
         </div>
 
         <!-- Pagination -->
-        <div class="pagination" id="pagination">
-            <!-- Pagination buttons will be added by JavaScript -->
-        </div>
+        <div class="pagination" id="pagination"></div>
 
         <!-- Owner Section -->
         <section class="owner-box">
-            <div class="owner-title">خاوەنی سایەت</div>
+            <div class="owner-title">Site Owner</div>
             <div class="owner-name">srusht.movies</div>
-            <div class="owner-subtitle">ئەم ماڵپەرە خاوەنداریەتی دەکرێت لە لایەن srusht.movies</div>
+            <div class="owner-subtitle">This website is owned by srusht.movies</div>
         </section>
 
         <!-- Footer -->
         <footer class="footer">
-            <p>© 2023 Shocking Ending Movies - هەموو مافەکان پارێزراون</p>
-            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.6;">
-                ئەم سایەتە بۆ خۆشی و ڕابواردنی هونەری سینەما دروست کراوە
+            <p>© 2023 Shocking Ending Movies - All Rights Reserved</p>
+            <p style="margin-top:8px; font-size:0.85em; opacity:0.7;">
+                This site is created for entertainment and cinema appreciation
             </p>
-            <p style="margin-top: 15px; font-size: 0.85em; opacity: 0.5;">
-                <i class="fas fa-hashtag"></i> فیلمە_کوردیەکان <i class="fas fa-hashtag"></i> کۆتایی_سەرسوڕهێنەر
+            <p style="margin-top:12px; font-size:0.8em; opacity:0.6;">
+                <i class="fas fa-hashtag"></i> Kurdish_Movies <i class="fas fa-hashtag"></i> Shocking_Endings
             </p>
         </footer>
     </div>
 
     <script>
-        // ========== بەشی سەرەکی مۆدەکان (شەو/ڕۆژ) ==========
+        // ===== DARK MODE FUNCTIONALITY =====
         const modeToggle = document.getElementById('modeToggle');
         const currentModeLabel = document.getElementById('currentModeLabel');
-        const autoStatus = document.getElementById('autoStatus');
         const body = document.body;
 
-        // تەواو گۆڕاوەکانی ڕەنگ کۆنتڕۆڵ دەکات
-        function updateThemeForMode(isDayMode) {
-            if (isDayMode) {
-                body.classList.add('day-mode');
-                body.classList.remove('night-mode');
-                currentModeLabel.textContent = 'ڕۆژ';
-                // نیشانەی خۆکاربوون دەسڕێتەوە کاتێ بە دەستکرد گۆڕدرا
-                autoStatus.textContent = '';
-            } else {
-                body.classList.add('night-mode');
-                body.classList.remove('day-mode');
-                currentModeLabel.textContent = 'شەو';
-                autoStatus.textContent = '';
-            }
-            // بارگاویکردنەوەی ڕەنگەکان بۆ هەموو ئەو ئەمانەی کە لەسەر پاشبنەمای ئێستا پشت دەبەستن
-            updateElementColors();
-        }
-
-        // فەنکشنێک بۆ نوێکردنەوەی تەنها ئەو توخمانەی کە پشت دەبەستن بە ڕەنگە گشتییەکان
-        function updateElementColors() {
-            // لێرە دەتوانیت هیچی تایبەت زیاد نەکەیت، چونکە هەموو شتێک لە ڕێگەی گۆڕاوەکانی CSS و کلاسەکانی 'body'ەوە کۆنتڕۆڵ دەکرێت.
-            // بۆ نموونە: document.querySelectorAll('.movie-card').forEach(card => card.style.borderColor = newColor);
-        }
-
-        // 1. فەنکشنی دیاریکردنی کاتی خۆکار (بە پشتبەستن بە کاتژمێری هەلسووکەر)
-        function getCurrentTimeBasedMode() {
-            const now = new Date();
-            const currentHour = now.getHours();
-            // وەک نمونه: شەو لە 18:00 (6PM) تا 6:00 (6AM)
-            const isDayTime = currentHour >= 6 && currentHour < 18;
-            return isDayTime; // true = ڕۆژ, false = شەو
-        }
-
-        // 2. دیاریکردنی دۆخی سەرەتا و ڕێکخستنی توگڵەکە
+        // Initialize theme
         function initializeTheme() {
-            const savedMode = localStorage.getItem('websiteThemeMode'); // 'day', 'night', یان 'auto'
-            let initialIsDayMode;
-
-            if (savedMode === 'day') {
-                initialIsDayMode = true;
+            const savedMode = localStorage.getItem('siteTheme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedMode === 'light' || (!savedMode && !prefersDark)) {
+                body.classList.add('light-mode');
+                body.classList.remove('dark-mode');
                 modeToggle.checked = true;
-                autoStatus.textContent = '';
-            } else if (savedMode === 'night') {
-                initialIsDayMode = false;
+                currentModeLabel.textContent = 'Light';
+            } else {
+                body.classList.add('dark-mode');
+                body.classList.remove('light-mode');
                 modeToggle.checked = false;
-                autoStatus.textContent = '';
-            } else { // 'auto' یان هیچ (بارە سەرەکییەکە)
-                // دیاریکردنی بە پشتبەستن بە کات
-                initialIsDayMode = getCurrentTimeBasedMode();
-                modeToggle.checked = initialIsDayMode; // توگڵ بەپێی کات ڕێک دەخرێت
-                autoStatus.textContent = '(دۆخی خۆکار)';
-                localStorage.setItem('websiteThemeMode', 'auto');
+                currentModeLabel.textContent = 'Dark';
             }
-
-            updateThemeForMode(initialIsDayMode);
-            return initialIsDayMode;
         }
 
-        // 3. گوێگرتن لە گۆڕینی توگڵ
-        let currentIsDayMode = initializeTheme(); // دۆخی سەرەتا بار دەکرێت و هەڵدەگیرێت
-
+        // Toggle theme
         modeToggle.addEventListener('change', function() {
-            // کاتێ توگڵ دەگۆڕدرێت، واتە بەکارهێنەر دەیەوێت دەستکرد بێت
-            currentIsDayMode = this.checked;
-            updateThemeForMode(currentIsDayMode);
-            // 'auto' دەسڕدرێتەوە، و دۆخی هەڵبژێردراو هەڵدەگیرێت
-            localStorage.setItem('websiteThemeMode', currentIsDayMode ? 'day' : 'night');
-            autoStatus.textContent = '';
+            if (this.checked) {
+                body.classList.add('light-mode');
+                body.classList.remove('dark-mode');
+                currentModeLabel.textContent = 'Light';
+                localStorage.setItem('siteTheme', 'light');
+            } else {
+                body.classList.add('dark-mode');
+                body.classList.remove('light-mode');
+                currentModeLabel.textContent = 'Dark';
+                localStorage.setItem('siteTheme', 'dark');
+            }
         });
 
-        // 4. (ئارەزوومەندانە) گوێگرتن لە گۆڕینی کات بۆ خۆکارکردنەوە
-        // ئەگەر 'auto' بوو، هەر خولێک کاتێک کۆدێک لە پشتیەوە کاردەکات پشکنین بکە
-        setInterval(() => {
-            if (localStorage.getItem('websiteThemeMode') === 'auto') {
-                const shouldBeDayMode = getCurrentTimeBasedMode();
-                if (shouldBeDayMode !== currentIsDayMode) {
-                    currentIsDayMode = shouldBeDayMode;
-                    modeToggle.checked = currentIsDayMode;
-                    updateThemeForMode(currentIsDayMode);
-                    autoStatus.textContent = '(دۆخی خۆکار)';
-                }
-            }
-        }, 60000); // هەر 60 چرکەیەک
-
-        // ========== Movie Data & Logic (وەک پێشتر) ==========
+        // ===== MOVIE DATA =====
         const movies = [
-            // (داتاکانی 22 فیلمەکە لێرە بۆ بەرزی نەگەڕایەوە. بە هەمان شێوەی پێشوو ماون.)
-            // TODO: تەواوی ئەرەی movies[] لێرە بکۆپیکەرەوە.
+            {
+                rank: 1, title: "The Sixth Sense", year: 1999,
+                plot: "A child psychologist tries to help a boy who claims to see and communicate with the dead. The ending changes everything!",
+                rating: 8.2, ageRating: "pg13",
+                poster: "https://m.media-amazon.com/images/M/MV5BMWM4NTFhYjctNzUyNi00NGMwLTk3NTYtMDIyNTZmMzRlYmQyXkEyXkFqcGdeQXVyMTAwMzUyOTc@._V1_FMjpg_UX1000_.jpg"
+            },
+            {
+                rank: 2, title: "Fight Club", year: 1999,
+                plot: "An insomniac office worker forms an underground fight club with a mysterious soap salesman. But there's a big secret about his new friend.",
+                rating: 8.8, ageRating: "r",
+                poster: "https://m.media-amazon.com/images/M/MV5BNDJiZDgyZjctYmRjMS00ZjdkLTkwMTEtNGU1NDg3NDQ0Yzk1XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
+            },
+            {
+                rank: 3, title: "The Prestige", year: 2006,
+                plot: "Two stage magicians in London engage in a bitter rivalry, each trying to outdo the other. A terrifying secret lies behind their games.",
+                rating: 8.5, ageRating: "pg13",
+                poster: "https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_FMjpg_UX1000_.jpg"
+            },
+            // Add remaining 19 movies here...
         ];
 
+        // ===== MOVIE RENDERING =====
         const movieGrid = document.getElementById('movieGrid');
         const searchInput = document.querySelector('.search-input');
         const searchButton = document.querySelector('.search-button');
@@ -1051,25 +822,81 @@
         const moviesPerPage = 6;
         let filteredMovies = [...movies];
 
+        // Initialize everything
         document.addEventListener('DOMContentLoaded', () => {
-            // بەشی مۆدەکان پێشتر لە initializeTheme() دەست پێدەکات
+            initializeTheme();
             renderMovies();
-            setupPagination();
             setupSearch();
-            setupMovieClickEvents();
             
+            // Add animation to social cards
             setTimeout(() => {
-                const socialCards = document.querySelectorAll('.social-card');
-                socialCards.forEach((card, index) => {
-                    card.style.animation = `fadeInUp 0.7s ease ${0.3 + (index * 0.15)}s backwards`;
+                document.querySelectorAll('.social-card').forEach((card, index) => {
+                    card.style.animation = `fadeInUp 0.6s ease ${0.2 + (index * 0.1)}s backwards`;
                 });
-            }, 500);
+            }, 300);
         });
 
-        // فەنکشنەکانی Movie وەک پێشتر (renderMovies, setupPagination, setupSearch, setupMovieClickEvents)
-        // TODO: تەواوی فەنکشنەکانی JavaScript لێرە بکۆپیکەرەوە.
-        // **تەنها زۆر دڵنیابە لەوەی کە لە فەنکشنی updateElementColors() هەر شتێک کە پەیوەست بە ڕەنگەکانی
-        // توخمەکانی فیلمەوە بوو بیسڕیتەوە، چونکە ئێستا لە ڕێگەی CSSەوە کۆنتڕۆڵ دەکرێن.**
+        function renderMovies() {
+            movieGrid.innerHTML = '';
+            const start = (currentPage - 1) * moviesPerPage;
+            const end = start + moviesPerPage;
+            const moviesToShow = filteredMovies.slice(start, end);
+
+            if (moviesToShow.length === 0) {
+                noResults.style.display = 'block';
+                movieGrid.style.display = 'none';
+            } else {
+                noResults.style.display = 'none';
+                movieGrid.style.display = 'grid';
+                
+                moviesToShow.forEach(movie => {
+                    const card = document.createElement('div');
+                    card.className = 'movie-card';
+                    card.innerHTML = `
+                        <div class="movie-rank">${movie.rank}</div>
+                        <div class="movie-poster" style="background-image: url('${movie.poster}')"></div>
+                        <div class="movie-info">
+                            <div class="movie-title">${movie.title}</div>
+                            <div class="movie-year">${movie.year}</div>
+                            <div class="movie-plot">${movie.plot}</div>
+                            <div class="movie-meta">
+                                <div class="imdb-rating">⭐ ${movie.rating}/10</div>
+                                <div class="age-rating ${movie.ageRating}">${
+                                    movie.ageRating === 'pg13' ? 'PG-13' : 
+                                    movie.ageRating === 'r' ? 'R (18+)' : 'G (All)'
+                                }</div>
+                            </div>
+                        </div>
+                    `;
+                    movieGrid.appendChild(card);
+                });
+            }
+        }
+
+        function setupSearch() {
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') performSearch();
+            });
+            
+            searchInput.addEventListener('input', () => {
+                if (!searchInput.value.trim()) {
+                    filteredMovies = [...movies];
+                    currentPage = 1;
+                    renderMovies();
+                }
+            });
+        }
+
+        function performSearch() {
+            const term = searchInput.value.toLowerCase().trim();
+            filteredMovies = movies.filter(movie => 
+                movie.title.toLowerCase().includes(term) || 
+                movie.year.toString().includes(term)
+            );
+            currentPage = 1;
+            renderMovies();
+        }
     </script>
 </body>
 </html>
