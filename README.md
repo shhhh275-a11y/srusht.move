@@ -108,92 +108,197 @@
         /* ===== HERO ===== */
         .hero {
             position: relative;
-            height: 90vh; min-height: 560px;
-            display: flex; align-items: flex-end;
-            padding: 0 48px 70px;
+            height: 100vh; min-height: 620px;
             overflow: hidden;
+            display: flex; flex-direction: column;
+            justify-content: flex-end;
         }
-        .hero-bg {
+
+        /* 4-poster mosaic background */
+        .hero-mosaic {
             position: absolute; inset: 0;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0505 50%, #0a0a0a 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            z-index: 0;
         }
-        .hero-glow {
-            position: absolute; inset: 0;
-            background:
-                radial-gradient(ellipse at 65% 35%, rgba(229,9,20,0.18) 0%, transparent 55%),
-                radial-gradient(ellipse at 25% 75%, rgba(255,107,53,0.1) 0%, transparent 45%);
+        .hero-mosaic-panel {
+            height: 100%;
+            background-size: cover;
+            background-position: center top;
+            transition: transform 8s ease-in-out;
+            transform-origin: center center;
         }
-        .hero-film-strip {
-            position: absolute; top: 0; right: 0; bottom: 0;
-            width: 55%;
-            background: linear-gradient(to left, transparent 0%, var(--bg) 100%);
-            z-index: 1;
+        .hero-mosaic-panel:nth-child(1) { animation: kenburns1 12s ease-in-out infinite alternate; }
+        .hero-mosaic-panel:nth-child(2) { animation: kenburns2 14s ease-in-out infinite alternate; }
+        .hero-mosaic-panel:nth-child(3) { animation: kenburns3 11s ease-in-out infinite alternate; }
+        .hero-mosaic-panel:nth-child(4) { animation: kenburns4 13s ease-in-out infinite alternate; }
+
+        @keyframes kenburns1 { from { transform: scale(1.0) translateY(0); } to { transform: scale(1.08) translateY(-2%); } }
+        @keyframes kenburns2 { from { transform: scale(1.08) translateY(-2%); } to { transform: scale(1.0) translateY(0); } }
+        @keyframes kenburns3 { from { transform: scale(1.0) translateY(-1%); } to { transform: scale(1.07) translateY(1%); } }
+        @keyframes kenburns4 { from { transform: scale(1.07) translateY(1%); } to { transform: scale(1.0) translateY(-1%); } }
+
+        /* vertical dividers between panels */
+        .hero-mosaic-panel:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0;
+            width: 1px;
+            background: rgba(229,9,20,0.4);
+            box-shadow: 0 0 12px rgba(229,9,20,0.6);
         }
-        .hero-poster {
-            position: absolute; top: 0; right: 0; bottom: 0; width: 55%;
-            background-size: cover; background-position: center top;
-            opacity: 0.35;
-            transition: opacity 0.6s;
+        .hero-mosaic-panel { position: relative; }
+
+        /* dark overlays layered on top */
+        .hero-overlay-top {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(to bottom,
+                rgba(0,0,0,0.55) 0%,
+                rgba(0,0,0,0.1) 30%,
+                rgba(0,0,0,0.15) 55%,
+                rgba(0,0,0,0.75) 80%,
+                rgba(10,10,10,1) 100%
+            );
         }
-        .hero-content {
-            position: relative; z-index: 3;
-            max-width: 580px;
+        .hero-overlay-sides {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(to right,
+                rgba(10,10,10,0.0) 0%,
+                transparent 100%
+            );
         }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 6px;
-            background: var(--accent); color: #fff;
-            font-size: 0.72em; font-weight: 800;
-            padding: 4px 12px; border-radius: 4px;
-            margin-bottom: 18px; letter-spacing: 2px; text-transform: uppercase;
+        /* red cinematic vignette */
+        .hero-vignette {
+            position: absolute; inset: 0; z-index: 1;
+            background: radial-gradient(ellipse at 50% 50%,
+                transparent 40%,
+                rgba(180,0,0,0.12) 70%,
+                rgba(0,0,0,0.4) 100%
+            );
         }
-        .hero-title {
+
+        /* CENTER brand text */
+        .hero-center {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero-brand-en {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 4.2em; line-height: 0.95;
-            letter-spacing: 4px; margin-bottom: 14px;
-            background: linear-gradient(135deg, #fff 0%, #bbb 100%);
+            font-size: clamp(3.2em, 8vw, 7.5em);
+            letter-spacing: 0.12em;
+            line-height: 0.92;
+            background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.82) 60%, rgba(229,9,20,0.9) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: none;
+            filter: drop-shadow(0 0 40px rgba(229,9,20,0.35)) drop-shadow(0 4px 24px rgba(0,0,0,0.9));
+            animation: brandIn 1.2s cubic-bezier(0.22,1,0.36,1) both;
         }
-        .hero-meta {
-            display: flex; gap: 14px; align-items: center;
-            margin-bottom: 16px; flex-wrap: wrap;
+        @keyframes brandIn {
+            from { opacity:0; transform: translateY(30px) scale(0.96); letter-spacing: 0.25em; }
+            to   { opacity:1; transform: translateY(0) scale(1); letter-spacing: 0.12em; }
         }
-        .hero-meta span {
-            font-size: 0.85em; color: #bbb;
+        .hero-brand-line {
+            width: 60px; height: 3px;
+            background: var(--accent);
+            margin: 18px auto;
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(229,9,20,0.8);
+            animation: lineIn 1.4s ease both;
         }
-        .hero-rating-big {
-            color: var(--gold) !important; font-weight: 700 !important;
-            font-size: 1em !important;
+        @keyframes lineIn { from { width:0; opacity:0; } to { width:60px; opacity:1; } }
+        .hero-brand-sub {
+            font-family: 'Cairo', sans-serif;
+            font-size: clamp(0.9em, 2.2vw, 1.25em);
+            font-weight: 300;
+            color: rgba(255,255,255,0.75);
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            animation: subIn 1.6s ease both;
         }
-        .hero-desc {
-            color: #aaa; font-size: 0.95em; line-height: 1.75;
-            margin-bottom: 28px; max-width: 480px;
+        @keyframes subIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+        /* mini film cards at bottom of hero */
+        .hero-film-row {
+            position: relative; z-index: 4;
+            display: flex;
+            gap: 0;
+            padding: 0 0 0 0;
+            margin-bottom: 0;
         }
-        .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-        .btn-watch {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: #fff; color: #111;
-            padding: 13px 30px; border-radius: 6px;
-            font-weight: 800; font-size: 0.95em;
-            border: none; cursor: pointer;
-            font-family: 'Cairo', sans-serif; transition: background 0.2s;
+        .hero-film-card {
+            flex: 1;
+            position: relative;
+            height: 160px;
+            overflow: hidden;
+            cursor: pointer;
+            border-top: 2px solid rgba(229,9,20,0.5);
         }
-        .btn-watch:hover { background: rgba(255,255,255,0.85); }
-        .btn-more {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: rgba(109,109,110,0.65); color: #fff;
-            padding: 13px 30px; border-radius: 6px;
-            font-weight: 700; font-size: 0.95em;
-            border: none; cursor: pointer;
-            font-family: 'Cairo', sans-serif; transition: background 0.2s;
+        .hero-film-card::before {
+            content: '';
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+            transition: background 0.3s;
         }
-        .btn-more:hover { background: rgba(109,109,110,0.4); }
-        .hero-bottom-gradient {
-            position: absolute; bottom:0; left:0; right:0;
-            height: 220px;
-            background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+        .hero-film-card:hover::before {
+            background: linear-gradient(to top, rgba(229,9,20,0.7) 0%, rgba(0,0,0,0.1) 70%, transparent 100%);
+        }
+        .hero-film-card-bg {
+            position: absolute; inset: -4px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+        .hero-film-card:hover .hero-film-card-bg { transform: scale(1.07); }
+        .hero-film-card-info {
+            position: absolute; bottom: 12px; left: 14px; right: 14px;
             z-index: 2;
         }
+        .hero-film-card-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1em; letter-spacing: 1.5px;
+            color: #fff; line-height: 1;
+            margin-bottom: 3px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+        }
+        .hero-film-card-meta {
+            font-size: 0.72em; color: rgba(255,255,255,0.65);
+            display: flex; gap: 8px; align-items: center;
+        }
+        .hero-film-card-rating {
+            color: var(--gold); font-weight: 700;
+        }
+        .hero-film-card-divider {
+            width: 1px;
+            background: rgba(229,9,20,0.6);
+            box-shadow: 0 0 6px rgba(229,9,20,0.5);
+            flex-shrink: 0;
+            align-self: stretch;
+        }
+
+        .hero-bottom-gradient {
+            display: none;
+        }
+        /* keep old refs working */
+        .hero-content { display: none; }
+        .hero-bg { display: none; }
+        .hero-glow { display: none; }
+        .hero-film-strip { display: none; }
+        .hero-poster { display: none; }
+        .hero-badge { display: none; }
+        .hero-title { display: none; }
+        .hero-meta { display: none; }
+        .hero-desc { display: none; }
+        .hero-btns { display: none; }
+        .btn-watch { display: none; }
+        .btn-more { display: none; }
 
         /* ===== MAIN ===== */
         .main { padding: 0 48px 80px; }
@@ -580,26 +685,30 @@
 
 <!-- HERO -->
 <section class="hero" id="heroSec">
-    <div class="hero-bg"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-poster" id="heroPoster"></div>
-    <div class="hero-film-strip"></div>
-    <div class="hero-content">
-        <div class="hero-badge"><i class="fas fa-fire"></i>&nbsp; فیلمی هەفتە</div>
-        <h1 class="hero-title" id="heroTitle">FIGHT CLUB</h1>
-        <div class="hero-meta">
-            <span class="hero-rating-big">⭐ 8.8/10</span>
-            <span>1999</span>
-            <span>139 خولەک</span>
-            <span>R (18+)</span>
-        </div>
-        <p class="hero-desc" id="heroDesc">کارمەندێکی بێ هیمن لەگەڵ فرۆشیاری سابونێک کۆمەڵێکی شەڕ نهێنی دادەمەزرێنن — بەڵام ئەو چیرۆکە زیاتر لەوەیە کە بیری لێ دەکەیتەوە.</p>
-        <div class="hero-btns">
-            <button class="btn-watch" onclick="openModal(0)"><i class="fas fa-info-circle"></i> زانیاری تەواو</button>
-            <a href="https://www.instagram.com/lipri_26" class="btn-more" target="_blank"><i class="fab fa-instagram"></i> ئینستاگرام</a>
-        </div>
+
+    <!-- 4 poster panels -->
+    <div class="hero-mosaic" id="heroMosaic">
+        <div class="hero-mosaic-panel" id="hPanel0"></div>
+        <div class="hero-mosaic-panel" id="hPanel1"></div>
+        <div class="hero-mosaic-panel" id="hPanel2"></div>
+        <div class="hero-mosaic-panel" id="hPanel3"></div>
     </div>
-    <div class="hero-bottom-gradient"></div>
+
+    <!-- overlays -->
+    <div class="hero-overlay-top"></div>
+    <div class="hero-overlay-sides"></div>
+    <div class="hero-vignette"></div>
+
+    <!-- centered brand -->
+    <div class="hero-center">
+        <div class="hero-brand-en">SRUSHT<br>MOVIES</div>
+        <div class="hero-brand-line"></div>
+        <div class="hero-brand-sub">یەکەمین سایتی کوردی بۆ دۆزینەوەی فیلم و دراما</div>
+    </div>
+
+    <!-- 4 film preview cards at bottom -->
+    <div class="hero-film-row" id="heroFilmRow"></div>
+
 </section>
 
 <!-- MAIN -->
@@ -1286,10 +1395,39 @@ const perPage = 15;
 let activeTab = 'all';
 let searchQ = '';
 
-// ===== HERO =====
+// ===== HERO MOSAIC =====
 (function setupHero() {
-    const m = MOVIES[0];
-    document.getElementById('heroPoster').style.backgroundImage = `url('${m.backdrop}')`;
+    // pick 4 visually strong backdrops
+    const picks = [MOVIES[4], MOVIES[3], MOVIES[13], MOVIES[15]]; // Inception, Parasite, Joker, Departed
+    picks.forEach((m, i) => {
+        const panel = document.getElementById('hPanel' + i);
+        if (panel) panel.style.backgroundImage = `url('${m.backdrop}')`;
+    });
+
+    // build bottom film strip
+    const row = document.getElementById('heroFilmRow');
+    picks.forEach((m, i) => {
+        if (i > 0) {
+            const div = document.createElement('div');
+            div.className = 'hero-film-card-divider';
+            row.appendChild(div);
+        }
+        const card = document.createElement('div');
+        card.className = 'hero-film-card';
+        card.innerHTML = `
+            <div class="hero-film-card-bg" style="background-image:url('${m.backdrop}')"></div>
+            <div class="hero-film-card-info">
+                <div class="hero-film-card-title">${m.en}</div>
+                <div class="hero-film-card-meta">
+                    <span class="hero-film-card-rating">⭐ ${m.rating}</span>
+                    <span>${m.year}</span>
+                    <span>${m.age}</span>
+                </div>
+            </div>
+        `;
+        card.addEventListener('click', () => openModal(m.id));
+        row.appendChild(card);
+    });
 })();
 
 // ===== FILTER =====
