@@ -605,6 +605,31 @@
         .modal-fav-btn:hover, .modal-fav-btn.on {
             background: var(--accent); color: #fff;
         }
+        /* TRAILER */
+        .trailer-btn {
+            display: flex; align-items: center; gap: 12px;
+            background: linear-gradient(135deg, #e50914, #b0060f);
+            color: #fff; border: none; border-radius: 10px;
+            padding: 14px 28px; cursor: pointer;
+            font-size: 1em; font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(229,9,20,0.4);
+            width: 100%; justify-content: center;
+            margin-bottom: 14px;
+        }
+        .trailer-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(229,9,20,0.55); }
+        .trailer-btn .play-icon { font-size: 1.3em; }
+        .trailer-player {
+            display: none;
+            width: 100%; aspect-ratio: 16/9;
+            border-radius: 10px; overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+            border: 1px solid rgba(229,9,20,0.3);
+        }
+        .trailer-player iframe { width: 100%; height: 100%; border: none; display: block; }
+        .trailer-player.open { display: block; animation: fadeUp 0.3s ease both; }
 
         /* ===== COMMENTS ===== */
         .comment-section { margin: 50px 0; border-top: 1px solid var(--border); padding-top: 44px; }
@@ -842,8 +867,9 @@ const MOVIES = [
         awards:["Oscar: Best Film Editing (Nominated)", "BAFTA: Best Editing", "Saturn Award: Best Director"],
         trivia:"کتێبی بنچینەی فیلمەکە لە 1996 لەلایەن Chuck Palahniuk نووسراوە. Brad Pitt تەنها 137 خولەک لە فیلمەکەدا دەردەکەوێت.",
         tmdb_id:550,
-        poster:"https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/hZkgoQYus5vegHoetLkCJzC5cZM.jpg"
+        trailer:"qtRKdVHc-cE",
+        poster:"https://upload.wikimedia.org/wikipedia/en/f/fc/Fight_Club_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/f/fc/Fight_Club_poster.jpg"
     },
     {
         id:1, en:"The Sixth Sense", ku:"هەستی شەشەم", year:1999, rating:8.1, duration:"107 خولەک",
@@ -854,8 +880,9 @@ const MOVIES = [
         awards:["Oscar: Best Director (Nominated)", "Oscar: Best Supporting Actor (Nominated)", "Oscar: Best Picture (Nominated)"],
         trivia:"M. Night Shyamalan ئەم فیلمە لە 37 ڕۆژدا نووسی. فیلمەکە لە باجەتی 40 ملیۆن دۆلاری، 672 ملیۆن دۆلاری بەدەست هێنا.",
         tmdb_id:745,
-        poster:"https://image.tmdb.org/t/p/w500/ejkD56BejrSjCJOsUAISUqPEGo3.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/y4fwKFSRgEcz0A80QRiqhRtcfhO.jpg"
+        trailer:"VG9AGf66tXM",
+        poster:"https://upload.wikimedia.org/wikipedia/en/2/28/Sixth_Sense_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/2/28/Sixth_Sense_poster.jpg"
     },
     {
         id:2, en:"Shutter Island", ku:"شوتەر ئایلەند", year:2010, rating:8.2, duration:"138 خولەک",
@@ -866,8 +893,9 @@ const MOVIES = [
         awards:["Saturn Award: Best Horror Film", "Empire Award: Best Thriller"],
         trivia:"Leonardo DiCaprio بۆ ئامادەکاری بۆ ئەم ڕۆڵە، کتێبی دەروونناسی و مێژووی دەرمانگەی دیوانانەی خوێندەوە.",
         tmdb_id:11324,
-        poster:"https://image.tmdb.org/t/p/w500/5gzzkR7y3hnY8AD1wXjCnVlHba5.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/qfGcWXmKFUFgNpLShL2aRxGKwcl.jpg"
+        trailer:"5iaYLCiq5RM",
+        poster:"https://upload.wikimedia.org/wikipedia/en/8/8d/Shutter_Island_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/8/8d/Shutter_Island_poster.jpg"
     },
     {
         id:3, en:"Parasite", ku:"پاراسایت", year:2019, rating:8.5, duration:"132 خولەک",
@@ -878,8 +906,9 @@ const MOVIES = [
         awards:["Oscar: Best Picture", "Oscar: Best Director", "Oscar: Best International Film", "Oscar: Best Original Screenplay", "Palme d'Or - Cannes 2019"],
         trivia:"یەکەمین فیلمی کۆریایی کە Oscar ی باشترین فیلمی وەرگرت. Bong Joon-ho کۆتاییەکەی لە 3 ڕۆڵی جیاواز نووسی.",
         tmdb_id:496243,
-        poster:"https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/TU9NIjwzjoKPwQHoHshkFcQUCG.jpg"
+        trailer:"5xH0HfJHsaY",
+        poster:"https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_%282019%29_BongJoonho.png",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_%282019%29_BongJoonho.png"
     },
     {
         id:4, en:"Inception", ku:"ئینسپشن", year:2010, rating:8.8, duration:"148 خولەک",
@@ -890,8 +919,9 @@ const MOVIES = [
         awards:["Oscar: Best Cinematography", "Oscar: Best Visual Effects", "Oscar: Best Sound Editing", "Oscar: Best Sound Mixing"],
         trivia:"Christopher Nolan 10 ساڵ کارکرد لەسەر سکریپتەکە. فیلمەکە 160 ملیۆن دۆلاری باجەتی بوو و 836 ملیۆن بەدەست هێنا.",
         tmdb_id:27205,
-        poster:"https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/s3TBrRGB1iav7gFOCNx3H31MoES.jpg"
+        trailer:"YoHD9XEInc0",
+        poster:"https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg"
     },
     {
         id:5, en:"Memento", ku:"مەمینتۆ", year:2000, rating:8.4, duration:"113 خولەک",
@@ -902,8 +932,9 @@ const MOVIES = [
         awards:["Oscar: Best Editing (Nominated)", "Oscar: Best Screenplay (Nominated)", "Writers Guild Award: Best Screenplay"],
         trivia:"فیلمەکە بە دوو ئیستراتیژی جیاواز بیناوەتەوە دەکرێت — یەکێک لە پێش بۆ دواوە، یەکیش لە دواوە بۆ پێش.",
         tmdb_id:77,
-        poster:"https://image.tmdb.org/t/p/w500/yuNs09hvpHVU1cXnO7EomSHzHHm.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/fS9VQm5WQ4u46Hc3NqJdBdVdIWH.jpg"
+        trailer:"0vS0E9bBSL0",
+        poster:"https://upload.wikimedia.org/wikipedia/en/3/35/Memento_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/3/35/Memento_poster.jpg"
     },
     {
         id:6, en:"The Prestige", ku:"دەستگیری", year:2006, rating:8.5, duration:"130 خولەک",
@@ -914,8 +945,9 @@ const MOVIES = [
         awards:["Oscar: Best Cinematography (Nominated)", "Oscar: Best Art Direction (Nominated)"],
         trivia:"Christopher Nolan دوو سکریپت جیاواز نووسی — یەکێک بۆ Christian Bale، یەکیش بۆ Hugh Jackman — هەر یەکیان تەنها سکریپتی خۆیانی بینی.",
         tmdb_id:1124,
-        poster:"https://image.tmdb.org/t/p/w500/bdN3gXuIZYaJP6a3BbCOLJdRQQq.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/glyFRqkLHXXDEoGFrpBBOHj7gC.jpg"
+        trailer:"RLtaA9fFNXU",
+        poster:"https://upload.wikimedia.org/wikipedia/en/d/df/The_Prestige_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/d/df/The_Prestige_poster.jpg"
     },
     {
         id:7, en:"Gone Girl", ku:"کچە ونبووە", year:2014, rating:8.1, duration:"149 خولەک",
@@ -926,8 +958,9 @@ const MOVIES = [
         awards:["Oscar: Best Actress (Nominated - Rosamund Pike)", "Golden Globe: Best Actress", "BAFTA: Best Editing"],
         trivia:"Rosamund Pike بۆ ئامادەکاری ئەم ڕۆڵە، کتێبی دەروونناسی خوێندەوە. David Fincher 50 دەرفەت هەموو سەحنەیەک دەگرێت.",
         tmdb_id:209112,
-        poster:"https://image.tmdb.org/t/p/w500/fSRb7vyIP8rQpL0I47P3qUsEKX3.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/3kcEGnYBHDeqmdYf8ZRbKdfmlUO.jpg"
+        trailer:"dcR0WYxzMkA",
+        poster:"https://upload.wikimedia.org/wikipedia/en/d/d4/Gone_Girl_Poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/d/d4/Gone_Girl_Poster.jpg"
     },
     {
         id:8, en:"Get Out", ku:"دەرچۆ", year:2017, rating:7.7, duration:"104 خولەک",
@@ -938,8 +971,9 @@ const MOVIES = [
         awards:["Oscar: Best Original Screenplay", "BAFTA: Best Original Screenplay", "Sundance: Audience Award"],
         trivia:"Jordan Peele سکریپتەکەی لە 2008 نووسی. فیلمەکە لە باجەتی 4.5 ملیۆن دۆلاری، 255 ملیۆن بەدەست هێنا.",
         tmdb_id:419430,
-        poster:"https://image.tmdb.org/t/p/w500/tFXcEccSQMf3lfhfXKSU9iRBpa3.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/nNmJrD0DiALfkXFKz23G01NrWBO.jpg"
+        trailer:"DzfpyUB60YY",
+        poster:"https://upload.wikimedia.org/wikipedia/en/a/a1/Get_Out_poster.png",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/a/a1/Get_Out_poster.png"
     },
     {
         id:9, en:"Oldboy", ku:"ئۆڵدبۆی", year:2003, rating:8.1, duration:"120 خولەک",
@@ -950,8 +984,9 @@ const MOVIES = [
         awards:["Grand Prix - Cannes 2004", "Grand Bell Awards: Best Film"],
         trivia:"یەکێک لە باشترین فیلمەکانی مێژووی ئاسیایە. Quentin Tarantino ئەم فیلمەی وەرگرتووەتە لیستی باشترین فیلمەکانی.",
         tmdb_id:670,
-        poster:"https://image.tmdb.org/t/p/w500/pWDtjs568ZfOTMbURQBmHx9LTWR.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/8tbVLgNhBUTaGcq3iFMnmXf9f5l.jpg"
+        trailer:"2uHx1_UZtR4",
+        poster:"https://upload.wikimedia.org/wikipedia/en/6/6e/Oldboykoreanposter.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/6/6e/Oldboykoreanposter.jpg"
     },
     {
         id:10, en:"Se7en", ku:"حەفت", year:1995, rating:8.6, duration:"127 خولەک",
@@ -962,8 +997,9 @@ const MOVIES = [
         awards:["Oscar: Best Film Editing (Nominated)", "BAFTA: Best Editing (Nominated)"],
         trivia:"Kevin Spacey لە کرێدیتەکانی سەرەوەی فیلمەکە دانەنراوە، چونکە نەیویستووی بازیگەران کارکترەکەیان بزانن.",
         tmdb_id:807,
-        poster:"https://image.tmdb.org/t/p/w500/6yoghtyTpznpBik8EngEmJskVnS.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/or0ZTn9nvlEtH35KvCtxGruoJbR.jpg"
+        trailer:"znmZoVkCjpI",
+        poster:"https://upload.wikimedia.org/wikipedia/en/6/68/Seven_%28movie%29_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/6/68/Seven_%28movie%29_poster.jpg"
     },
     {
         id:11, en:"The Usual Suspects", ku:"گومانلێکراوەکانی ئاسایی", year:1995, rating:8.5, duration:"106 خولەک",
@@ -974,8 +1010,9 @@ const MOVIES = [
         awards:["Oscar: Best Supporting Actor - Kevin Spacey", "Oscar: Best Original Screenplay"],
         trivia:"Bryan Singer ئەم فیلمەی لە باجەتی تەنها 6 ملیۆن دۆلاری دروست کرد. Keyser Söze یەکێک لە باشترین ڤیلانەکانی مێژووی سینەمایە.",
         tmdb_id:629,
-        poster:"https://image.tmdb.org/t/p/w500/3gQKNHfTPvazBj1IsIOvuqFnTYX.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/8Zug5ZoGSBpE1gSoMGqkRVZAcex.jpg"
+        trailer:"oiXdPolca5w",
+        poster:"https://upload.wikimedia.org/wikipedia/en/6/6e/The_Usual_Suspects.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/6/6e/The_Usual_Suspects.jpg"
     },
     {
         id:12, en:"Interstellar", ku:"ئینتەرستێلار", year:2014, rating:8.6, duration:"169 خولەک",
@@ -986,8 +1023,9 @@ const MOVIES = [
         awards:["Oscar: Best Visual Effects", "BAFTA: Best Visual Effects", "Saturn Award: Best Science Fiction Film"],
         trivia:"Kip Thorne، فیزیکدانی قازانجکاری نۆبێل، بۆ دروستکردنی وێنەی گرانکێشی تایبەتی بۆ فیلمەکە کاری کرد.",
         tmdb_id:157336,
-        poster:"https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/xu9zaAevzQ5nnrsXN6JcahLnG4i.jpg"
+        trailer:"zSWdZVtXT7E",
+        poster:"https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg"
     },
     {
         id:13, en:"Joker", ku:"جۆکەر", year:2019, rating:8.4, duration:"122 خولەک",
@@ -998,8 +1036,9 @@ const MOVIES = [
         awards:["Oscar: Best Actor - Joaquin Phoenix", "Oscar: Best Original Score", "Venice: Golden Lion (باشترین فیلم)"],
         trivia:"Joaquin Phoenix 52 پاوند وزەی لادا بۆ ئامادەکاری ئەم ڕۆڵە. فیلمەکە 60 ملیۆن باجەتی بوو، زیاتر لە 1 بیلیۆن بەدەست هێنا.",
         tmdb_id:475557,
-        poster:"https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/n6bUvigpRFqSwmPp1m2YAnoNHjQ.jpg"
+        trailer:"zAGVQLHvwOY",
+        poster:"https://upload.wikimedia.org/wikipedia/en/e/e1/Joker_%282019_film%29_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/e/e1/Joker_%282019_film%29_poster.jpg"
     },
     {
         id:14, en:"Prisoners", ku:"بندیەکان", year:2013, rating:8.1, duration:"153 خولەک",
@@ -1010,8 +1049,9 @@ const MOVIES = [
         awards:["Oscar: Best Cinematography (Nominated)", "Critics Choice: Best Acting Ensemble"],
         trivia:"Denis Villeneuve 153 خولەک فیلمەکەی دانا، ستودیۆ نەیویستووی لەم دووریەدا بوو بەڵام قبوڵ کرد.",
         tmdb_id:146233,
-        poster:"https://image.tmdb.org/t/p/w500/oAISjx6DvR2yUn9dxj00vP15CFh.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/7X3CYEoatxBiLBMeKbstVmCVKGI.jpg"
+        trailer:"oWf9B4sBSYQ",
+        poster:"https://upload.wikimedia.org/wikipedia/en/0/0c/Prisoners_Poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/0/0c/Prisoners_Poster.jpg"
     },
     {
         id:15, en:"The Departed", ku:"دچووەتەوە", year:2006, rating:8.5, duration:"151 خولەک",
@@ -1022,8 +1062,9 @@ const MOVIES = [
         awards:["Oscar: Best Picture", "Oscar: Best Director - Martin Scorsese", "Oscar: Best Editing", "Oscar: Best Adapted Screenplay"],
         trivia:"Martin Scorsese ئەم فیلمە یێکترین جار Oscar ی باشترین دەرکەوتن وەرگرت لەوەی پێشتر 3 جار نومزەتی هەبوو.",
         tmdb_id:1422,
-        poster:"https://image.tmdb.org/t/p/w500/nT97ifVT2J1yMQmeq20Qblg61T.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/5GiDW8HXMGFLmpfMtNOKYjW7MZY.jpg"
+        trailer:"iqdyRSzLKkM",
+        poster:"https://upload.wikimedia.org/wikipedia/en/5/50/The_Departed_Poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/5/50/The_Departed_Poster.jpg"
     },
     {
         id:16, en:"Black Swan", ku:"قوتاببازی تاریک", year:2010, rating:8.0, duration:"108 خولەک",
@@ -1034,8 +1075,9 @@ const MOVIES = [
         awards:["Oscar: Best Actress - Natalie Portman", "BAFTA: Best Actress", "Golden Globe: Best Actress"],
         trivia:"Natalie Portman 11 مانگ ئامادەکاری کرد. Mila Kunis لە ئەم فیلمەدا ئاموزی ڕاقص کرد.",
         tmdb_id:45269,
-        poster:"https://image.tmdb.org/t/p/w500/we7nEBbvEFi7IZGtqtCIhQ6KkaF.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/2QVToQx5jEPJNUDpYFaUG6epPFN.jpg"
+        trailer:"9PeNHFdS0Ys",
+        poster:"https://upload.wikimedia.org/wikipedia/en/d/dc/Black_Swan_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/d/dc/Black_Swan_poster.jpg"
     },
     {
         id:17, en:"Hereditary", ku:"میراتبەری", year:2018, rating:7.3, duration:"127 خولەک",
@@ -1046,8 +1088,9 @@ const MOVIES = [
         awards:["Sundance: Nominated for Grand Jury Prize", "Critics Choice: Best Horror Film"],
         trivia:"Ari Aster ئەم فیلمەی ویستووە وەک \"بەدترین دایکی تاریخ\" ناو ببات. Toni Collette بۆ ئەم ڕۆڵە نومزەتی Golden Globe ی هەبوو.",
         tmdb_id:493922,
-        poster:"https://image.tmdb.org/t/p/w500/nOAKCUBPfGKnb1FLIDC4FHuAzaE.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/jGn0K4mAkMMnJWTpgEUiGkZNGNI.jpg"
+        trailer:"V6wWKNij_1M",
+        poster:"https://upload.wikimedia.org/wikipedia/en/8/8e/Hereditary_poster.png",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/8/8e/Hereditary_poster.png"
     },
     {
         id:18, en:"Mulholland Drive", ku:"مۆڵهۆلاند درایڤ", year:2001, rating:7.9, duration:"147 خولەک",
@@ -1058,8 +1101,9 @@ const MOVIES = [
         awards:["Cannes: Best Director - David Lynch", "BAFTA: Best Director (Nominated)"],
         trivia:"David Lynch فیلمەکە سەرەتا بۆ تەلەفزیۆن نووسی. کاتێک رەتی کرایەوە، بەرگەیەکی سینەمایی نووسی.",
         tmdb_id:1018,
-        poster:"https://image.tmdb.org/t/p/w500/p1gHZQNIPKq31Yhp8FOg5RmxHKE.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/pYopmKIHHCrNKEGBBFDLbJB7bsS.jpg"
+        trailer:"nlPJbEp6Y2s",
+        poster:"https://upload.wikimedia.org/wikipedia/en/5/50/Mulholland_Drive_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/5/50/Mulholland_Drive_poster.jpg"
     },
     {
         id:19, en:"A Beautiful Mind", ku:"ذیهنێکی ئوقلومەند", year:2001, rating:8.2, duration:"135 خولەک",
@@ -1070,8 +1114,9 @@ const MOVIES = [
         awards:["Oscar: Best Picture", "Oscar: Best Director", "Oscar: Best Adapted Screenplay", "Oscar: Best Supporting Actress"],
         trivia:"John Nash ی ڕاستەقینە لە 2015 لە تاکسییەکدا لە بێ میقنەفەدا کوژرا. فیلمەکە بەپێی ژیانی ڕاستەقینەی ئەو دروست کرا.",
         tmdb_id:453,
-        poster:"https://image.tmdb.org/t/p/w500/beautyandmind.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/fXgjRuX0D9q6JhioHOI3INQFd.jpg"
+        trailer:"oaQ01GfFny4",
+        poster:"https://upload.wikimedia.org/wikipedia/en/5/54/A_Beautiful_Mind_Poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/5/54/A_Beautiful_Mind_Poster.jpg"
     },
     {
         id:20, en:"The Truman Show", ku:"شۆوی ترومان", year:1998, rating:8.1, duration:"103 خولەک",
@@ -1082,8 +1127,9 @@ const MOVIES = [
         awards:["Golden Globe: Best Actor - Jim Carrey", "Golden Globe: Best Director", "Oscar: Best Director (Nominated)"],
         trivia:"Jim Carrey بۆ ئەم ڕۆڵە ڕا خۆی گۆراوەتەوە. فیلمەکە پێشبینی کردی ئاینده رووحی ئینستاگرام و ڕیالیتی شۆ.",
         tmdb_id:37165,
-        poster:"https://image.tmdb.org/t/p/w500/vuza0WqY239yBXOadKlGwJsZJFE.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/upU58RKPONPGMpYwLJZqiV7blid.jpg"
+        trailer:"loTIzXAS7s4",
+        poster:"https://upload.wikimedia.org/wikipedia/en/9/9d/The_Truman_Show.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/9/9d/The_Truman_Show.jpg"
     },
     {
         id:21, en:"1917", ku:"١٩١٧", year:2019, rating:8.3, duration:"119 خولەک",
@@ -1094,8 +1140,9 @@ const MOVIES = [
         awards:["Oscar: Best Cinematography", "Oscar: Best Sound Mixing", "Oscar: Best Visual Effects", "Golden Globe: Best Drama", "Golden Globe: Best Director"],
         trivia:"فیلمەکە بەشێوەی \"یەک شۆت\" فیلمبراوە — لە ڕاستیدا 61 دوور کراوەتەوە بەیەکەوە. Roger Deakins ئیتر Oscar ی سینەماتۆگرافی وەرگرت.",
         tmdb_id:530915,
-        poster:"https://image.tmdb.org/t/p/w500/iZf0KyrE25z1sage4SYFLCCrMi9.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/dqK9Hag1054tghRQSqLSfrkvQnA.jpg"
+        trailer:"YqNYrYUiMfg",
+        poster:"https://upload.wikimedia.org/wikipedia/en/8/8e/1917_Film_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/8/8e/1917_Film_poster.jpg"
     },
     {
         id:22, en:"The Shining", ku:"درەوشانەوە", year:1980, rating:8.4, duration:"146 خولەک",
@@ -1106,8 +1153,9 @@ const MOVIES = [
         awards:["Hugo Award: Best Dramatic Presentation", "Saturn Award: Best Horror Film (Nominated)"],
         trivia:"Kubrick زیاتر لە 100 دەرفەت ئەو سەحنەی دووباره گرتەوە کە Shelley Duvall لەوانەی گرییەکی ڕاستەقینە دەکات.",
         tmdb_id:694,
-        poster:"https://image.tmdb.org/t/p/w500/b6ko0IKC8MdYBBPkkA1aBPLe2yz.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/xazMRq3TuBGXJmnWP7ZfkOoWYBP.jpg"
+        trailer:"S014oGZiSdI",
+        poster:"https://upload.wikimedia.org/wikipedia/en/b/b6/The_Shining_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/b/b6/The_Shining_poster.jpg"
     },
     {
         id:23, en:"Arrival", ku:"گەیشتن", year:2016, rating:7.9, duration:"116 خولەک",
@@ -1118,8 +1166,9 @@ const MOVIES = [
         awards:["Oscar: Best Sound Editing (Nominated)", "Oscar: Best Cinematography (Nominated)", "Oscar: Best Director (Nominated)"],
         trivia:"Amy Adams بۆ ئامادەکاری ئەم ڕۆڵە بە مامۆستایانی زمان کارکرد. Denis Villeneuve فیلمەکە لە ٦ ژینگەی جیاواز فیلمکرا.",
         tmdb_id:329865,
-        poster:"https://image.tmdb.org/t/p/w500/x2FJsf1ElAgr63Y3PNPtJrcmpoe.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/3ZbUzFwAGP5GlFIy3pVHBjrPU7V.jpg"
+        trailer:"tFMo3UJ4B4g",
+        poster:"https://upload.wikimedia.org/wikipedia/en/d/d6/Arrival_film_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/d/d6/Arrival_film_poster.jpg"
     },
     {
         id:24, en:"Eternal Sunshine of the Spotless Mind", ku:"ڕووناکی هەمیشەیی ذیهنی پاک", year:2004, rating:8.3, duration:"108 خولەک",
@@ -1130,8 +1179,9 @@ const MOVIES = [
         awards:["Oscar: Best Original Screenplay - Charlie Kaufman", "BAFTA: Best Original Screenplay"],
         trivia:"Charlie Kaufman سکریپتەکەی بەوەیی نووسی کە بۆ لایەکی لادراو شێوازی نووسینی گۆرا.",
         tmdb_id:38,
-        poster:"https://image.tmdb.org/t/p/w500/5MwkWH9tYHv3mV9OdYTMR5qreIz.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/vbZcWMT8VVf3xfWT5GSxmSBmSSa.jpg"
+        trailer:"hvDDD2rPaFQ",
+        poster:"https://upload.wikimedia.org/wikipedia/en/e/e9/Requiem_for_a_Dream_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/e/e9/Requiem_for_a_Dream_poster.jpg"
     },
     {
         id:25, en:"A Ghost Story", ku:"چیرۆکی روح", year:2017, rating:6.9, duration:"92 خولەک",
@@ -1142,8 +1192,10 @@ const MOVIES = [
         awards:["Sundance: Special Jury Prize (Nominated)", "Critics Choice: Most Innovative Film"],
         trivia:"David Lowery فیلمەکەی لە 19 ڕۆژدا و باجەتی 100,000 دۆلاری فیلمکرد. Casey Affleck دووساعەت ژێر ملاپۆشەکەی مایەوە.",
         tmdb_id:401981,
-        poster:"https://image.tmdb.org/t/p/w500/6RqLQA9v87Xl51wRwilh9SdxFtO.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/nv4rXKnBCf6GUB0QlPIFqEwOPiV.jpg"
+        trailer:"1Rcbh7-hm9c",
+        trailer:"bnCsAA6FvqA",
+        poster:"https://upload.wikimedia.org/wikipedia/en/a/a9/A_Ghost_Story_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/a/a9/A_Ghost_Story_poster.jpg"
     },
     {
         id:26, en:"Annihilation", ku:"لەناوبردن", year:2018, rating:6.8, duration:"115 خولەک",
@@ -1154,8 +1206,9 @@ const MOVIES = [
         awards:["Saturn Award: Best Science Fiction Film (Nominated)", "BAFTA: Best Special Effects (Nominated)"],
         trivia:"Alex Garland سکریپتەکەی لە ئاستێکدا نووسی کە پێشتر کتێبەکەی نەخوێندبووەوە. فیلمەکە دوو کۆتایی جیاواز داشت.",
         tmdb_id:300668,
-        poster:"https://image.tmdb.org/t/p/w500/qBdONgqpbKU1lqKHmaxSbXGr1tL.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/8hhI5AajzgYzk3Z30JKQKqSKpPC.jpg"
+        trailer:"89OP6Okdm08",
+        poster:"https://upload.wikimedia.org/wikipedia/en/a/a1/Annihilation_%282018%29_poster.png",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/a/a1/Annihilation_%282018%29_poster.png"
     },
     {
         id:27, en:"Zodiac", ku:"زۆدیاک", year:2007, rating:7.7, duration:"157 خولەک",
@@ -1166,8 +1219,9 @@ const MOVIES = [
         awards:["National Society of Film Critics: Best Film (2007)", "New York Film Critics: Best Editing"],
         trivia:"David Fincher زیاتر لە 65 ساعات فیلم گرت. Jake Gyllenhaal تۆخمی خۆی گۆرا بۆ ئەو ڕۆڵە.",
         tmdb_id:10443,
-        poster:"https://image.tmdb.org/t/p/w500/e1GB6gFMzJHNmFWY8bFX6kKFbqo.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/fNjyc48ASBiRpRCbhOEFO5GGBPK.jpg"
+        trailer:"YQESwXNL6KY",
+        poster:"https://upload.wikimedia.org/wikipedia/en/8/8d/Zodiac-2007-poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/8/8d/Zodiac-2007-poster.jpg"
     },
     {
         id:28, en:"Whiplash", ku:"وویپلاش", year:2014, rating:8.5, duration:"106 خولەک",
@@ -1178,8 +1232,9 @@ const MOVIES = [
         awards:["Oscar: Best Supporting Actor - J.K. Simmons", "Oscar: Best Editing", "Oscar: Best Sound Mixing", "Sundance: Grand Jury Prize + Audience Award"],
         trivia:"Damien Chazelle فیلمەکەی سەرەتا وەک کورتە فیلمی دروست کرد بۆ باجەت پەیدا بکات. Miles Teller ڕاستەقینە درامز ئەدا.",
         tmdb_id:244786,
-        poster:"https://image.tmdb.org/t/p/w500/lIv1QinFqz4dlp5U4lQ6HaiskOZ.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/lIv1QinFqz4dlp5U4lQ6HaiskOZ.jpg"
+        trailer:"7d65HCMEQls",
+        poster:"https://upload.wikimedia.org/wikipedia/en/6/68/Whiplash_%282014%29_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/6/68/Whiplash_%282014%29_poster.jpg"
     },
     {
         id:29, en:"La La Land", ku:"لالالاند", year:2016, rating:8.0, duration:"128 خولەک",
@@ -1190,8 +1245,9 @@ const MOVIES = [
         awards:["Oscar: Best Actress - Emma Stone", "Oscar: Best Director", "Oscar: Best Cinematography", "Oscar: Best Original Score", "Golden Globe: 7 خەلاتی جیاواز"],
         trivia:"فیلمەکە لە ئەو شەوەدا Oscar ی باشترین فیلمی هەڵبژاردرا — بەڵام ئەمەیە بوو: Moonlight ی ڕاستەقینە وەریگرت.",
         tmdb_id:313369,
-        poster:"https://image.tmdb.org/t/p/w500/ylXCdC106IKiarftHkcacasaAcb.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/nadTlnTE6DFgRToB6LQBM5MlGDc.jpg"
+        trailer:"0pdqf4P9MB8",
+        poster:"https://upload.wikimedia.org/wikipedia/en/a/ab/La_La_Land_%28film%29.png",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/a/ab/La_La_Land_%28film%29.png"
     },
     {
         id:30, en:"No Country for Old Men", ku:"وڵاتێک بۆ پیرەمێرد نییە", year:2007, rating:8.2, duration:"122 خولەک",
@@ -1202,8 +1258,9 @@ const MOVIES = [
         awards:["Oscar: Best Picture", "Oscar: Best Director", "Oscar: Best Supporting Actor - Javier Bardem", "Oscar: Best Adapted Screenplay"],
         trivia:"Coen Brothers یەکیتیان نەبوو کە ئەم فیلمەیان دروست بکات — بەڵام قبوڵیان کرد. Anton Chigurh یەکێک لە ترسناکترین ڤیلانەکانی مێژووی سینەمایە.",
         tmdb_id:6966,
-        poster:"https://image.tmdb.org/t/p/w500/or1gBugydmjToAEq7OZY0owwFk.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/ya7wXiDsAdRSzWV9z6MMKasmDmn.jpg"
+        trailer:"38A__WT3-o0",
+        poster:"https://upload.wikimedia.org/wikipedia/en/4/4b/No_Country_for_Old_Men_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/4/4b/No_Country_for_Old_Men_poster.jpg"
     },
     {
         id:31, en:"Blade Runner 2049", ku:"بلەید ڕەنەر ٢٠٤٩", year:2017, rating:8.0, duration:"164 خولەک",
@@ -1214,8 +1271,9 @@ const MOVIES = [
         awards:["Oscar: Best Cinematography - Roger Deakins", "Oscar: Best Visual Effects"],
         trivia:"Roger Deakins ئەم جار Oscar ی سینەماتۆگرافی وەرگرت لەدوای 13 نومزەتییەوە.",
         tmdb_id:335984,
-        poster:"https://image.tmdb.org/t/p/w500/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/ilRyazdMJwN3JILPW8vbeEJ4nMM.jpg"
+        trailer:"gCcx85zbxz4",
+        poster:"https://upload.wikimedia.org/wikipedia/en/9/9d/Blade_Runner_2049_poster.png",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/9/9d/Blade_Runner_2049_poster.png"
     },
     {
         id:32, en:"Moon", ku:"مانگ", year:2009, rating:7.9, duration:"97 خولەک",
@@ -1226,8 +1284,9 @@ const MOVIES = [
         awards:["BAFTA: Best British Film (Nominated)", "Saturn Award: Best Science Fiction Film (Nominated)"],
         trivia:"Duncan Jones ئەم فیلمەی لە باجەتی تەنها 5 ملیۆن دۆلاری دروست کرد. Sam Rockwell تەقریبن لە هەموو سەحنەکاندا تەنهاست.",
         tmdb_id:37686,
-        poster:"https://image.tmdb.org/t/p/w500/surKEVEjC5u7OuCQgwUZfAGqGtQ.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/hUzLfPmcLrpMiRVt3nrTXGfDLrA.jpg"
+        trailer:"oY7eFiJKJRc",
+        poster:"https://upload.wikimedia.org/wikipedia/en/a/a5/Moon_2009_film.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/a/a5/Moon_2009_film.jpg"
     },
     {
         id:33, en:"Ex Machina", ku:"ئێکس ماکینا", year:2014, rating:7.7, duration:"108 خولەک",
@@ -1238,8 +1297,9 @@ const MOVIES = [
         awards:["Oscar: Best Visual Effects", "BAFTA: Best British Film (Nominated)"],
         trivia:"Alicia Vikander یاری Ava کرد، بەڵام CGI لەسەر جەستەکەی بوو. فیلمەکە باسی مەترسی AI دەکات لە ئایندەدا.",
         tmdb_id:264660,
-        poster:"https://image.tmdb.org/t/p/w500/qS1qFHPRtZOSEgkxdJsVVtC5PYC.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/gBpfVMVCg0HCRE2iG1cYBE8GzMo.jpg"
+        trailer:"XYGzRJ4KWEM",
+        poster:"https://upload.wikimedia.org/wikipedia/en/1/1f/Ex_Machina_%28film%29_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/1/1f/Ex_Machina_%28film%29_poster.jpg"
     },
     {
         id:34, en:"The Lighthouse", ku:"مناره", year:2019, rating:7.4, duration:"109 خولەک",
@@ -1250,8 +1310,9 @@ const MOVIES = [
         awards:["Oscar: Best Cinematography (Nominated)", "BAFTA: Best British Film (Nominated)"],
         trivia:"فیلمەکە بە ئاسپێکت ڕیشیۆی 4:3 و فیلمی سپی و ڕەش فیلمکرا — وەک فیلمەکانی دەههی 1930.",
         tmdb_id:519765,
-        poster:"https://image.tmdb.org/t/p/w500/3nGFpou0s6qWVqFPU7kYZTmJFo6.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/sAtoMqDVhNDQBc3QJL3RF6hlhGq.jpg"
+        trailer:"a9_IjB6LXQU",
+        poster:"https://upload.wikimedia.org/wikipedia/en/0/05/The-lighthouse-poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/0/05/The-lighthouse-poster.jpg"
     },
     {
         id:35, en:"Midsommar", ku:"نیوەی ئەستا", year:2019, rating:7.1, duration:"148 خولەک",
@@ -1262,8 +1323,9 @@ const MOVIES = [
         awards:["Saturn Award: Best Horror Film (Nominated)", "Sundance Special Presentation"],
         trivia:"Ari Aster وتی ئەم فیلمە باسی جیابوونەوەی خۆشویستی دەکات. Florence Pugh بۆ ئەم ڕۆڵەی بازیکردووی نومزەتی BAFTA ی هەبوو.",
         tmdb_id:530385,
-        poster:"https://image.tmdb.org/t/p/w500/7LEI8ulZzO5gy9Ww2NVCrKmHeDZ.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/tN9kCGFoZKRB4DoroHqMalOVpJu.jpg"
+        trailer:"1Bud7YH-Tc8",
+        poster:"https://upload.wikimedia.org/wikipedia/en/6/65/Midsommar_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/6/65/Midsommar_poster.jpg"
     },
     {
         id:36, en:"The Others", ku:"ئەوانی تر", year:2001, rating:7.6, duration:"101 خولەک",
@@ -1274,8 +1336,9 @@ const MOVIES = [
         awards:["Goya Award: Best Film", "Goya Award: Best Director", "Saturn Award: Best Horror Film"],
         trivia:"Alejandro Amenábar سکریپت، دەرکەوتن و موزیک هەموویانی خۆی ئەنجام دا.",
         tmdb_id:1428,
-        poster:"https://image.tmdb.org/t/p/w500/ab5nDpFMFhSP9MSBrSSIFxbU0qz.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/7p1VHpXLaUh5MJWsPbMSKYvFb0X.jpg"
+        trailer:"T6U4pFsEI-s",
+        poster:"https://upload.wikimedia.org/wikipedia/en/3/35/The_Others_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/3/35/The_Others_poster.jpg"
     },
     {
         id:37, en:"Nightcrawler", ku:"شەوگەرد", year:2014, rating:7.9, duration:"117 خولەک",
@@ -1286,8 +1349,9 @@ const MOVIES = [
         awards:["Oscar: Best Original Screenplay (Nominated)", "BAFTA: Best Original Screenplay (Nominated)"],
         trivia:"Jake Gyllenhaal 20 پاوند لادا بۆ ئەم ڕۆڵە. وتی پیاوەکەی wەک coyote بینی — نەخۆش و خواردنخواز.",
         tmdb_id:242582,
-        poster:"https://image.tmdb.org/t/p/w500/j4NnJhX4vPH9MaKL0qagC5yYjmo.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/9ov6maXXDkbWBigfDiuMFe65Y5S.jpg"
+        trailer:"X8kYDQan0dE",
+        poster:"https://upload.wikimedia.org/wikipedia/en/9/95/Nightcrawler_%282014_film%29.png",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/9/95/Nightcrawler_%282014_film%29.png"
     },
     {
         id:38, en:"Requiem for a Dream", ku:"ئاهەنگی خەونێک", year:2000, rating:8.3, duration:"102 خولەک",
@@ -1298,8 +1362,9 @@ const MOVIES = [
         awards:["Oscar: Best Actress (Nominated - Ellen Burstyn)", "BAFTA: Best Actress (Nominated)"],
         trivia:"Darren Aronofsky بۆ هەندێک سەحنە تەکنیکی Hip-Hop Montage بەکارهێنا — ئەوەی ئاسایی نەبوو لەوکاتەدا.",
         tmdb_id:4517,
-        poster:"https://image.tmdb.org/t/p/w500/nOAKCUBPfGKnb1FLIDC4FHuAzaE.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/lWCVfEBjrpqwZqJzGNv7LXk1DUH.jpg"
+        trailer:"1Rcbh7-hm9c",
+        poster:"https://upload.wikimedia.org/wikipedia/en/e/e9/Requiem_for_a_Dream_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/e/e9/Requiem_for_a_Dream_poster.jpg"
     },
     {
         id:39, en:"Pan's Labyrinth", ku:"ئەستوری ئەفوون", year:2006, rating:8.2, duration:"118 خولەک",
@@ -1310,8 +1375,9 @@ const MOVIES = [
         awards:["Oscar: Best Cinematography", "Oscar: Best Art Direction", "Oscar: Best Makeup", "BAFTA: Best Film not in English Language"],
         trivia:"Guillermo del Toro سکریپتەکەی لە 16 مانگدا نووسی. Doug Jones بازیکەری ئەو پاری سەرەکییە دووانی کرد.",
         tmdb_id:1408,
-        poster:"https://image.tmdb.org/t/p/w500/hjQqCORFYKHv7GxUmHMnAlV3OhM.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/dcijWEJVNH3H9wH1rPKkCj1FULp.jpg"
+        trailer:"lG7DGMgfB9Q",
+        poster:"https://upload.wikimedia.org/wikipedia/en/b/b0/PansLabyrinthPoster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/b/b0/PansLabyrinthPoster.jpg"
     },
     {
         id:40, en:"Donnie Darko", ku:"دۆنی دارکۆ", year:2001, rating:8.0, duration:"113 خولەک",
@@ -1322,8 +1388,9 @@ const MOVIES = [
         awards:["Sundance: Nominated for Grand Jury Prize", "Saturn Award: Best Science Fiction Film (Nominated)"],
         trivia:"فیلمەکە لەسەر پەردە شکستی هێنا بەڵام DVD ی ئەوقەدر زیاد فرۆشرا کە کەلتی دروست کرد.",
         tmdb_id:141,
-        poster:"https://image.tmdb.org/t/p/w500/6jFEXBsmL29mSPDJpGRMJAhqcZS.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/g2xM9VW0AjvNJm1IW5eAsU7dAMh.jpg"
+        trailer:"ZZyBhhKxhZA",
+        poster:"https://upload.wikimedia.org/wikipedia/en/d/d4/Donnie_Darko_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/d/d4/Donnie_Darko_poster.jpg"
     },
     {
         id:41, en:"Her", ku:"ئەو", year:2013, rating:8.0, duration:"126 خولەک",
@@ -1334,8 +1401,9 @@ const MOVIES = [
         awards:["Oscar: Best Original Screenplay - Spike Jonze", "Golden Globe: Best Screenplay", "BAFTA: Best Original Screenplay"],
         trivia:"Scarlett Johansson تەنها دەنگی ئەو یاری کرد — هەرگیز لەسەر دەریا نەبوو. Spike Jonze سکریپتەکەی لە Los Angeles نووسی.",
         tmdb_id:152601,
-        poster:"https://image.tmdb.org/t/p/w500/eCOtqtfvn7mxGqZLFbkFvHQAeGZ.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/k3AiJNX9kJLrFNVJCx9pVBhvHgm.jpg"
+        trailer:"WzV6mXIOVl4",
+        poster:"https://upload.wikimedia.org/wikipedia/en/4/43/Her2013Poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/4/43/Her2013Poster.jpg"
     },
     {
         id:42, en:"The Road", ku:"ڕێگا", year:2009, rating:7.3, duration:"111 خولەک",
@@ -1346,8 +1414,9 @@ const MOVIES = [
         awards:["Saturn Award: Best Horror Film (Nominated)", "AFI: Top 10 Films of 2009"],
         trivia:"فیلمەکە لەسەر بنیادی رۆمانی Cormac McCarthy ی ساڵی 2006 کرا، کە خەڵاتی Pulitzer وەریگرت.",
         tmdb_id:13610,
-        poster:"https://image.tmdb.org/t/p/w500/rCTSSMzdqQ8Yot3oOVMM9cFcAeD.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/1Y4UMIbv7mL3MnJKf4fMFxj6oBp.jpg"
+        trailer:"W0-EXwmGPFc",
+        poster:"https://upload.wikimedia.org/wikipedia/en/9/9e/The_Road_film_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/9/9e/The_Road_film_poster.jpg"
     },
     {
         id:43, en:"Children of Men", ku:"منداڵانی مرۆڤ", year:2006, rating:7.9, duration:"109 خولەک",
@@ -1358,8 +1427,9 @@ const MOVIES = [
         awards:["Oscar: Best Cinematography (Nominated)", "Oscar: Best Editing (Nominated)", "BAFTA: Best Cinematography"],
         trivia:"ئەو سەحنەی ڕواڵەتی شەر (دووریی ستاندی) ٤ ڕۆژ بۆ فیلمکردن خایەناند. Alfonso Cuarón ئەوش لەو نووکێش کرد.",
         tmdb_id:1984,
-        poster:"https://image.tmdb.org/t/p/w500/fQ4OIkDHFVLNwXuLUV5Q3LJJBvL.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/aP77lJRIEpjdHbRXq4JbWBN63i.jpg"
+        trailer:"ZOC-h5Lkj60",
+        poster:"https://upload.wikimedia.org/wikipedia/en/d/df/Children_of_Men.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/d/df/Children_of_Men.jpg"
     },
     {
         id:44, en:"Uncut Gems", ku:"گەوهەرە بەئێسک نەکراوەکان", year:2019, rating:7.4, duration:"135 خولەک",
@@ -1370,8 +1440,9 @@ const MOVIES = [
         awards:["National Society of Film Critics: Best Film", "Boston Society: Best Film"],
         trivia:"Adam Sandler وتی ئەگەر Oscar ی وەرنەگرت دەگەڕێتەوە بۆ کۆمیدی، و ئیتر \"خراپتر\" دەکات. هەموو دیسێکی KG ڕاستەقینەی Kevin Garnett بوو.",
         tmdb_id:640146,
-        poster:"https://image.tmdb.org/t/p/w500/sj1fJO8ZbmFqOSHQpVqfRBEgFPp.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/pbv2o93zNXrIvHIbhagmpQNAVvl.jpg"
+        trailer:"xEQQkq6DixQ",
+        poster:"https://upload.wikimedia.org/wikipedia/en/b/b6/Uncut_Gems_poster.jpeg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/b/b6/Uncut_Gems_poster.jpeg"
     },
     {
         id:45, en:"The Platform", ku:"پلاتفۆرم", year:2019, rating:7.0, duration:"94 خولەک",
@@ -1382,8 +1453,9 @@ const MOVIES = [
         awards:["Toronto Film Festival: People's Choice Award (Midnight Madness)"],
         trivia:"فیلمەکە کریتیکێکی زیندووی نابەرابەری کۆمەڵایەتییە. ساڵی COVID-19 باوەڕەکەی گەیشتەوە بەحەد نورمال.",
         tmdb_id:717728,
-        poster:"https://image.tmdb.org/t/p/w500/o45k4MMVFHKL1YLCJKnj5aPTCdM.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/duRiPdKJHJ2Bixl0VCsZXlCR5v9.jpg"
+        trailer:"p_YmHBMXhiQ",
+        poster:"https://upload.wikimedia.org/wikipedia/en/a/a5/The_Platform_%282019_film%29.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/a/a5/The_Platform_%282019_film%29.jpg"
     },
     {
         id:46, en:"I Saw the Devil", ku:"شەیتانی بینیم", year:2010, rating:7.8, duration:"141 خولەک",
@@ -1394,8 +1466,9 @@ const MOVIES = [
         awards:["Grand Bell Awards: Best Director", "Blue Dragon Film Awards: Best Film"],
         trivia:"فیلمەکە لە کۆریا بکراویەوە چونکە زۆر توندوتیژ بوو. تەنها لە ڤێرشنی بڕکراویدا دیارکرا.",
         tmdb_id:49491,
-        poster:"https://image.tmdb.org/t/p/w500/iyKUBs2Gh4f7hJRKoETGG9BcRMV.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/jGXnFIBOWxRFQhQDvMsXbQlN8a.jpg"
+        trailer:"MxiEkNmQlDc",
+        poster:"https://upload.wikimedia.org/wikipedia/en/5/5e/I_Saw_the_Devil.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/5/5e/I_Saw_the_Devil.jpg"
     },
     {
         id:47, en:"Burning", ku:"سووتان", year:2018, rating:7.5, duration:"148 خولەک",
@@ -1406,8 +1479,9 @@ const MOVIES = [
         awards:["Cannes: FIPRESCI Prize", "Asian Film Awards: Best Director"],
         trivia:"فیلمەکە لەسەر کورتچیرۆکی Haruki Murakami کراوە. ئەو کۆتاییە نهێنییانەیەی کە بەیەکەوە دەرکەوێت.",
         tmdb_id:519771,
-        poster:"https://image.tmdb.org/t/p/w500/iDVLCCMT4mMbDtZKSBH3P1DIYAI.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/tY7IaHoM8rkNk3tR5kXMTJJP12R.jpg"
+        trailer:"XsuhJsclRp0",
+        poster:"https://upload.wikimedia.org/wikipedia/en/3/35/Burning_2018_film.png",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/3/35/Burning_2018_film.png"
     },
     {
         id:48, en:"The Wailing", ku:"هاواری", year:2016, rating:7.4, duration:"156 خولەک",
@@ -1418,8 +1492,9 @@ const MOVIES = [
         awards:["Grand Bell Awards: Best Director", "Blue Dragon Film Awards: Best Film", "Cannes: Nominated"],
         trivia:"Na Hong-jin 3 ساڵ وەختی گرت بۆ لیستی فیلمەکە. فیلمەکە باسی باوەڕ و شک دەکات.",
         tmdb_id:376867,
-        poster:"https://image.tmdb.org/t/p/w500/rIfpKLuCDmb3cpNaKw2WDJ55UKV.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/6dFqn7tLsAa6GGEzAMBqN3RqHHN.jpg"
+        trailer:"8DxRNxDgBJE",
+        poster:"https://upload.wikimedia.org/wikipedia/en/3/3c/The_Wailing_film.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/3/3c/The_Wailing_film.jpg"
     },
     {
         id:49, en:"Coherence", ku:"کۆهیرینس", year:2013, rating:7.2, duration:"89 خولەک",
@@ -1430,8 +1505,9 @@ const MOVIES = [
         awards:["Tribeca Film Festival: Audience Award (Nominated)"],
         trivia:"فیلمەکە بەبێ سکریپت فیلمکرا — بازیگەران تەنها پەرتووکی زانیاریان هەبوو. هەموو سەحنەکان ئیمپرۆڤایز بوون.",
         tmdb_id:220289,
-        poster:"https://image.tmdb.org/t/p/w500/n0a8O3MFJ9HNQLQ6fgMcexJCXU.jpg",
-        backdrop:"https://image.tmdb.org/t/p/w1280/6KvFQ3VUQv7UF0LIpTxuFRBz0N2.jpg"
+        trailer:"iz9PX2-O3q0",
+        poster:"https://upload.wikimedia.org/wikipedia/en/5/58/Coherence_2013_film_poster.jpg",
+        backdrop:"https://upload.wikimedia.org/wikipedia/en/5/58/Coherence_2013_film_poster.jpg"
     }
 ];
 
@@ -1538,9 +1614,11 @@ function renderMovies(reset = false) {
         const card = document.createElement('div');
         card.className = 'movie-card';
         card.style.animationDelay = `${idx * 0.04}s`;
-        const posterUrl = m.poster || `https://picsum.photos/300/420?random=${m.id}`;
+        const posterUrl = m.poster;
+        const fallbackUrl = `https://placehold.co/300x420/1a1a1a/e50914?text=${encodeURIComponent(m.en.substring(0,15))}`;
         card.innerHTML = `
-            <img class="card-poster" src="${posterUrl}" alt="${m.ku}" onerror="this.src='https://picsum.photos/300/420?random=${m.id}'">
+            <img class="card-poster" src="${posterUrl}" alt="${m.ku}" loading="lazy"
+                onerror="this.onerror=null;this.src='${fallbackUrl}'">
             <div class="card-overlay">
                 <div class="overlay-play"><i class="fas fa-info-circle"></i></div>
                 <div class="overlay-year">${m.year} · ${m.duration}</div>
@@ -1587,7 +1665,7 @@ function renderFavs() {
         const c = document.createElement('div');
         c.className = 'fav-mini';
         c.innerHTML = `
-            <img class="fav-mini-img" src="${m.poster}" alt="${m.ku}" onerror="this.src='https://picsum.photos/300/420?random=${m.id}'">
+            <img class="fav-mini-img" src="${m.poster}" alt="${m.ku}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/140x190/1a1a1a/e50914?text=${encodeURIComponent(m.en.substring(0,10))}'">
             <button class="fav-mini-remove" data-id="${m.id}"><i class="fas fa-times"></i></button>
             <div class="fav-mini-title">${m.ku}</div>
         `;
@@ -1605,7 +1683,7 @@ function openModal(id) {
     const genres = m.genre.map(g => `<span class="modal-tag">${g.toUpperCase()}</span>`).join('');
     const awards = m.awards.map(a => `<div class="award-chip">🏆 ${a}</div>`).join('');
     document.getElementById('modalBox').innerHTML = `
-        <div class="modal-hero" style="background-image:url('${m.backdrop}')">
+        <div class="modal-hero" style="background-image:url('${m.poster}')">
             <div class="modal-hero-grad"></div>
             <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
             <div class="modal-hero-title">
@@ -1624,6 +1702,13 @@ function openModal(id) {
             <button class="modal-fav-btn ${isFav ? 'on' : ''}" id="modalFavBtn" onclick="toggleFav(${m.id}); this.classList.toggle('on')">
                 <i class="${isFav ? 'fas' : 'far'} fa-heart"></i> ${isFav ? 'لە دلخوازەکانم' : 'زیادکردن بۆ دلخواز'}
             </button>
+            ${m.trailer ? `
+            <button class="trailer-btn" onclick="toggleTrailer('${m.trailer}', this)">
+                <span class="play-icon">▶</span>
+                <span id="trailerBtnText">تریلەری فیلم ببینە</span>
+            </button>
+            <div class="trailer-player" id="trailerPlayer"></div>
+            ` : ''}
             <div class="modal-stats">
                 <div class="stat-box"><div class="stat-label">دەرکەوتن</div><div class="stat-val">${m.director}</div></div>
                 <div class="stat-box"><div class="stat-label">وڵات</div><div class="stat-val">${m.country}</div></div>
@@ -1652,7 +1737,28 @@ function openModal(id) {
     document.body.style.overflow = 'hidden';
 }
 
+function toggleTrailer(ytId, btn) {
+    const player = document.getElementById('trailerPlayer');
+    const btnText = document.getElementById('trailerBtnText');
+    if (!player) return;
+    if (player.classList.contains('open')) {
+        player.classList.remove('open');
+        player.innerHTML = '';
+        btnText.textContent = 'تریلەری فیلم ببینە';
+        btn.style.background = 'linear-gradient(135deg, #e50914, #b0060f)';
+    } else {
+        player.classList.add('open');
+        player.innerHTML = `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
+        btnText.textContent = 'داخستنی تریلەر';
+        btn.style.background = 'linear-gradient(135deg, #444, #222)';
+        player.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+
 function closeModal() {
+    // stop trailer iframe on close
+    const player = document.getElementById('trailerPlayer');
+    if (player) player.innerHTML = '';
     document.getElementById('modalWrap').classList.remove('open');
     document.body.style.overflow = '';
 }
