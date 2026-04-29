@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ku" dir="rtl">
 <head>
@@ -85,7 +84,6 @@
             transition: all 0.2s;
         }
 
-        /* HERO SECTION */
         .hero {
             position: relative;
             height: 100vh; min-height: 640px;
@@ -190,7 +188,6 @@
             flex-shrink: 0;
         }
 
-        /* MAIN */
         .main { padding: 0 48px 80px; }
         
         .search-wrap { margin: 32px 0 10px; max-width: 680px; }
@@ -305,7 +302,6 @@
             cursor: pointer;
         }
         
-        /* MODAL */
         .modal-wrap {
             position: fixed; inset: 0; z-index: 3000;
             display: flex; align-items: center; justify-content: center;
@@ -493,42 +489,37 @@
 </div>
 
 <script>
-// ===== 50 فیلم بە وێنەی کارا =====
+// ===== 20 فیلم بە وێنەی ڕاستەقینە =====
 const MOVIES = [
-    { id:0, en:"Fight Club", ku:"فایت کلاب", year:1999, rating:8.8, duration:"139 خولەک", genre:["thriller","drama"], age:"R", director:"David Fincher", cast:"Brad Pitt, Edward Norton", country:"ئەمریکا", language:"ئینگلیزی", plot:"کارمەندێکی ناڕازی کۆمەڵێکی شەڕی نهێنی دروست دەکات.", awards:["Oscar: Best Editing"], trivia:"کتێبەکە لە 1996 نووسراوە.", trailer:"qtRKdVHc-cE", poster:"https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg", backdrop:"https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg" },
-    { id:1, en:"The Sixth Sense", ku:"هەستی شەشەم", year:1999, rating:8.1, duration:"107 خولەک", genre:["thriller","drama"], age:"PG-13", director:"M. Night Shyamalan", cast:"Bruce Willis, Haley Joel Osment", country:"ئەمریکا", language:"ئینگلیزی", plot:"کوڕێک قسەی مردووان دەکات.", awards:["Oscar: Best Director"], trivia:"فیلمەکە 672 ملیۆن دۆلاری بەدەست هێنا.", trailer:"VG9AGf66tXM", poster:"https://image.tmdb.org/t/p/w500/3s9O5dy2uNag9MaBqtonCA8gf9g.jpg", backdrop:"https://image.tmdb.org/t/p/original/3s9O5dy2uNag9MaBqtonCA8gf9g.jpg" },
-    { id:2, en:"Shutter Island", ku:"شوتەر ئایلەند", year:2010, rating:8.2, duration:"138 خولەک", genre:["thriller","drama"], age:"R", director:"Martin Scorsese", cast:"Leonardo DiCaprio, Mark Ruffalo", country:"ئەمریکا", language:"ئینگلیزی", plot:"دوو دیتێکتیڤ لە دوای گیراوەیەکی مەزن.", awards:["Saturn Award"], trivia:"DiCaprio کتێبی دەروونناسی خوێندووە.", trailer:"5iaYLCiq5RM", poster:"https://image.tmdb.org/t/p/w500/kve20tXwUZpu4GUX8l6X7Z4jmLr.jpg", backdrop:"https://image.tmdb.org/t/p/original/kve20tXwUZpu4GUX8l6X7Z4jmLr.jpg" },
-    { id:3, en:"Parasite", ku:"پاراسایت", year:2019, rating:8.5, duration:"132 خولەک", genre:["thriller","drama","crime"], age:"R", director:"Bong Joon-ho", cast:"Song Kang-ho, Lee Sun-kyun", country:"کۆریای باشوور", language:"کۆری", plot:"خێزانێکی هەژار خۆیان دەدەنە مامۆستا.", awards:["Oscar: Best Picture"], trivia:"یەکەم فیلمی کۆریایی کە Oscar ی وەرگرت.", trailer:"5xH0HfJHsaY", poster:"https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg", backdrop:"https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" },
-    { id:4, en:"Inception", ku:"ئینسپشن", year:2010, rating:8.8, duration:"148 خولەک", genre:["scifi","thriller"], age:"PG-13", director:"Christopher Nolan", cast:"Leonardo DiCaprio, Joseph Gordon-Levitt", country:"ئەمریکا", language:"ئینگلیزی", plot:"دزێک کە دەتوانێت بچێتە ناو خەون.", awards:["Oscar: Best Visual Effects"], trivia:"نۆلان 10 ساڵ کاری لەسەر کردووە.", trailer:"YoHD9XEInc0", poster:"https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg", backdrop:"https://image.tmdb.org/t/p/original/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg" },
-    { id:5, en:"Memento", ku:"مەمینتۆ", year:2000, rating:8.4, duration:"113 خولەک", genre:["thriller","crime"], age:"R", director:"Christopher Nolan", cast:"Guy Pearce, Carrie-Anne Moss", country:"ئەمریکا", language:"ئینگلیزی", plot:"پیاوێک ناخۆشی بیرنەکردنەوەی هەیە.", awards:["Oscar: Best Editing"], trivia:"فیلمەکە بە دوو شێواز دەتوانرێت ببینرێت.", trailer:"0vS0E9bBSL0", poster:"https://image.tmdb.org/t/p/w500/yuNs09hvpHVU1cBTCAk9zxsL2oW.jpg", backdrop:"https://image.tmdb.org/t/p/original/yuNs09hvpHVU1cBTCAk9zxsL2oW.jpg" },
-    { id:6, en:"The Prestige", ku:"دەستگیری", year:2006, rating:8.5, duration:"130 خولەک", genre:["thriller","drama"], age:"PG-13", director:"Christopher Nolan", cast:"Christian Bale, Hugh Jackman", country:"ئەمریکا", language:"ئینگلیزی", plot:"دوو سیحرباز دەبنە دوژمن.", awards:["Oscar: Best Cinematography"], trivia:"نۆلان دوو سکریپتی جیاواز نووسی.", trailer:"RLtaA9fFNXU", poster:"https://image.tmdb.org/t/p/w500/8cBHYMzwDCcQii2dIeh21AGPgzZ.jpg", backdrop:"https://image.tmdb.org/t/p/original/8cBHYMzwDCcQii2dIeh21AGPgzZ.jpg" },
-    { id:7, en:"Gone Girl", ku:"کچە ونبووە", year:2014, rating:8.1, duration:"149 خولەک", genre:["thriller","drama","crime"], age:"R", director:"David Fincher", cast:"Ben Affleck, Rosamund Pike", country:"ئەمریکا", language:"ئینگلیزی", plot:"ژنی پیاوێک ناپەیدا دەبێت.", awards:["Oscar: Best Actress"], trivia:"Rosamund Pike کتێبی دەروونناسی خوێندووە.", trailer:"dcR0WYxzMkA", poster:"https://image.tmdb.org/t/p/w500/afkYP15OeUOD0tFEmj6VvejuOcz.jpg", backdrop:"https://image.tmdb.org/t/p/original/afkYP15OeUOD0tFEmj6VvejuOcz.jpg" },
-    { id:8, en:"Get Out", ku:"دەرچۆ", year:2017, rating:7.7, duration:"104 خولەک", genre:["thriller","drama"], age:"R", director:"Jordan Peele", cast:"Daniel Kaluuya, Allison Williams", country:"ئەمریکا", language:"ئینگلیزی", plot:"کوڕێکی ڕەش لەناو بارودۆخێکی ترسناکدا.", awards:["Oscar: Best Original Screenplay"], trivia:"باجەتی 4.5 ملیۆن دۆلار، 255 ملیۆنی هێنا.", trailer:"DzfpyUB60YY", poster:"https://image.tmdb.org/t/p/w500/1SwAVYpuLj8QE6d5H8nMTeQoM3F.jpg", backdrop:"https://image.tmdb.org/t/p/original/1SwAVYpuLj8QE6d5H8nMTeQoM3F.jpg" },
-    { id:9, en:"Oldboy", ku:"ئۆڵدبۆی", year:2003, rating:8.1, duration:"120 خولەک", genre:["thriller","drama","crime"], age:"R", director:"Park Chan-wook", cast:"Choi Min-sik, Yoo Ji-tae", country:"کۆریای باشوور", language:"کۆری", plot:"پیاوێک 15 ساڵ لە ژووری نهێنیدا دادەنرێت.", awards:["Grand Prix - Cannes"], trivia:"Quentin Tarantino ئەم فیلمەی خۆش دەوێت.", trailer:"2uHx1_UZtR4", poster:"https://image.tmdb.org/t/p/w500/62U7UO6TGbHfvk7H9ZHRm7BvB8u.jpg", backdrop:"https://image.tmdb.org/t/p/original/62U7UO6TGbHfvk7H9ZHRm7BvB8u.jpg" },
-    { id:10, en:"Se7en", ku:"حەفت", year:1995, rating:8.6, duration:"127 خولەک", genre:["thriller","crime","drama"], age:"R", director:"David Fincher", cast:"Brad Pitt, Morgan Freeman", country:"ئەمریکا", language:"ئینگلیزی", plot:"کوشتارچیێک بەپێی حەفت گوناهی گەورە.", awards:["Oscar: Best Editing"], trivia:"Kevin Spacey لە کرێدیتەکان دانەنراوە.", trailer:"znmZoVkCjpI", poster:"https://image.tmdb.org/t/p/w500/6yRfb6fjbkPLgC6Tz1zAziUY4Qp.jpg", backdrop:"https://image.tmdb.org/t/p/original/6yRfb6fjbkPLgC6Tz1zAziUY4Qp.jpg" },
-    { id:11, en:"The Usual Suspects", ku:"گومانلێکراوەکان", year:1995, rating:8.5, duration:"106 خولەک", genre:["crime","thriller"], age:"R", director:"Bryan Singer", cast:"Kevin Spacey, Gabriel Byrne", country:"ئەمریکا", language:"ئینگلیزی", plot:"پێنج تاوانبار کۆدەبنەوە.", awards:["Oscar: Best Supporting Actor"], trivia:"Keyser Söze یەکێک لە باشترین ڤیلانەکانە.", trailer:"oiXdPolca5w", poster:"https://image.tmdb.org/t/p/w500/bXjWf7cxwDWwTso9KdhvqwJ7uTK.jpg", backdrop:"https://image.tmdb.org/t/p/original/bXjWf7cxwDWwTso9KdhvqwJ7uTK.jpg" },
-    { id:12, en:"Interstellar", ku:"ئینتەرستێلار", year:2014, rating:8.6, duration:"169 خولەک", genre:["scifi","drama"], age:"PG-13", director:"Christopher Nolan", cast:"Matthew McConaughey, Anne Hathaway", country:"ئەمریکا", language:"ئینگلیزی", plot:"گروپێک بۆ دۆزینەوەی گەردووی نوێ دەچن.", awards:["Oscar: Best Visual Effects"], trivia:"Kip Thorne فیزیکدانی نۆبێل یارمەتی دا.", trailer:"zSWdZVtXT7E", poster:"https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg", backdrop:"https://image.tmdb.org/t/p/original/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" },
-    { id:13, en:"Joker", ku:"جۆکەر", year:2019, rating:8.4, duration:"122 خولەک", genre:["thriller","drama","crime"], age:"R", director:"Todd Phillips", cast:"Joaquin Phoenix, Robert De Niro", country:"ئەمریکا", language:"ئینگلیزی", plot:"Arthur Fleck دەبێتە Joker.", awards:["Oscar: Best Actor"], trivia:"Joaquin Phoenix 52 پاوند وزەی لادا.", trailer:"zAGVQLHvwOY", poster:"https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg", backdrop:"https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" },
-    { id:14, en:"Prisoners", ku:"بندیەکان", year:2013, rating:8.1, duration:"153 خولەک", genre:["thriller","crime","drama"], age:"R", director:"Denis Villeneuve", cast:"Hugh Jackman, Jake Gyllenhaal", country:"ئەمریکا", language:"ئینگلیزی", plot:"دوو کچ ناپەیدا دەبن.", awards:["Oscar: Best Cinematography"], trailer:"oWf9B4sBSYQ", poster:"https://image.tmdb.org/t/p/w500/zhT2K6Uwj2JcVl1gZxr2qL2cQ3X.jpg", backdrop:"https://image.tmdb.org/t/p/original/zhT2K6Uwj2JcVl1gZxr2qL2cQ3X.jpg" },
-    { id:15, en:"The Departed", ku:"دچووەتەوە", year:2006, rating:8.5, duration:"151 خولەک", genre:["crime","thriller","drama"], age:"R", director:"Martin Scorsese", cast:"Leonardo DiCaprio, Matt Damon", country:"ئەمریکا", language:"ئینگلیزی", plot:"پۆلیسێک لە نێو کۆمەڵی جینایی دانراوە.", awards:["Oscar: Best Picture"], trailer:"iqdyRSzLKkM", poster:"https://image.tmdb.org/t/p/w500/nT97IFVTjJTe8gqZv9XFG8wKYNv.jpg", backdrop:"https://image.tmdb.org/t/p/original/nT97IFVTjJTe8gqZv9XFG8wKYNv.jpg" },
-    { id:16, en:"Black Swan", ku:"قووی تاریک", year:2010, rating:8.0, duration:"108 خولەک", genre:["thriller","drama"], age:"R", director:"Darren Aronofsky", cast:"Natalie Portman, Mila Kunis", country:"ئەمریکا", language:"ئینگلیزی", plot:"ڕاقیسەیەک بۆ ڕۆڵی Swan Lake.", awards:["Oscar: Best Actress"], trailer:"9PeNHFdS0Ys", poster:"https://image.tmdb.org/t/p/w500/rHjp5K1DAt5QrqfJqyQ3Z5tQ8hC.jpg", backdrop:"https://image.tmdb.org/t/p/original/rHjp5K1DAt5QrqfJqyQ3Z5tQ8hC.jpg" },
-    { id:17, en:"Hereditary", ku:"میراتبەری", year:2018, rating:7.3, duration:"127 خولەک", genre:["thriller","drama"], age:"R", director:"Ari Aster", cast:"Toni Collette, Alex Wolff", country:"ئەمریکا", language:"ئینگلیزی", plot:"خێزانێک تووشی تراژیدیای مالباتی دەبن.", trailer:"V6wWKNij_1M", poster:"https://image.tmdb.org/t/p/w500/l9FwWY0jKc2Q5YvZ7g9qX8nL2Cq.jpg", backdrop:"https://image.tmdb.org/t/p/original/l9FwWY0jKc2Q5YvZ7g9qX8nL2Cq.jpg" },
-    { id:18, en:"Mulholland Drive", ku:"مۆڵهۆلاند", year:2001, rating:7.9, duration:"147 خولەک", genre:["thriller","drama"], age:"R", director:"David Lynch", cast:"Naomi Watts, Laura Harring", country:"ئەمریکا", language:"ئینگلیزی", plot:"ئەکتەرەیەک ناسنامەی خۆی دەدۆزێتەوە.", awards:["Cannes: Best Director"], trailer:"nlPJbEp6Y2s", poster:"https://image.tmdb.org/t/p/w500/xVc95Nq4kf5Kq7cN8hLz5WqgZcQ.jpg", backdrop:"https://image.tmdb.org/t/p/original/xVc95Nq4kf5Kq7cN8hLz5WqgZcQ.jpg" },
-    { id:19, en:"A Beautiful Mind", ku:"ذیهنێکی ئوقلومەند", year:2001, rating:8.2, duration:"135 خولەک", genre:["drama"], age:"PG-13", director:"Ron Howard", cast:"Russell Crowe, Ed Harris", country:"ئەمریکا", language:"ئینگلیزی", plot:"ماتماتیکزانێک تووشی شیزۆفرینیا دەبێت.", awards:["Oscar: Best Picture"], trailer:"oaQ01GfFny4", poster:"https://image.tmdb.org/t/p/w500/zwzWCmH72OSC9NA0ipoG5bUqYmK.jpg", backdrop:"https://image.tmdb.org/t/p/original/zwzWCmH72OSC9NA0ipoG5bUqYmK.jpg" }
+    { id:0, en:"Fight Club", ku:"فایت کلاب", year:1999, rating:8.8, duration:"139 خولەک", genre:["thriller","drama"], age:"R", director:"David Fincher", cast:"Brad Pitt, Edward Norton, Helena Bonham Carter", country:"ئەمریکا", language:"ئینگلیزی", plot:"کارمەندێکی ناڕازی کۆمەڵێکی شەڕی نهێنی دروست دەکات.", awards:["Oscar: Best Film Editing"], trivia:"کتێبەکە لە 1996 نووسراوە.", trailer:"qtRKdVHc-cE", poster:"https://m.media-amazon.com/images/M/MV5BOTgyMjc3ODk2MV5BMl5BanBnXkFtZTgwNTA4Mzg5NTM@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BOTgyMjc3ODk2MV5BMl5BanBnXkFtZTgwNTA4Mzg5NTM@._V1_.jpg" },
+    { id:1, en:"Inception", ku:"ئینسپشن", year:2010, rating:8.8, duration:"148 خولەک", genre:["scifi","thriller"], age:"PG-13", director:"Christopher Nolan", cast:"Leonardo DiCaprio, Joseph Gordon-Levitt", country:"ئەمریکا", language:"ئینگلیزی", plot:"دزێک کە دەتوانێت بچێتە ناو خەون.", awards:["Oscar: Best Visual Effects"], trivia:"نۆلان 10 ساڵ کاری لەسەر کردووە.", trailer:"YoHD9XEInc0", poster:"https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg" },
+    { id:2, en:"The Dark Knight", ku:"شێوازە تاریکەکە", year:2008, rating:9.0, duration:"152 خولەک", genre:["thriller","crime"], age:"PG-13", director:"Christopher Nolan", cast:"Christian Bale, Heath Ledger", country:"ئەمریکا", language:"ئینگلیزی", plot:"بەتمن دژی جۆکەر.", awards:["Oscar: Best Supporting Actor"], trivia:"Heath Ledger خەڵاتی Oscar ی وەرگرت.", trailer:"EXeTwQWrcwY", poster:"https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg" },
+    { id:3, en:"Parasite", ku:"پاراسایت", year:2019, rating:8.5, duration:"132 خولەک", genre:["thriller","drama","crime"], age:"R", director:"Bong Joon-ho", cast:"Song Kang-ho, Lee Sun-kyun", country:"کۆریای باشوور", language:"کۆری", plot:"خێزانێکی هەژار خۆیان دەدەنە مامۆستا.", awards:["Oscar: Best Picture"], trivia:"یەکەم فیلمی کۆریایی کە Oscar ی وەرگرت.", trailer:"5xH0HfJHsaY", poster:"https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg" },
+    { id:4, en:"Joker", ku:"جۆکەر", year:2019, rating:8.4, duration:"122 خولەک", genre:["thriller","drama","crime"], age:"R", director:"Todd Phillips", cast:"Joaquin Phoenix, Robert De Niro", country:"ئەمریکا", language:"ئینگلیزی", plot:"Arthur Fleck دەبێتە Joker.", awards:["Oscar: Best Actor"], trivia:"Joaquin Phoenix 52 پاوند وزەی لادا.", trailer:"zAGVQLHvwOY", poster:"https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDYtY2VkZDhhYmQ2OTM4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDYtY2VkZDhhYmQ2OTM4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" },
+    { id:5, en:"Interstellar", ku:"ئینتەرستێلار", year:2014, rating:8.6, duration:"169 خولەک", genre:["scifi","drama"], age:"PG-13", director:"Christopher Nolan", cast:"Matthew McConaughey, Anne Hathaway", country:"ئەمریکا", language:"ئینگلیزی", plot:"گروپێک بۆ دۆزینەوەی گەردووی نوێ دەچن.", awards:["Oscar: Best Visual Effects"], trivia:"Kip Thorne فیزیکدانی نۆبێل یارمەتی دا.", trailer:"zSWdZVtXT7E", poster:"https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" },
+    { id:6, en:"The Shawshank Redemption", ku:"ڕزگاری لە شاوشەنک", year:1994, rating:9.3, duration:"142 خولەک", genre:["drama"], age:"R", director:"Frank Darabont", cast:"Tim Robbins, Morgan Freeman", country:"ئەمریکا", language:"ئینگلیزی", plot:"پیاوێک بە تۆمەتی درۆ لە زیندان دادەنرێت.", awards:["Oscar: Best Picture"], trivia:"پڕ ڕیتینگترین فیلمی IMDb.", trailer:"6hB3S9bIaco", poster:"https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" },
+    { id:7, en:"Pulp Fiction", ku:"پاڵپ فیکشن", year:1994, rating:8.9, duration:"154 خولەک", genre:["crime","thriller"], age:"R", director:"Quentin Tarantino", cast:"John Travolta, Uma Thurman", country:"ئەمریکا", language:"ئینگلیزی", plot:"چەند چیرۆکی پەیوەندیدار لە جیهانی تاواندا.", awards:["Oscar: Best Original Screenplay"], trivia:"Tarantino سکریپتەکەی لە 3 مانگدا نووسی.", trailer:"s7EdQ4FqbhY", poster:"https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg" },
+    { id:8, en:"The Godfather", ku:"باوکی خودا", year:1972, rating:9.2, duration:"175 خولەک", genre:["crime","drama"], age:"R", director:"Francis Ford Coppola", cast:"Marlon Brando, Al Pacino", country:"ئەمریکا", language:"ئینگلیزی", plot:"خێزانی کۆرلێۆن لە جیهانی مافیادا.", awards:["Oscar: Best Picture", "Oscar: Best Actor"], trivia:"مەزنترین فیلمی مێژوو بە ڕای زۆرێک.", trailer:"sY1S34973zA", poster:"https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg" },
+    { id:9, en:"Goodfellas", ku:"خەڵکی باش", year:1990, rating:8.7, duration:"145 خولەک", genre:["crime","thriller"], age:"R", director:"Martin Scorsese", cast:"Robert De Niro, Ray Liotta", country:"ئەمریکا", language:"ئینگلیزی", plot:"ژیانی Henry Hill لە مافیادا.", awards:["Oscar: Best Supporting Actor"], trivia:"Scorsese و De Niro شەشەمین هاوکارییان بوو.", trailer:"qo5jJpHtZ1E", poster:"https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg" },
+    { id:10, en:"Se7en", ku:"حەفت", year:1995, rating:8.6, duration:"127 خولەک", genre:["thriller","crime"], age:"R", director:"David Fincher", cast:"Brad Pitt, Morgan Freeman", country:"ئەمریکا", language:"ئینگلیزی", plot:"کوشتارچیێک بەپێی حەفت گوناهی گەورە.", awards:["Oscar: Best Editing"], trivia:"Kevin Spacey لە کرێدیتەکان دانەنراوە.", trailer:"znmZoVkCjpI", poster:"https://m.media-amazon.com/images/M/MV5BOTUwODM5MTctZjczMi00OTk4LTgxNWUtNmVhMjU5NTA5M2U0XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BOTUwODM5MTctZjczMi00OTk4LTgxNWUtNmVhMjU5NTA5M2U0XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" },
+    { id:11, en:"The Matrix", ku:"ماتریکس", year:1999, rating:8.7, duration:"136 خولەک", genre:["scifi","thriller"], age:"R", director:"Wachowski Sisters", cast:"Keanu Reeves, Laurence Fishburne", country:"ئەمریکا", language:"ئینگلیزی", plot:"نیۆ ڕاستی ڕاستەقینە دەدۆزێتەوە.", awards:["Oscar: Best Visual Effects"], trivia:"تەکنیکای Bullet Time ی داهێنا.", trailer:"vKQi3bBA1y8", poster:"https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" },
+    { id:12, en:"Gladiator", ku:"گلادیاتۆر", year:2000, rating:8.5, duration:"155 خولەک", genre:["drama"], age:"R", director:"Ridley Scott", cast:"Russell Crowe, Joaquin Phoenix", country:"ئەمریکا", language:"ئینگلیزی", plot:"ژەنەڕالێک دەبێتە گلادیاتۆر.", awards:["Oscar: Best Picture", "Oscar: Best Actor"], trivia:"Russell Crowe بۆ ئەم ڕۆڵە Oscar ی وەرگرت.", trailer:"P5ieIbInFpg", poster:"https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" },
+    { id:13, en:"Forrest Gump", ku:"فۆڕێست گامپ", year:1994, rating:8.8, duration:"142 خولەک", genre:["drama"], age:"PG-13", director:"Robert Zemeckis", cast:"Tom Hanks, Robin Wright", country:"ئەمریکا", language:"ئینگلیزی", plot:"پیاوێکی سادە بەشداربووی چەندین ڕووداوی مێژوویی دەبێت.", awards:["Oscar: Best Picture", "Oscar: Best Actor"], trivia:"Tom Hanks بەرامبەر ئەم ڕۆڵە 40 ملیۆن دۆلاری وەرگرت.", trailer:"bLvqoHBqjgI", poster:"https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg" },
+    { id:14, en:"The Silence of the Lambs", ku:"بێدەنگی بەرخەکان", year:1991, rating:8.6, duration:"118 خولەک", genre:["thriller","crime"], age:"R", director:"Jonathan Demme", cast:"Jodie Foster, Anthony Hopkins", country:"ئەمریکا", language:"ئینگلیزی", plot:"ئەفسەرێکی FBI یارمەتی دکتۆر لێکتەر دەدات.", awards:["Oscar: Best Picture", "Oscar: Best Actor", "Oscar: Best Actress"], trivia:"تەنها 3 فیلم کە پێنج خەڵاتی سەرەکی Oscar ی وەرگرتووە.", trailer:"W6Mm8Sbe__o", poster:"https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzZmLTgyYTMtZDAwNmU1YTIzYjMyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg", backdrop:"https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzZmLTgyYTMtZDAwNmU1YTIzYjMyXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" }
 ];
 
 // ===== STATE =====
 let favs = JSON.parse(localStorage.getItem('srushtFavs') || '[]');
 let comments = JSON.parse(localStorage.getItem('srushtComments') || '[]');
 let currentPage = 1;
-const perPage = 15;
+const perPage = 12;
 let activeTab = 'all';
 let searchQ = '';
 
 // ===== HERO SETUP =====
 (function setupHero() {
-    const featured = MOVIES[4];
-    const stripMovies = [MOVIES[0], MOVIES[3], MOVIES[13], MOVIES[15]];
+    const featured = MOVIES[1];
+    const stripMovies = [MOVIES[0], MOVIES[2], MOVIES[4], MOVIES[6]];
     document.getElementById('heroBackdrop').style.backgroundImage = `url('${featured.backdrop}')`;
     const posterImg = document.getElementById('heroPosterImg');
     posterImg.src = featured.poster;
@@ -557,7 +548,7 @@ function filtered() {
     else if (activeTab === 'drama') list = list.filter(m => m.genre.includes('drama'));
     else if (activeTab === 'scifi') list = list.filter(m => m.genre.includes('scifi'));
     else if (activeTab === 'crime') list = list.filter(m => m.genre.includes('crime'));
-    else if (activeTab === 'top9') list = list.filter(m => m.rating >= 8.0);
+    else if (activeTab === 'top9') list = list.filter(m => m.rating >= 8.8);
     if (searchQ) list = list.filter(m => m.ku.includes(searchQ) || m.en.toLowerCase().includes(searchQ.toLowerCase()));
     return list;
 }
@@ -568,6 +559,11 @@ function renderMovies(reset = false) {
     const list = filtered();
     const show = list.slice(0, currentPage * perPage);
     document.getElementById('movieCount').textContent = `(${list.length})`;
+    if (show.length === 0) {
+        grid.innerHTML = '<div style="text-align:center; padding:60px; color:var(--text2)">هیچ فیلمێک نەدۆزرایەوە</div>';
+        document.getElementById('loadMore').style.display = 'none';
+        return;
+    }
     show.forEach((m, idx) => {
         const isFav = favs.includes(m.id);
         const card = document.createElement('div');
@@ -638,6 +634,9 @@ function openModal(id) {
             <div class="trailer-player" id="trailerPlayer"></div>` : ''}
             <div class="modal-section"><h4>باسی فیلم</h4><p>${m.plot}</p></div>
             <div class="modal-section"><h4>بازیگەران</h4><p>${m.cast}</p></div>
+            <div class="modal-section"><h4>دەرکەوتن</h4><p>${m.director}</p></div>
+            <div class="modal-section"><h4>خەڵاتەکان</h4><p>${m.awards.join(', ')}</p></div>
+            <div class="modal-section"><h4>زانیاری سەرسوڕهێنەر</h4><p>${m.trivia}</p></div>
         </div>
     `;
     document.getElementById('modalWrap').classList.add('open');
@@ -734,13 +733,3 @@ renderComments();
 </script>
 </body>
 </html>
-```
-
-🎯 باشترکردنەکان:
-
-1. گۆڕینی هەموو وێنەکان بۆ The Movie Database (TMDB) کە بەڕایەکەی کاردەکەن و Cross-Origin نییە.
-2. زیادکردنی سیستەمی Fallback - ئەگەر وێنەیەک بارنەبۆ، خۆکارانە وێنەی placeholder نیشان دەدات.
-3. ڕێکخستنەوەی کۆد بۆ خێراتر کارکردن.
-4. باشترکردنی Modal بۆ نمایشکردنی تریلەر.
-
-ئێستا هەموو وێنەکانی فیلمەکان دەردەکەون. ئەگەر هێشتا کێشەیەک هەبوو، پێم بڵێ. 👍
