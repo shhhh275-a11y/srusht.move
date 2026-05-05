@@ -3,110 +3,104 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shocking Ending Movies</title>
+<title>Movie UI</title>
 
 <style>
 body{
     margin:0;
     font-family:sans-serif;
-    background:#0f172a;
+    background:#0b0b0f;
     color:white;
 }
-header{
-    text-align:center;
-    padding:20px;
-    font-size:2em;
-    background:linear-gradient(45deg,#ff004c,#ff7a00);
-}
-.search{
+
+/* Navbar */
+.nav{
     display:flex;
-    justify-content:center;
+    justify-content:space-between;
+    padding:15px 30px;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    position:fixed;
+    width:100%;
+}
+.logo{
+    color:#ff0055;
+    font-size:1.5em;
+    font-weight:bold;
+}
+
+/* Hero */
+.hero{
+    height:80vh;
+    background:url('https://picsum.photos/1200/700') center/cover;
+    display:flex;
+    align-items:center;
+    padding:40px;
+}
+.hero h1{
+    font-size:3em;
+}
+
+/* Rows */
+.row{
     margin:20px;
 }
-.search input{
-    padding:10px;
-    width:60%;
+.row h2{
+    margin-bottom:10px;
 }
-.search button{
-    padding:10px;
-    background:red;
-    color:white;
-    border:none;
-}
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-    gap:20px;
-    padding:20px;
+
+.movies{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
 }
 .card{
-    background:#1e293b;
-    border-radius:10px;
+    min-width:150px;
+    height:220px;
+    background:#111;
+    border-radius:8px;
     overflow:hidden;
     transition:0.3s;
 }
-.card:hover{transform:scale(1.05);}
-.card img{width:100%;}
-.info{padding:10px;}
-.instagram{
-    text-align:center;
-    margin:20px;
+.card:hover{
+    transform:scale(1.1);
+}
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 </style>
 </head>
 
 <body>
 
-<header>🔥 Shocking Ending Movies</header>
-
-<div class="search">
-<input id="searchInput" placeholder="گەڕان...">
-<button onclick="search()">گەڕان</button>
+<div class="nav">
+<div class="logo">MOVIES</div>
+<div>🔍</div>
 </div>
 
-<div class="instagram">
-<a href="https://www.instagram.com/lipri_09?igsh=MXQ0NG1icnc3Ym11NA==" target="_blank">
-Instagram
-</a>
+<div class="hero">
+<h1>🔥 Best Shocking Movies</h1>
 </div>
 
-<div class="grid" id="movies"></div>
+<div class="row">
+<h2>Trending</h2>
+<div class="movies">
+<div class="card"><img src="https://picsum.photos/200/300?1"></div>
+<div class="card"><img src="https://picsum.photos/200/300?2"></div>
+<div class="card"><img src="https://picsum.photos/200/300?3"></div>
+<div class="card"><img src="https://picsum.photos/200/300?4"></div>
+</div>
+</div>
 
-<script>
-
-const API_KEY = "df3194b0b76a3ac936ceb1b11c3e63d3";
-
-async function getMovies(query="movie"){
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    showMovies(data.results);
-}
-
-function showMovies(movies){
-    const container = document.getElementById("movies");
-    container.innerHTML="";
-    movies.forEach(m=>{
-        const div = document.createElement("div");
-        div.className="card";
-        div.innerHTML=`
-        <img src="https://image.tmdb.org/t/p/w500${m.poster_path}">
-        <div class="info">
-        <h3>${m.title}</h3>
-        <p>⭐ ${m.vote_average}</p>
-        </div>`;
-        container.appendChild(div);
-    });
-}
-
-function search(){
-    const q = document.getElementById("searchInput").value;
-    getMovies(q);
-}
-
-getMovies();
-
-</script>
+<div class="row">
+<h2>Top Rated</h2>
+<div class="movies">
+<div class="card"><img src="https://picsum.photos/200/300?5"></div>
+<div class="card"><img src="https://picsum.photos/200/300?6"></div>
+<div class="card"><img src="https://picsum.photos/200/300?7"></div>
+</div>
+</div>
 
 </body>
 </html>
