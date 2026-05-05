@@ -74,7 +74,7 @@ Instagram
 
 <script>
 
-const API_KEY = "PUT_YOUR_KEY_HERE";
+const API_KEY = "df3194b0b76a3ac936ceb1b11c3e63d3";
 
 async function getMovies(query="movie"){
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`;
