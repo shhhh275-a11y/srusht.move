@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srusht Move - بەشی دووەم</title>
+    <style>
+        body {
+            background-color: #0b0b0b;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            border-bottom: 4px solid #e50914;
+        }
+
+        h1 { margin: 0; font-size: 40px; color: #e50914; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        header p { font-size: 18px; color: #ccc; }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            padding: 40px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .movie-card {
+            background: #181818;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            border: 1px solid #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .movie-card:hover {
+            transform: translateY(-10px);
+            border-color: #e50914;
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .movie-info {
+            padding: 15px;
+        }
+
+        .movie-info h3 {
+            margin: 5px 0;
+            font-size: 16px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .movie-info p {
+            font-size: 14px;
+            color: #e50914;
+            font-weight: bold;
+        }
+
+        .nav-btn {
+            display: inline-block;
+            margin: 40px 0;
+            padding: 12px 35px;
+            background-color: #e50914;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover { background-color: white; color: #e50914; transform: scale(1.1); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Srusht Move</h1>
+        <p>بەشی دووەم: 50 فیلمی هەڵبژێردراو</p>
+    </header>
+
+    <div class="container">
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNjc2M2UxY2MzM2UxXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Oppenheimer</h3><p>⭐ 8.4</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjMwNjM5OTU0N15BMl5BanBnXkFtZTgwNjU2ODEwMzI@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Dune: Part Two</h3><p>⭐ 8.6</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BNjU3N2QxNzYtMjk1NC00MTc4LTk1NTQtMmUxN2IyNjIzODgxXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Deadpool & Wolverine</h3><p>⭐ 7.9</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Batman</h3><p>⭐ 7.8</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMzU5ZGYzNmQtMTdhYy00OGRiLTg0NmQtYTkyZGE0MDI5MGExXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Gladiator II</h3><p>⭐ 7.0</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjE0NTA2MTEwOV5BMl5BanBnXkFtZTgwMDgzMDkyNzM@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Spider-Man: Across the Spider-Verse</h3><p>⭐ 8.6</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3N2YxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Joker: Folie à Deux</h3><p>⭐ 5.3</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Godfather</h3><p>⭐ 9.2</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Dark Knight</h3><p>⭐ 9.0</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjA1XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Pulp Fiction</h3><p>⭐ 8.9</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BNjgwNjkwOWUtZDZiZC00MjgzLWIwN2ItN2FlNWNlNWJmM2NkXkEyXkFqcGdeQXVyNjkwMjQ5NzM@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Interstellar</h3><p>⭐ 8.7</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Inception</h3><p>⭐ 8.8</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Shawshank Redemption</h3><p>⭐ 9.3</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Lord of the Rings</h3><p>⭐ 8.9</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Avengers: Endgame</h3><p>⭐ 8.4</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM5NjI5._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Prestige</h3><p>⭐ 8.5</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDgtYWJkZWZlOTY3NzhjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Whale</h3><p>⭐ 7.7</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjIyNTcwMzcyNl5BMl5BanBnXkFtZTcwMTU0NjgxNw@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Avengers</h3><p>⭐ 8.0</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Arrival</h3><p>⭐ 7.9</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwOTA0OTQzMw@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Dark Knight Rises</h3><p>⭐ 8.4</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMzU3NjY0NTYtYjA2OS00ZDU0LWFhN2ItZGUzMDY0ZGRiOWNiXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Longlegs</h3><p>⭐ 6.7</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMGUyM2ZiZmUtMWY0OC00NTQ4LThkNjUtNjY2NjkzMDJiMWMwXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Substance</h3><p>⭐ 7.5</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjE5MzcyNjk1M15BMl5BanBnXkFtZTgwMjMwMDkzOTE@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Martian</h3><p>⭐ 8.0</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Parasite</h3><p>⭐ 8.5</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Blade Runner 2049</h3><p>⭐ 8.0</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BYTExZTMyY2ItY2RiYy00ZDJmLWE0NWYtZGRjY2MzZDVhMGYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Menu</h3><p>⭐ 7.2</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OTVlLTgyMzktYWJlZWI0OTYxZTE5XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Interstellar</h3><p>⭐ 8.7</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjA5Njk3MjM4OV5BMl5BanBnXkFtZTgwMTc5MTE1NzE@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>John Wick</h3><p>⭐ 7.4</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>John Wick 2</h3><p>⭐ 7.4</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMDg2YzI0ODctN2FkMC00Njg4LWIxMzctZWU0OTUyYDAzYWEyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>John Wick 3</h3><p>⭐ 7.4</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMzFiZGUzYzctNDM4NC00MjQ1LWIyOWUtN2UzN2VlM2RkOTc5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>John Wick 4</h3><p>⭐ 7.7</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjExMjkwNTQ0Nl5BMl5BanBnXkFtZTcwNTY0OTk1Mw@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Shutter Island</h3><p>⭐ 8.2</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BZWMyYzFjYTYtNTRjYi00NWExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGdeQXVyMA5ByMkxMA@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Everything Everywhere</h3><p>⭐ 7.8</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Revenant</h3><p>⭐ 8.0</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMTEzZTU2ZGQtMWJjZS00Y2JiLThhYWItOWYwNTQyZTAzYzEwXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Twisters</h3><p>⭐ 6.8</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BN2ZmMjUxMzMtMmY5Mi00YjVlLTlmMzktYmZlZGNmZTM3YmE2XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Society of the Snow</h3><p>⭐ 7.8</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BNjE5YTM4MjQtMmY1YS00Y2FlLWIxM2EtOTI5Y2M3YmE3N2I2XkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Smile 2</h3><p>⭐ 7.0</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BZDhjZmNmYzAtOGU4OS00N2YwLWFhMjktYzkwNjIyNWJjZjFkXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Terrifier 3</h3><p>⭐ 6.5</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Zi00ZjdjLWJiZGYtZmFhMDRlZDUzN1ExXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Wild Robot</h3><p>⭐ 8.3</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMGMwMGQ0N2YtNTAwYS00ZDM0LWE0YzMtY2NlYmU1Y2I4ZTUxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Alien: Romulus</h3><p>⭐ 7.2</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BZTk5OTU0N2UtZDhkYi00MzY1LWIzY2QtNzI3YzE5YmFjN2NhXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Northman</h3><p>⭐ 7.0</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjA4NzgzNTEwMl5BMl5BanBnXkFtZTgwNjMzNzEwMzE@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Arrival</h3><p>⭐ 7.9</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjMwNDkxMTgzMl5BMl5BanBnXkFtZTgwNTkwNTM3NjM@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Logan</h3><p>⭐ 8.1</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BNTAyNDM0OTMtMDZiJC00OWY3LWFjYWAtYmY5YzI3YzQzYmY2XkEyXkFqcGdeQXVyNEIzNjYzMjA@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Iron Claw</h3><p>⭐ 7.7</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMzY1ZjY4MjUtYmNlNy00YzhhLWJiNGEtZjZlMTQ5ODQ5ZTNmXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Beetlejuice Beetlejuice</h3><p>⭐ 6.8</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BNjk1ZjU4YjgtN2U3NC00YjZmLWJmY2EtNmY5YjNhNzE3YmI3XkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Holdovers</h3><p>⭐ 7.9</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjE0NTA2MTEwOV5BMl5BanBnXkFtZTgwMDgzMDkyNzM@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Spider-Man: No Way Home</h3><p>⭐ 8.2</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BNGZiMzBkZjMtNjE3Mi00MWNlLWIyMDAtY2VlYTM0YzRlZTkwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Furiosa: A Mad Max Saga</h3><p>⭐ 7.6</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjk1NzcwMDUtNDU4ZC00MmU3LWFhMGYtYmE0OTgzOTU5ZjgxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>Poor Things</h3><p>⭐ 7.9</p></div></div>
+        <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMjA5OTljYmYtZmI3YS00MTM1LThlNDktMGI3N2RkNDkzMzA1XkEyXkFqcGdeQXVyMTAyOTE2ODg0._V1_.jpg" alt="Movie"> <div class="movie-info"><h3>The Zone of Interest</h3><p>⭐ 7.4</p></div></div>
+    </div>
+
+    <a href="index.html" class="nav-btn">🏠 بگەڕێوە بۆ لاپەڕەی سەرەکی</a>
+
+</body>
+</html>
