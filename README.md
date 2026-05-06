@@ -1241,5 +1241,19 @@ renderC();
 // load real TMDB images in background
 loadTMDBImages();
 </script>
-</body>
+</body><div style="text-align: center; margin: 50px 0; padding-bottom: 50px;">
+    <h2 style="color: #fff; margin-bottom: 20px; font-family: 'Cairo', sans-serif;">بەشەکانی تری فیلم</h2>
+    
+    <a href="movies2.html" class="sbtn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px; background: var(--red); color: white; padding: 12px 30px; border-radius: 50px; font-weight: bold; transition: 0.3s; border: 2px solid transparent;">
+        <i class="fas fa-arrow-right"></i>
+        بچۆ بۆ بەشی دووەم (50 فیلمی نوێ)
+    </a>
+
+    <br><br>
+
+    <a href="player.html?v=U2Qp5pL38RE&title=Dune Part Two" style="color: var(--txt2); text-decoration: none; font-size: 14px;">
+        <i class="fas fa-play-circle"></i> تاقیکردنەوەی پەخشکەری ڤیدیۆ
+    </a>
+</div>
+
 </html>
