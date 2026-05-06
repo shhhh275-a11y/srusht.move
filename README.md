@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="ku" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -787,7 +787,7 @@ body.light .hero-film-title{color:#111}
     <div class="hero-chips" id="heroChips"></div>
     <div class="hero-btns">
       <button class="btn-red" id="heroInfo"><i class="fas fa-info-circle"></i> زانیاری تەواو</button>
-      <a href="https://www.instagram.com/lipri_26" class="btn-glass" target="_blank"><i class="fab fa-instagram"></i> ئینستاگرام</a>
+      <a href="https://www.instagram.com/lipri_09" class="btn-glass" target="_blank"><i class="fab fa-instagram"></i> ئینستاگرام</a>
     </div>
   </div>
 
